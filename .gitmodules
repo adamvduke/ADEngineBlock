@@ -1,0 +1,9 @@
+[submodule "External/JSON"]
+	path = External/JSON
+	url = git@github.com:adamvduke/json-framework.git
+[submodule "External/Seriously"]
+	path = External/Seriously
+	url = git@github.com:adamvduke/seriously.git
+[submodule "External/OAuthConsumer"]
+	path = External/OAuthConsumer
+	url = git@github.com:adamvduke/OAuthConsumer.git
