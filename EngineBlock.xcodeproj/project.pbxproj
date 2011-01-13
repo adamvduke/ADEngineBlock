@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		561A16BA12E2320000E1C58C /* ValidationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 561A16B912E2320000E1C58C /* ValidationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */; };
+		56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */; };
+		56AFC22A12DF62D10038CD99 /* libjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AFC22712DF62C90038CD99 /* libjson.a */; };
+		56AFC31F12DF83160038CD99 /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */; };
+		56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */; };
+		56CB10D412E9654D006A9105 /* EngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D112E9654D006A9105 /* EngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56CB10D512E9654D006A9105 /* EngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB10D212E9654D006A9105 /* EngineBlock.m */; };
+		56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D312E9654D006A9105 /* EngineBlockMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56E3CAF612DD0A0D00D58587 /* libSeriously.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CAF512DD0A0600D58587 /* libSeriously.a */; };
+		AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56AFC22212DF62C90038CD99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56AFC21712DF62C80038CD99 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53D229810C96121600276605;
+			remoteInfo = JSON;
+		};
+		56AFC22412DF62C90038CD99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56AFC21712DF62C80038CD99 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53D2298D0C96122A00276605;
+			remoteInfo = Tests;
+		};
+		56AFC22612DF62C90038CD99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56AFC21712DF62C80038CD99 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2BBD800D8B0D3900184787;
+			remoteInfo = libjson;
+		};
+		56AFC22812DF62C90038CD99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56AFC21712DF62C80038CD99 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787;
+			remoteInfo = libjsontests;
+		};
+		56AFC25D12DF631B0038CD99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56AFC21712DF62C80038CD99 /* JSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FE2BBD7F0D8B0D3900184787;
+			remoteInfo = libjson;
+		};
+		56E3CAF412DD0A0600D58587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = Seriously;
+		};
+		56E3CAF712DD0A1900D58587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = Seriously;
+		};
+		56E3CC2512DD11CB00D58587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 56E3CB9C12DD0D5C00D58587;
+			remoteInfo = SeriouslyParser;
+		};
+		56E3CCEF12DD177D00D58587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = OAuthConsumer;
+		};
+		56E3CCF212DD179A00D58587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = OAuthConsumer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		561A16B912E2320000E1C58C /* ValidationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidationHelper.h; path = Classes/Utility/ValidationHelper.h; sourceTree = "<group>"; };
+		56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CaseInsensitiveCompare.h"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.h"; sourceTree = "<group>"; };
+		56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CaseInsensitiveCompare.m"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.m"; sourceTree = "<group>"; };
+		56AFC21712DF62C80038CD99 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
+		56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizeViewController.h; path = Classes/ViewController/AuthorizeViewController.h; sourceTree = "<group>"; };
+		56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizeViewController.m; path = Classes/ViewController/AuthorizeViewController.m; sourceTree = "<group>"; };
+		56CB10D112E9654D006A9105 /* EngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock.h; path = Classes/EngineBlock/EngineBlock.h; sourceTree = "<group>"; };
+		56CB10D212E9654D006A9105 /* EngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngineBlock.m; path = Classes/EngineBlock/EngineBlock.m; sourceTree = "<group>"; };
+		56CB10D312E9654D006A9105 /* EngineBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlockMacros.h; path = Classes/EngineBlock/EngineBlockMacros.h; sourceTree = "<group>"; };
+		56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Seriously.xcodeproj; path = External/Seriously/Seriously.xcodeproj; sourceTree = "<group>"; };
+		56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = External/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineBlock_Prefix.pch; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libEngineBlock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngineBlock.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				56E3CAF612DD0A0D00D58587 /* libSeriously.a in Frameworks */,
+				56AFC22A12DF62D10038CD99 /* libjson.a in Frameworks */,
+				56AFC31F12DF83160038CD99 /* libOAuthConsumer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libEngineBlock.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* ADTwitterEngine */ = {
+			isa = PBXGroup;
+			children = (
+				56E3CAA112DD05A400D58587 /* External */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = ADTwitterEngine;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				561A181212E3911100E1C58C /* Category */,
+				56AFC60012DFB5FF0038CD99 /* EngineBlock */,
+				56AFC63B12DFBDD70038CD99 /* Utility */,
+				56AFC60112DFB6180038CD99 /* ViewController */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		561A181212E3911100E1C58C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */,
+				56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		56AFC21812DF62C80038CD99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56AFC22312DF62C90038CD99 /* JSON.framework */,
+				56AFC22512DF62C90038CD99 /* Tests.octest */,
+				56AFC22712DF62C90038CD99 /* libjson.a */,
+				56AFC22912DF62C90038CD99 /* libjsontests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56AFC60012DFB5FF0038CD99 /* EngineBlock */ = {
+			isa = PBXGroup;
+			children = (
+				56CB10D112E9654D006A9105 /* EngineBlock.h */,
+				56CB10D212E9654D006A9105 /* EngineBlock.m */,
+				56CB10D312E9654D006A9105 /* EngineBlockMacros.h */,
+			);
+			name = EngineBlock;
+			sourceTree = "<group>";
+		};
+		56AFC60112DFB6180038CD99 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */,
+				56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		56AFC63B12DFBDD70038CD99 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				561A16B912E2320000E1C58C /* ValidationHelper.h */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		56E3CAA112DD05A400D58587 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				56E3CAA212DD05AD00D58587 /* JSON */,
+				56E3CAA312DD05B200D58587 /* OAuthConsumer */,
+				56E3CAA412DD05C200D58587 /* Seriously */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		56E3CAA212DD05AD00D58587 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				56AFC21712DF62C80038CD99 /* JSON.xcodeproj */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		56E3CAA312DD05B200D58587 /* OAuthConsumer */ = {
+			isa = PBXGroup;
+			children = (
+				56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */,
+			);
+			name = OAuthConsumer;
+			sourceTree = "<group>";
+		};
+		56E3CAA412DD05C200D58587 /* Seriously */ = {
+			isa = PBXGroup;
+			children = (
+				56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */,
+			);
+			name = Seriously;
+			sourceTree = "<group>";
+		};
+		56E3CAEE12DD0A0600D58587 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56E3CAF512DD0A0600D58587 /* libSeriously.a */,
+				56E3CC2612DD11CB00D58587 /* libSeriouslyParser.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56E3CCE912DD177D00D58587 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */,
+				56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */,
+				561A16BA12E2320000E1C58C /* ValidationHelper.h in Headers */,
+				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
+				56CB10D412E9654D006A9105 /* EngineBlock.h in Headers */,
+				56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* EngineBlock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "EngineBlock" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56E3CAF812DD0A1900D58587 /* PBXTargetDependency */,
+				56E3CCF312DD179A00D58587 /* PBXTargetDependency */,
+				56AFC25E12DF631B0038CD99 /* PBXTargetDependency */,
+			);
+			name = EngineBlock;
+			productName = ADTwitterEngine;
+			productReference = D2AAC07E0554694100DB518D /* libEngineBlock.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "EngineBlock" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* ADTwitterEngine */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 56AFC21812DF62C80038CD99 /* Products */;
+					ProjectRef = 56AFC21712DF62C80038CD99 /* JSON.xcodeproj */;
+				},
+				{
+					ProductGroup = 56E3CCE912DD177D00D58587 /* Products */;
+					ProjectRef = 56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */;
+				},
+				{
+					ProductGroup = 56E3CAEE12DD0A0600D58587 /* Products */;
+					ProjectRef = 56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* EngineBlock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		56AFC22312DF62C90038CD99 /* JSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSON.framework;
+			remoteRef = 56AFC22212DF62C90038CD99 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56AFC22512DF62C90038CD99 /* Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.octest;
+			remoteRef = 56AFC22412DF62C90038CD99 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56AFC22712DF62C90038CD99 /* libjson.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjson.a;
+			remoteRef = 56AFC22612DF62C90038CD99 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56AFC22912DF62C90038CD99 /* libjsontests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = libjsontests.octest;
+			remoteRef = 56AFC22812DF62C90038CD99 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56E3CAF512DD0A0600D58587 /* libSeriously.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSeriously.a;
+			remoteRef = 56E3CAF412DD0A0600D58587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56E3CC2612DD11CB00D58587 /* libSeriouslyParser.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSeriouslyParser.a;
+			remoteRef = 56E3CC2512DD11CB00D58587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOAuthConsumer.a;
+			remoteRef = 56E3CCEF12DD177D00D58587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */,
+				56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */,
+				56CB10D512E9654D006A9105 /* EngineBlock.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56AFC25E12DF631B0038CD99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libjson;
+			targetProxy = 56AFC25D12DF631B0038CD99 /* PBXContainerItemProxy */;
+		};
+		56E3CAF812DD0A1900D58587 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Seriously;
+			targetProxy = 56E3CAF712DD0A1900D58587 /* PBXContainerItemProxy */;
+		};
+		56E3CCF312DD179A00D58587 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthConsumer;
+			targetProxy = 56E3CCF212DD179A00D58587 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ADTwitterEngine.dst;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EngineBlock_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/tmp/JSON.dst/usr/local/include,
+					"${PROJECT_DIR}/External/OAuthConsumer/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
+					"${PROJECT_DIR}/External/Seriously/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = EngineBlock;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/ADTwitterEngine.dst;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EngineBlock_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/tmp/JSON.dst/usr/local/include,
+					"${PROJECT_DIR}/External/OAuthConsumer/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
+					"${PROJECT_DIR}/External/Seriously/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = EngineBlock;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "EngineBlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "EngineBlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
