@@ -180,8 +180,7 @@
 		return;
 	}
 
-	NSString *dataString = [[[NSString alloc] initWithData:data
-	                                              encoding:NSUTF8StringEncoding] autorelease];
+	NSString *dataString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 	if(!dataString)
 	{
 		return;

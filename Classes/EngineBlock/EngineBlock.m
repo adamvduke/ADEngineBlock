@@ -89,9 +89,9 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 #pragma mark UIViewController life cycle
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret
 {
-	if( IsEmpty(authData) )
+	if( IsEmpty(authData) || IsEmpty(key) || IsEmpty(secret))
 	{
-		[NSException raise:@"The authData can not be null or empty" format:@""];
+		[NSException raise:@"EBInvalidArgumentException" format:@"The values for authData, consumerKey, and consumerSecret must not be null or empty."];
 	}
 	self = [super init];
 	if(self)
