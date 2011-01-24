@@ -454,6 +454,10 @@
 					"${PROJECT_DIR}/External/Seriously/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
 				);
 				INSTALL_PATH = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = EngineBlock;
 			};
 			name = Debug;
@@ -474,6 +478,10 @@
 					"${PROJECT_DIR}/External/Seriously/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
 				);
 				INSTALL_PATH = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = EngineBlock;
 			};
 			name = Release;
