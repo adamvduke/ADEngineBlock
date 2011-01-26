@@ -31,6 +31,7 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 - (BOOL)isAuthorizedForScreenname:(NSString *)name;
 
 - (void)getTimelineForScreenname:(NSString *)name withHandler:(NSArrayResultHandler)handler;
+- (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler;
 
 @end
 

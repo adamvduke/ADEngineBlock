@@ -36,6 +36,9 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 - (void)setClientHeadersForRequest:(NSMutableURLRequest *)theRequest;
 - (NSString *)valueForKey:(NSString *)aKey inAuthData:(NSString *)authData;
 - (NSString *)screennameFromAuthData:(NSString *)authData;
+- (NSString *)urlStringWithPath:(NSString *)path;
+- (NSString *)encodeString:(NSString *)string;
+- (OAMutableURLRequest *)requestWithURL:(NSURL *)url;
 
 /* returns a block that tests a "tuple" e.g.(screen_name=adamvduke)
  * and checks to see if the element to the left of the = sign
@@ -51,6 +54,7 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 @implementation EngineBlock
 
 @synthesize screenname;
+
 #pragma mark -
 #pragma mark pre-defined blocks
 
@@ -86,10 +90,10 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 }
 
 #pragma mark -
-#pragma mark UIViewController life cycle
+#pragma mark EngineBlock life cycle
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret
 {
-	if( IsEmpty(authData) || IsEmpty(key) || IsEmpty(secret))
+	if( IsEmpty(authData) || IsEmpty(key) || IsEmpty(secret) )
 	{
 		[NSException raise:@"EBInvalidArgumentException" format:@"The values for authData, consumerKey, and consumerSecret must not be null or empty."];
 	}
@@ -164,8 +168,6 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 	[super dealloc];
 }
 
-#define SET_AUTHORIZATION_IN_HEADER 1
-
 - (void)setClientHeadersForRequest:(NSMutableURLRequest *)theRequest
 {
 	/* Set headers for client information, for tracking purposes at Twitter. */
@@ -174,23 +176,58 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 	[theRequest setValue:DEFAULT_CLIENT_URL forHTTPHeaderField:@"X-Twitter-Client-URL"];
 }
 
+- (NSString *)urlStringWithPath:(NSString *)path
+{
+	NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@", (secureConnection) ? @"https":@"http", TWITTER_DOMAIN, path];
+	return urlString;
+}
+
+- (OAMutableURLRequest *)requestWithURL:(NSURL *)url
+{
+	OAMutableURLRequest *theRequest = [[[OAMutableURLRequest alloc] initWithURL:url
+	                                                                   consumer:consumer
+	                                                                      token:accessToken
+	                                                                      realm:nil
+	                                                          signatureProvider:nil] autorelease];
+	return theRequest;
+}
+
+- (void)setRequest:(NSMutableURLRequest *)request body:(NSString *)body forMethod:(NSString *)method
+{
+	if(!method || !body)
+	{
+		return;
+	}
+	/* Set the request body if this is a POST request. */
+	if([method isEqualToString:@"POST"])
+	{
+		[request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+	}
+}
+
+- (NSString *)encodeString:(NSString *)string
+{
+	NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
+	                                                                       (CFStringRef)string,
+	                                                                       NULL,
+	                                                                       (CFStringRef)@";/?:@&=$+{}<>,",
+	                                                                       kCFStringEncodingUTF8);
+	return [result autorelease];
+}
+
 - (void)sendRequestWithMethod:(NSString *)method
                          path:(NSString *)path
               queryParameters:(NSDictionary *)params
                          body:(NSString *)body
                       handler:(GenericResultHandler)handler
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@", (secureConnection) ? @"https":@"http", TWITTER_DOMAIN, path];
+	NSString *urlString = [self urlStringWithPath:path];
 	NSURL *finalURL = [NSURL URLWithString:urlString];
 	if(!finalURL)
 	{
 		return;
 	}
-	OAMutableURLRequest *theRequest = [[[OAMutableURLRequest alloc] initWithURL:finalURL
-	                                                                   consumer:consumer
-	                                                                      token:accessToken
-	                                                                      realm:nil
-	                                                          signatureProvider:nil] autorelease];
+	OAMutableURLRequest *theRequest = [self requestWithURL:finalURL];
 	if(method)
 	{
 		[theRequest setHTTPMethod:method];
@@ -198,15 +235,7 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 	[theRequest setHTTPShouldHandleCookies:NO];
 
 	[self setClientHeadersForRequest:theRequest];
-	
-	/* Set the request body if this is a POST request. */
-	if(method && [method isEqualToString:@"POST"])
-	{
-		if(body)
-		{
-			[theRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-		}
-	}
+	[self setRequest:theRequest body:body forMethod:method];
 
 	/* DON'T MODIFY THE REQUEST AFTER THIS!! */
 	[theRequest prepare];
@@ -217,6 +246,14 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", name, API_FORMAT];
 	[self sendRequestWithMethod:nil path:path queryParameters:nil body:nil handler:(GenericResultHandler)handler];
+}
+
+- (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler
+{
+	NSString *path = [NSString stringWithFormat:@"statuses/update.%@", API_FORMAT];
+	NSString *encoded = [self encodeString:message];
+	NSString *status = [NSString stringWithFormat:@"status=%@", encoded];
+	[self sendRequestWithMethod:@"POST" path:path queryParameters:nil body:status handler:(GenericResultHandler)handler];
 }
 
 @end
