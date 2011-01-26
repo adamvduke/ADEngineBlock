@@ -28,11 +28,14 @@
 - (NSDictionary *)tweetForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)textForTweetAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)postStatus;
+- (void)fetchStatuses;
+
 @end
 
 @implementation RootViewController
 
-@synthesize engine, screenname, tweets, images;
+@synthesize engine, screenname, tweets, leftBarButton, rightBarButton;
 
 #pragma mark -
 #pragma mark pre-defined blocks
@@ -46,20 +49,77 @@
 					 NSLog (@"There was a problem");
 					 return;
 				 }
-				 self.tweets = result;
+				 self.tweets = [result mutableCopy];
 				 [self.tableView reloadData];
 			 } copy] autorelease];
 }
 
+- ( void (^)(NSDictionary *result, NSError *error) )postStatusHandler
+{
+	return [[^(NSDictionary *result, NSError *error)
+	         {
+				 if(![result isKindOfClass:[NSDictionary class]])
+				 {
+					 NSLog (@"There was a problem");
+					 NSLog (@"%@", [result description]);
+					 return;
+				 }
+				 NSLog (@"%@", [result description]);
+			 } copy] autorelease];
+}
+
 #pragma mark -
-#pragma mark View lifecycle
+#pragma mark UIBarButtonItem actions
+
+- (void)postStatus
+{
+	NSString *date = [[NSDate date] description];
+	NSString *message = [NSString stringWithFormat:@"Posting at: %@", date];
+	[self.engine sendUpdate:message withHandler:[self postStatusHandler]];
+}
+
+- (void)fetchStatuses
+{
+	[self.tweets removeAllObjects];
+	[self.tableView reloadData];
+	[self.engine getTimelineForScreenname:@"snakes_nbarrels" withHandler:[self updateTweetsHandler]];
+}
+
+#pragma mark -
+#pragma mark UIViewController lifecycle
+
+- (void)dealloc
+{
+	[engine release];
+	[screenname release];
+	[tweets release];
+	[leftBarButton release];
+	[rightBarButton release];
+	[super dealloc];
+}
+
+- (void)loadView
+{
+	self.leftBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"POST"
+	                                                       style:UIBarButtonItemStylePlain
+	                                                      target:self
+	                                                      action:@selector(postStatus)] autorelease];
+
+	self.rightBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"GET"
+	                                                        style:UIBarButtonItemStylePlain
+	                                                       target:self
+	                                                       action:@selector(fetchStatuses)] autorelease];
+	self.navigationItem.leftBarButtonItem = leftBarButton;
+	self.navigationItem.rightBarButtonItem = rightBarButton;
+	[super loadView];
+}
 
 - (void)viewDidLoad
 {
-	 self.screenname = @"snakes_nbarrels";
-	//self.screenname = @"adamvduke";
-
-	/* self.screenname = @"adamcodez"; */
+	/* self.screenname = @"snakes_nbarrels";
+	 * self.screenname = @"adamvduke";
+	 */
+	self.screenname = @"adamcodez";
 	self.engine = [self engineForScreenname:self.screenname];
 }
 
@@ -77,10 +137,6 @@
 		[self presentModalViewController:controller animated:YES];
 		return;
 	}
-	if( IsEmpty(self.tweets) )
-	{
-		[self.engine getTimelineForScreenname:@"sweetpuppyd" withHandler:[self updateTweetsHandler]];
-	}
 }
 
 - (EngineBlock *)engineForScreenname:(NSString *)name
@@ -89,8 +145,8 @@
 	if( !IsEmpty(authData) )
 	{
 		return [[[EngineBlock alloc] initWithAuthData:authData
-		                                      consumerKey:kConsumerKey
-		                                   consumerSecret:kConsumerSecret] autorelease];
+		                                  consumerKey:kConsumerKey
+		                               consumerSecret:kConsumerSecret] autorelease];
 	}
 	return nil;
 }
@@ -103,12 +159,11 @@
 		return;
 	}
 	self.engine = [[[EngineBlock alloc] initWithAuthData:authData
-	                                             consumerKey:kConsumerKey
-	                                          consumerSecret:kConsumerSecret] autorelease];
+	                                         consumerKey:kConsumerKey
+	                                      consumerSecret:kConsumerSecret] autorelease];
 	self.screenname = engine.screenname;
 	[self saveOAuthData:authData forScreenname:engine.screenname];
 	[self dismissModalViewControllerAnimated:YES];
-	[self.engine getTimelineForScreenname:@"sweetpuppyd" withHandler:[self updateTweetsHandler]];
 }
 
 #pragma mark -
@@ -215,12 +270,6 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *authData = [defaults objectForKey:[self authDataKeyForScreenname:name]];
 	return authData;
-}
-
-- (void)dealloc
-{
-	[engine release];
-	[super dealloc];
 }
 
 @end

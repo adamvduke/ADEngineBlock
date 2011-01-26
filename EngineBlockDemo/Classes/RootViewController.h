@@ -17,13 +17,15 @@
 {
 	EngineBlock *engine;
 	NSString *screenname;
-	NSArray *tweets;
-	NSDictionary *images;
+	NSMutableArray *tweets;
+	UIBarButtonItem *leftBarButton;
+	UIBarButtonItem *rightBarButton;
 }
 
 @property (nonatomic, retain) EngineBlock *engine;
 @property (nonatomic, retain) NSString *screenname;
-@property (nonatomic, retain) NSArray *tweets;
-@property (nonatomic, retain) NSDictionary *images;
+@property (nonatomic, retain) NSMutableArray *tweets;
+@property (nonatomic, retain) UIBarButtonItem *leftBarButton;
+@property (nonatomic, retain) UIBarButtonItem *rightBarButton;
 
 @end
