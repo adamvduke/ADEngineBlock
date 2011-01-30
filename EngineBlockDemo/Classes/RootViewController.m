@@ -76,7 +76,7 @@
 	NSString *date = [[NSDate date] description];
 	NSString *message = [NSString stringWithFormat:@"@AdamCodez Posting at: %@", date];
 	[self.engine sendUpdate:message
-	              inReplyTo:31234206017261568UL
+	              inReplyTo:29386843145375744UL
 	               latitude:-31.936831f
 	              longitude:115.755413f
 	                placeId:0
@@ -133,10 +133,7 @@
 
 - (void)viewDidLoad
 {
-	/* self.screenname = @"snakes_nbarrels";
-	 * self.screenname = @"adamvduke";
-	 */
-	self.screenname = @"adamcodez";
+	self.screenname = @"ADEngineBlock";
 	self.engine = [self engineForScreenname:self.screenname];
 }
 
