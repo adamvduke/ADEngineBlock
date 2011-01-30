@@ -19,7 +19,7 @@
 #define HTTP_POST_METHOD        @"POST"
 
 #define DEFAULT_CLIENT_NAME     @"EngineBlock"
-#define DEFAULT_CLIENT_VERSION  @"0.1"
+#define DEFAULT_CLIENT_VERSION  @"0.2"
 #define DEFAULT_CLIENT_URL      @"http://github.com/adamvduke"
 #define DEFAULT_CLIENT_TOKEN    @"adtwitterengine"
 
