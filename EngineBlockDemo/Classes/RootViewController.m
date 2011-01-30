@@ -74,15 +74,32 @@
 - (void)postStatus
 {
 	NSString *date = [[NSDate date] description];
-	NSString *message = [NSString stringWithFormat:@"Posting at: %@", date];
-	[self.engine sendUpdate:message withHandler:[self postStatusHandler]];
+	NSString *message = [NSString stringWithFormat:@"@AdamCodez Posting at: %@", date];
+	[self.engine sendUpdate:message
+	              inReplyTo:31234206017261568UL
+	               latitude:-31.936831f
+	              longitude:115.755413f
+	                placeId:0
+	           displayCoord:YES
+	               trimUser:NO
+	        includeEntities:YES
+	            withHandler:[self postStatusHandler]];
 }
 
 - (void)fetchStatuses
 {
 	[self.tweets removeAllObjects];
 	[self.tableView reloadData];
-	[self.engine getTimelineForScreenname:@"snakes_nbarrels" withHandler:[self updateTweetsHandler]];
+	[self.engine userTimelineForScreenname:@"snakes_nbarrels"
+	                                userId:0
+	                               sinceId:0
+	                                 maxId:0
+	                                 count:4
+	                                  page:2
+	                              trimUser:NO
+	                            includeRts:NO
+	                       includeEntities:NO
+	                           withHandler:[self updateTweetsHandler]];
 }
 
 #pragma mark -

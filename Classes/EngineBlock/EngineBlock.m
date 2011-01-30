@@ -9,251 +9,128 @@
  */
 
 #import "EngineBlock.h"
-#import "NSString+CaseInsensitiveCompare.h"
-#import "OAConsumer.h"
-#import "OAMutableURLRequest.h"
-#import "OAToken.h"
-#import "Seriously.h"
-#import <JSON/JSON.h>
 
-#define API_FORMAT              @"json"
-#define TWITTER_DOMAIN          @"api.twitter.com"
-#define TWITTER_SEARCH_DOMAIN   @"search.twitter.com"
-#define HTTP_POST_METHOD        @"POST"
-
-#define DEFAULT_CLIENT_NAME     @"EngineBlock"
-#define DEFAULT_CLIENT_VERSION  @"0.1"
-#define DEFAULT_CLIENT_URL      @"http://github.com/adamvduke"
-#define DEFAULT_CLIENT_TOKEN    @"adtwitterengine"
-
-typedef void (^GenericResultHandler)(id result, NSError *error);
-
-@interface EngineBlock (Private)
-
-- (BOOL)hasValidAccessToken:(OAToken *)token;
-- (void)setAccessTokenWithAuthData:(NSString *)authData;
-- (void)setConsumerWithKey:(NSString *)key secret:(NSString *)secret;
-- (void)setClientHeadersForRequest:(NSMutableURLRequest *)theRequest;
-- (NSString *)valueForKey:(NSString *)aKey inAuthData:(NSString *)authData;
-- (NSString *)screennameFromAuthData:(NSString *)authData;
-- (NSString *)urlStringWithPath:(NSString *)path;
-- (NSString *)encodeString:(NSString *)string;
-- (OAMutableURLRequest *)requestWithURL:(NSURL *)url;
-
-/* returns a block that tests a "tuple" e.g.(screen_name=adamvduke)
- * and checks to see if the element to the left of the = sign
- * is equivalent to the given key
- */
-- ( BOOL (^)(id obj, NSUInteger idx, BOOL *stop) )blockTestTupleForKey:(NSString *)aKey;
-
-/* returns a block that will call the given block with a parsed json object */
-- (SeriouslyHandler)jsonHandlerWithEngineHandler:(GenericResultHandler)handler;
-
-@end
+#define API_FORMAT         @"json"
+#define MAX_MESSAGE_LENGTH 140
 
 @implementation EngineBlock
 
-@synthesize screenname;
-
-#pragma mark -
-#pragma mark pre-defined blocks
-
-- (SeriouslyHandler)jsonHandlerWithEngineHandler:(GenericResultHandler)handler
-{
-	return [[^(id data, NSHTTPURLResponse *response, NSError *error)
-	         {
-				 if(error)
-				 {
-					 handler (nil, error);
-					 return;
-				 }
-				 NSString *jsonString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-				 id jsonValue = [jsonString JSONValue];
-				 handler (jsonValue, nil);
-			 } copy] autorelease];
-}
-
-- ( BOOL (^)(id obj, NSUInteger idx, BOOL *stop) )blockTestTupleForKey:(NSString *)aKey
-{
-	/* block magic :-) */
-	return [[^(id obj, NSUInteger idx, BOOL *stop)
-	         {
-				 NSString *pair = (NSString *)obj;
-				 NSArray *elements = [pair componentsSeparatedByString:@"="];
-				 if([[elements objectAtIndex:0] isEqualToString:aKey])
-				 {
-					 *stop = YES;
-					 return YES;
-				 }
-				 return NO;
-			 } copy] autorelease];
-}
-
 #pragma mark -
 #pragma mark EngineBlock life cycle
+
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret
 {
-	if( IsEmpty(authData) || IsEmpty(key) || IsEmpty(secret) )
-	{
-		[NSException raise:@"EBInvalidArgumentException" format:@"The values for authData, consumerKey, and consumerSecret must not be null or empty."];
-	}
-	self = [super init];
+	self = [super initWithAuthData:authData consumerKey:key consumerSecret:secret];
 	if(self)
 	{
-		[self setAccessTokenWithAuthData:authData];
-		[self setConsumerWithKey:key secret:secret];
-		secureConnection = YES;
-		clearsCookies = NO;
+		/* Do something */
 	}
 	return self;
 }
 
-- (void)setAccessTokenWithAuthData:(NSString *)authData
+- (void)dealloc
 {
-	TT_RELEASE_SAFELY(accessToken);
-	if( !IsEmpty(authData) )
-	{
-		accessToken = [[OAToken alloc] initWithHTTPResponseBody:authData];
-		self.screenname = [self screennameFromAuthData:authData];
-	}
-}
-
-- (void)setConsumerWithKey:(NSString *)key secret:(NSString *)secret
-{
-	consumer = [[OAConsumer alloc] initWithKey:key secret:secret];
-}
-
-- (NSString *)valueForKey:(NSString *)aKey inAuthData:(NSString *)authData
-{
-	NSArray *pairs = [authData componentsSeparatedByString:@"&"];
-	NSUInteger index = [pairs indexOfObjectPassingTest:[self blockTestTupleForKey:aKey]];
-	if(pairs == nil || index == NSNotFound)
-	{
-		return nil;
-	}
-	NSString *pair = [pairs objectAtIndex:index];
-	NSArray *elements = [pair componentsSeparatedByString:@"="];
-	return [elements objectAtIndex:1];
-}
-
-- (NSString *)screennameFromAuthData:(NSString *)authData
-{
-	NSString *name = [self valueForKey:@"screen_name" inAuthData:authData];
-	return name;
-}
-
-- (BOOL)hasValidAccessToken:(OAToken *)token
-{
-	if(token == nil)
-	{
-		return NO;
-	}
-	return !IsEmpty(token.key) && !IsEmpty(token.secret);
+	[super dealloc];
 }
 
 - (BOOL)isAuthorizedForScreenname:(NSString *)name
 {
-	if([name isEqualIgnoreCase:self.screenname])
-	{
-		return [self hasValidAccessToken:accessToken];
-	}
-	return NO;
+	return [super isAuthorizedForScreenname:name];
 }
 
-- (void)dealloc
+- (NSString *)screenname
 {
-	TT_RELEASE_SAFELY(screenname);
-	TT_RELEASE_SAFELY(accessToken);
-	TT_RELEASE_SAFELY(consumer);
-	[super dealloc];
+	return [self screen_name];
 }
 
-- (void)setClientHeadersForRequest:(NSMutableURLRequest *)theRequest
-{
-	/* Set headers for client information, for tracking purposes at Twitter. */
-	[theRequest setValue:DEFAULT_CLIENT_NAME forHTTPHeaderField:@"X-Twitter-Client"];
-	[theRequest setValue:DEFAULT_CLIENT_VERSION forHTTPHeaderField:@"X-Twitter-Client-Version"];
-	[theRequest setValue:DEFAULT_CLIENT_URL forHTTPHeaderField:@"X-Twitter-Client-URL"];
-}
+#pragma mark -
+#pragma mark Twitter API Methods
 
-- (NSString *)urlStringWithPath:(NSString *)path
-{
-	NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@", (secureConnection) ? @"https":@"http", TWITTER_DOMAIN, path];
-	return urlString;
-}
-
-- (OAMutableURLRequest *)requestWithURL:(NSURL *)url
-{
-	OAMutableURLRequest *theRequest = [[[OAMutableURLRequest alloc] initWithURL:url
-	                                                                   consumer:consumer
-	                                                                      token:accessToken
-	                                                                      realm:nil
-	                                                          signatureProvider:nil] autorelease];
-	return theRequest;
-}
-
-- (void)setRequest:(NSMutableURLRequest *)request body:(NSString *)body forMethod:(NSString *)method
-{
-	if(!method || !body)
-	{
-		return;
-	}
-	/* Set the request body if this is a POST request. */
-	if([method isEqualToString:@"POST"])
-	{
-		[request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-	}
-}
-
-- (NSString *)encodeString:(NSString *)string
-{
-	NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
-	                                                                       (CFStringRef)string,
-	                                                                       NULL,
-	                                                                       (CFStringRef)@";/?:@&=$+{}<>,",
-	                                                                       kCFStringEncodingUTF8);
-	return [result autorelease];
-}
-
-- (void)sendRequestWithMethod:(NSString *)method
-                         path:(NSString *)path
-              queryParameters:(NSDictionary *)params
-                         body:(NSString *)body
-                      handler:(GenericResultHandler)handler
-{
-	NSString *urlString = [self urlStringWithPath:path];
-	NSURL *finalURL = [NSURL URLWithString:urlString];
-	if(!finalURL)
-	{
-		return;
-	}
-	OAMutableURLRequest *theRequest = [self requestWithURL:finalURL];
-	if(method)
-	{
-		[theRequest setHTTPMethod:method];
-	}
-	[theRequest setHTTPShouldHandleCookies:NO];
-
-	[self setClientHeadersForRequest:theRequest];
-	[self setRequest:theRequest body:body forMethod:method];
-
-	/* DON'T MODIFY THE REQUEST AFTER THIS!! */
-	[theRequest prepare];
-	[Seriously oauthRequest:theRequest options:nil handler:[self jsonHandlerWithEngineHandler:handler]];
-}
-
-- (void)getTimelineForScreenname:(NSString *)name withHandler:(NSArrayResultHandler)handler
+- (void)userTimelineForScreenname:(NSString *)name
+                           userId:(unsigned long long)userId
+                          sinceId:(unsigned long long)sinceId
+                            maxId:(unsigned long long)maxId
+                            count:(int)count
+                             page:(int)page
+                         trimUser:(BOOL)trimUser
+                       includeRts:(BOOL)includeRts
+                  includeEntities:(BOOL)includeEntities
+                      withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", name, API_FORMAT];
-	[self sendRequestWithMethod:nil path:path queryParameters:nil body:nil handler:(GenericResultHandler)handler];
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+	if(userId > 0)
+	{
+		[params setObject:[NSString stringWithFormat:@"%qu", userId] forKey:@"user_id"];
+	}
+	if(sinceId > 0)
+	{
+		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
+	}
+	if(maxId > 0)
+	{
+		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
+	}
+	if(count > 0)
+	{
+		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
+	}
+	if(page > 0)
+	{
+		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
+	}
+	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
+	[params setObject:[NSString stringWithFormat:@"%d", includeRts ? 1:0] forKey:@"include_rts"];
+	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
+	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
+	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
 }
 
-- (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler
+- (void)sendUpdate:(NSString *)message
+		 inReplyTo:(unsigned long long)replyToId
+		  latitude:(float)latitude
+		 longitude:(float)longitude
+		   placeId:(unsigned long long)placeId
+	  displayCoord:(BOOL)displayCoord
+		  trimUser:(BOOL)trimUser
+   includeEntities:(BOOL)includeEntities
+	   withHandler:(NSDictionaryResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/update.%@", API_FORMAT];
-	NSString *encoded = [self encodeString:message];
-	NSString *status = [NSString stringWithFormat:@"status=%@", encoded];
-	[self sendRequestWithMethod:@"POST" path:path queryParameters:nil body:status handler:(GenericResultHandler)handler];
+	if(!message)
+	{
+		return;
+	}
+	NSString *path = [NSString stringWithFormat:@"statuses/update.%@", API_FORMAT, replyToId];
+	NSString *trimmedText = message;
+	if([trimmedText length] > MAX_MESSAGE_LENGTH)
+	{
+		trimmedText = [trimmedText substringToIndex:MAX_MESSAGE_LENGTH];
+	}
+
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+	[params setObject:trimmedText forKey:@"status"];
+	if(replyToId > 0)
+	{
+		[params setObject:[NSString stringWithFormat:@"%qu", replyToId] forKey:@"in_reply_to_status_id"];
+	}
+	if(-90.0f <= latitude <= 90.0f)
+	{
+		[params setObject:[NSString stringWithFormat:@"%f", latitude] forKey:@"lat"];
+	}
+	if(-180.0f <= longitude <= 180.0f)
+	{
+		[params setObject:[NSString stringWithFormat:@"%f", longitude] forKey:@"long"];
+	}
+	if(placeId > 0)
+	{
+		[params setObject:[NSString stringWithFormat:@"%qu", placeId] forKey:@"place_id"];
+	}
+	[params setObject:[NSString stringWithFormat:@"%d", displayCoord ? 1:0] forKey:@"display_coordinates"];
+	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
+	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
+
+	NSString *body = [self queryStringWithBase:nil parameters:params prefixed:NO];
+	[self sendRequestWithMethod:@"POST" path:path body:body handler:(GenericResultHandler)handler];
 }
 
 @end

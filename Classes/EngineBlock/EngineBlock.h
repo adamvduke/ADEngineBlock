@@ -8,30 +8,43 @@
  *
  */
 
+#import "AbstractEngineBlock.h"
 #import <Foundation/Foundation.h>
-
-@class OAToken;
-@class OAConsumer;
 
 typedef void (^NSArrayResultHandler)(NSArray *result, NSError *error);
 typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
-@interface EngineBlock : NSObject {
-	@private
-	NSString *screenname;
-	OAConsumer *consumer;
-	OAToken *accessToken;
-	BOOL secureConnection;
-	BOOL clearsCookies;
-}
+@interface EngineBlock : AbstractEngineBlock {}
 
-@property (nonatomic, retain) NSString *screenname;
+@property (nonatomic, readonly) NSString *screenname;
+
+#pragma mark -
+#pragma mark EngineBlock life cycle
 
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret;
 - (BOOL)isAuthorizedForScreenname:(NSString *)name;
 
-- (void)getTimelineForScreenname:(NSString *)name withHandler:(NSArrayResultHandler)handler;
-- (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler;
+#pragma mark -
+#pragma mark Twitter API Methods
+- (void)userTimelineForScreenname:(NSString *)name
+						   userId:(unsigned long long)userId
+						  sinceId:(unsigned long long)sinceId
+							maxId:(unsigned long long)maxId
+							count:(int)count
+							 page:(int)page
+						 trimUser:(BOOL)trimUser
+					   includeRts:(BOOL)includeRts
+				  includeEntities:(BOOL)includeEntities
+					  withHandler:(NSArrayResultHandler)handler;
 
+- (void)sendUpdate:(NSString *)message
+		 inReplyTo:(unsigned long long)replyToId
+		  latitude:(float)latitude
+		 longitude:(float)longitude
+		   placeId:(unsigned long long)placeId
+	  displayCoord:(BOOL)displayCoord
+		  trimUser:(BOOL)trimUser
+   includeEntities:(BOOL)includeEntities
+	   withHandler:(NSDictionaryResultHandler)handler;
 @end
 

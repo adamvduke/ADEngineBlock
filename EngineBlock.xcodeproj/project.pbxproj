@@ -14,6 +14,8 @@
 		56AFC31F12DF83160038CD99 /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */; };
 		56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */; };
+		56C4E85812F4FD9E003B5403 /* AbstractEngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 56C4E85612F4FD9E003B5403 /* AbstractEngineBlock.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		56C4E85912F4FD9E003B5403 /* AbstractEngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4E85712F4FD9E003B5403 /* AbstractEngineBlock.m */; };
 		56CB10D412E9654D006A9105 /* EngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D112E9654D006A9105 /* EngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56CB10D512E9654D006A9105 /* EngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB10D212E9654D006A9105 /* EngineBlock.m */; };
 		56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D312E9654D006A9105 /* EngineBlockMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -102,6 +104,8 @@
 		56AFC21712DF62C80038CD99 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
 		56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizeViewController.h; path = Classes/ViewController/AuthorizeViewController.h; sourceTree = "<group>"; };
 		56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizeViewController.m; path = Classes/ViewController/AuthorizeViewController.m; sourceTree = "<group>"; };
+		56C4E85612F4FD9E003B5403 /* AbstractEngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractEngineBlock.h; path = Classes/EngineBlock/AbstractEngineBlock.h; sourceTree = "<group>"; };
+		56C4E85712F4FD9E003B5403 /* AbstractEngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractEngineBlock.m; path = Classes/EngineBlock/AbstractEngineBlock.m; sourceTree = "<group>"; };
 		56CB10D112E9654D006A9105 /* EngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock.h; path = Classes/EngineBlock/EngineBlock.h; sourceTree = "<group>"; };
 		56CB10D212E9654D006A9105 /* EngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngineBlock.m; path = Classes/EngineBlock/EngineBlock.m; sourceTree = "<group>"; };
 		56CB10D312E9654D006A9105 /* EngineBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlockMacros.h; path = Classes/EngineBlock/EngineBlockMacros.h; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 		56AFC60012DFB5FF0038CD99 /* EngineBlock */ = {
 			isa = PBXGroup;
 			children = (
+				56C4E85612F4FD9E003B5403 /* AbstractEngineBlock.h */,
+				56C4E85712F4FD9E003B5403 /* AbstractEngineBlock.m */,
 				56CB10D112E9654D006A9105 /* EngineBlock.h */,
 				56CB10D212E9654D006A9105 /* EngineBlock.m */,
 				56CB10D312E9654D006A9105 /* EngineBlockMacros.h */,
@@ -285,6 +291,7 @@
 				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
 				56CB10D412E9654D006A9105 /* EngineBlock.h in Headers */,
 				56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */,
+				56C4E85812F4FD9E003B5403 /* AbstractEngineBlock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +417,7 @@
 				56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */,
 				56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */,
 				56CB10D512E9654D006A9105 /* EngineBlock.m in Sources */,
+				56C4E85912F4FD9E003B5403 /* AbstractEngineBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
