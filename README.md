@@ -10,7 +10,7 @@ making your code less verbose.
 Building/Running:
 -----------------
 
-EngineBlock depends on the json-framework by Stig Brautaset, OAuthConsumer by Jon Crosby, and Seriously by Corey Johnson
+EngineBlock depends on the [json-framework](https://github.com/stig/json-framework) by [Stig Brautaset](https://github.com/stig), OAuthConsumer by Jon Crosby, and Seriously by Corey Johnson
 To that end, I have forked the github repositories for those projects and included them as git submodules.
 The steps to get up and running are:
      git clone git://github.com/adamvduke/EngineBlock.git
