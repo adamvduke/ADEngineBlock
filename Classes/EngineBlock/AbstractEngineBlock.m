@@ -15,6 +15,9 @@
 #import <JSON/JSON.h>
 
 #define TWITTER_DOMAIN          @"api.twitter.com"
+#define API_VERSION             @"1"
+#define URL_BASE                [NSString stringWithFormat:@"%@/%@", TWITTER_DOMAIN, API_VERSION]
+
 #define TWITTER_SEARCH_DOMAIN   @"search.twitter.com"
 #define HTTP_POST_METHOD        @"POST"
 
@@ -155,7 +158,7 @@
 
 - (NSString *)urlStringWithPath:(NSString *)path
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@", (secureConnection) ? @"https":@"http", TWITTER_DOMAIN, path];
+	NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@", (secureConnection) ? @"https":@"http", URL_BASE, path];
 	return urlString;
 }
 
