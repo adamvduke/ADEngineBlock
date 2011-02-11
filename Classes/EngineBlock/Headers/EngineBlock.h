@@ -8,13 +8,22 @@
  *
  */
 
-#import "AbstractEngineBlock.h"
 #import <Foundation/Foundation.h>
+
+@class OAToken;
+@class OAConsumer;
 
 typedef void (^NSArrayResultHandler)(NSArray *result, NSError *error);
 typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
-@interface EngineBlock : AbstractEngineBlock {}
+@interface EngineBlock : NSObject {
+	
+	NSString *screenname;
+
+@private
+	OAConsumer *consumer;
+	OAToken *accessToken;
+}
 
 @property (nonatomic, readonly) NSString *screenname;
 
@@ -24,8 +33,13 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret;
 - (BOOL)isAuthorizedForScreenname:(NSString *)name;
 
+@end
+
+
 #pragma mark -
-#pragma mark Twitter API Methods
+#pragma mark TimelineResources
+@interface EngineBlock (TimelineResources)
+
 - (void)userTimelineForScreenname:(NSString *)name
 						   userId:(unsigned long long)userId
 						  sinceId:(unsigned long long)sinceId
@@ -36,6 +50,11 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 					   includeRts:(BOOL)includeRts
 				  includeEntities:(BOOL)includeEntities
 					  withHandler:(NSArrayResultHandler)handler;
+@end
+
+#pragma mark -
+#pragma mark TweetsResources
+@interface EngineBlock (TweetsResources)
 
 - (void)sendUpdate:(NSString *)message
 		 inReplyTo:(unsigned long long)replyToId
@@ -47,4 +66,3 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
    includeEntities:(BOOL)includeEntities
 	   withHandler:(NSDictionaryResultHandler)handler;
 @end
-
