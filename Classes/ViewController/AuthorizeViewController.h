@@ -41,10 +41,10 @@
 @property (nonatomic, retain) id<AuthorizeViewControllerDelegate> delegate;
 @property (nonatomic, retain) NSString *verifier;
 
-- (id)initWithConsumerKey   :(NSString *)key
-              consumerSecret       :(NSString *)secret
-       requestTokenURLString:(NSString *)requestTokenURLString
-        accessTokenURLString :(NSString *)accessTokenURLString
-          authorizeURLString   :(NSString *)authorizeURLString
-                    delegate             :(id)aDelegate;
+- (id)initWithConsumerKey:(NSString *)key
+		   consumerSecret:(NSString *)secret
+	requestTokenURLString:(NSString *)requestTokenURLString
+	 accessTokenURLString:(NSString *)accessTokenURLString
+	   authorizeURLString:(NSString *)authorizeURLString
+				 delegate:(id)aDelegate;
 @end

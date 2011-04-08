@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		561A16BA12E2320000E1C58C /* ValidationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 561A16B912E2320000E1C58C /* ValidationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		561A16BA12E2320000E1C58C /* ValidationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 561A16B912E2320000E1C58C /* ValidationHelper.h */; settings = {ATTRIBUTES = (); }; };
+		5672750C1305BC6E00ABBAB1 /* EngineBlock_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */; };
+		5672750D1305BC6E00ABBAB1 /* EngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750B1305BC6E00ABBAB1 /* EngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		567275121305BC7C00ABBAB1 /* EngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* EngineBlock.m */; };
+		567275131305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750F1305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m */; };
+		567275141305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275101305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m */; };
+		567275151305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275111305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m */; };
 		56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */; };
 		56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */; };
 		56AFC22A12DF62D10038CD99 /* libjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AFC22712DF62C90038CD99 /* libjson.a */; };
 		56AFC31F12DF83160038CD99 /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */; };
 		56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */; };
-		56C4E85812F4FD9E003B5403 /* AbstractEngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 56C4E85612F4FD9E003B5403 /* AbstractEngineBlock.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		56C4E85912F4FD9E003B5403 /* AbstractEngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4E85712F4FD9E003B5403 /* AbstractEngineBlock.m */; };
-		56CB10D412E9654D006A9105 /* EngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D112E9654D006A9105 /* EngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56CB10D512E9654D006A9105 /* EngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB10D212E9654D006A9105 /* EngineBlock.m */; };
-		56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D312E9654D006A9105 /* EngineBlockMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D312E9654D006A9105 /* EngineBlockMacros.h */; settings = {ATTRIBUTES = (); }; };
 		56E3CAF612DD0A0D00D58587 /* libSeriously.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CAF512DD0A0600D58587 /* libSeriously.a */; };
 		AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -99,15 +101,17 @@
 
 /* Begin PBXFileReference section */
 		561A16B912E2320000E1C58C /* ValidationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidationHelper.h; path = Classes/Utility/ValidationHelper.h; sourceTree = "<group>"; };
+		5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock_Private.h; path = Classes/EngineBlock/Headers/EngineBlock_Private.h; sourceTree = "<group>"; };
+		5672750B1305BC6E00ABBAB1 /* EngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock.h; path = Classes/EngineBlock/Headers/EngineBlock.h; sourceTree = "<group>"; };
+		5672750E1305BC7C00ABBAB1 /* EngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngineBlock.m; path = Classes/EngineBlock/Implementation/EngineBlock.m; sourceTree = "<group>"; };
+		5672750F1305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EngineBlock+RequestHandling.m"; path = "Classes/EngineBlock/Implementation/EngineBlock+RequestHandling.m"; sourceTree = "<group>"; };
+		567275101305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EngineBlock+TimelineResources.m"; path = "Classes/EngineBlock/Implementation/EngineBlock+TimelineResources.m"; sourceTree = "<group>"; };
+		567275111305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EngineBlock+TweetsResources.m"; path = "Classes/EngineBlock/Implementation/EngineBlock+TweetsResources.m"; sourceTree = "<group>"; };
 		56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CaseInsensitiveCompare.h"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.h"; sourceTree = "<group>"; };
 		56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CaseInsensitiveCompare.m"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.m"; sourceTree = "<group>"; };
 		56AFC21712DF62C80038CD99 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
 		56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizeViewController.h; path = Classes/ViewController/AuthorizeViewController.h; sourceTree = "<group>"; };
 		56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizeViewController.m; path = Classes/ViewController/AuthorizeViewController.m; sourceTree = "<group>"; };
-		56C4E85612F4FD9E003B5403 /* AbstractEngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractEngineBlock.h; path = Classes/EngineBlock/AbstractEngineBlock.h; sourceTree = "<group>"; };
-		56C4E85712F4FD9E003B5403 /* AbstractEngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractEngineBlock.m; path = Classes/EngineBlock/AbstractEngineBlock.m; sourceTree = "<group>"; };
-		56CB10D112E9654D006A9105 /* EngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock.h; path = Classes/EngineBlock/EngineBlock.h; sourceTree = "<group>"; };
-		56CB10D212E9654D006A9105 /* EngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngineBlock.m; path = Classes/EngineBlock/EngineBlock.m; sourceTree = "<group>"; };
 		56CB10D312E9654D006A9105 /* EngineBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlockMacros.h; path = Classes/EngineBlock/EngineBlockMacros.h; sourceTree = "<group>"; };
 		56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Seriously.xcodeproj; path = External/Seriously/Seriously.xcodeproj; sourceTree = "<group>"; };
 		56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = External/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				56CB10D312E9654D006A9105 /* EngineBlockMacros.h */,
 				AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -185,6 +190,26 @@
 				56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		567275081305BB9500ABBAB1 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */,
+				5672750B1305BC6E00ABBAB1 /* EngineBlock.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		567275091305BB9C00ABBAB1 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				5672750E1305BC7C00ABBAB1 /* EngineBlock.m */,
+				5672750F1305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m */,
+				567275101305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m */,
+				567275111305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m */,
+			);
+			name = Implementation;
 			sourceTree = "<group>";
 		};
 		56AFC21812DF62C80038CD99 /* Products */ = {
@@ -201,11 +226,8 @@
 		56AFC60012DFB5FF0038CD99 /* EngineBlock */ = {
 			isa = PBXGroup;
 			children = (
-				56C4E85612F4FD9E003B5403 /* AbstractEngineBlock.h */,
-				56C4E85712F4FD9E003B5403 /* AbstractEngineBlock.m */,
-				56CB10D112E9654D006A9105 /* EngineBlock.h */,
-				56CB10D212E9654D006A9105 /* EngineBlock.m */,
-				56CB10D312E9654D006A9105 /* EngineBlockMacros.h */,
+				567275081305BB9500ABBAB1 /* Headers */,
+				567275091305BB9C00ABBAB1 /* Implementation */,
 			);
 			name = EngineBlock;
 			sourceTree = "<group>";
@@ -289,9 +311,9 @@
 				56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */,
 				561A16BA12E2320000E1C58C /* ValidationHelper.h in Headers */,
 				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
-				56CB10D412E9654D006A9105 /* EngineBlock.h in Headers */,
 				56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */,
-				56C4E85812F4FD9E003B5403 /* AbstractEngineBlock.h in Headers */,
+				5672750C1305BC6E00ABBAB1 /* EngineBlock_Private.h in Headers */,
+				5672750D1305BC6E00ABBAB1 /* EngineBlock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,8 +438,10 @@
 			files = (
 				56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */,
 				56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */,
-				56CB10D512E9654D006A9105 /* EngineBlock.m in Sources */,
-				56C4E85912F4FD9E003B5403 /* AbstractEngineBlock.m in Sources */,
+				567275121305BC7C00ABBAB1 /* EngineBlock.m in Sources */,
+				567275131305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m in Sources */,
+				567275141305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m in Sources */,
+				567275151305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

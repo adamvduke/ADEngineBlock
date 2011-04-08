@@ -1,45 +1,31 @@
 /* */
 
-/*  AbstractEngineBlock.h
+/*  EngineBlock_Private.h
  *  EngineBlock
  *
- *  Created by Adam Duke on 1/29/11.
+ *  Created by Adam Duke on 2/11/11.
  *  Copyright 2011 None. All rights reserved.
  *
  */
 
-#import <Foundation/Foundation.h>
 
-@class OAConsumer;
+#import <UIKit/UIKit.h>
+#import "EngineBlock.h"
+
+#define API_FORMAT         @"json"
+#define MAX_MESSAGE_LENGTH 140
+
 @class OAMutableURLRequest;
 @class OAToken;
 
 typedef void (^GenericResultHandler)(id result, NSError *error);
 
-@interface AbstractEngineBlock : NSObject {
-	@protected
-	NSString *screen_name;
-	OAConsumer *consumer;
-	OAToken *accessToken;
-	BOOL secureConnection;
-	BOOL clearsCookies;
-}
+@interface EngineBlock ()
 
-@property (nonatomic, retain) NSString *screen_name;
+@property (nonatomic, retain) NSString *_screenname;
 
 #pragma mark -
-#pragma mark pre-defined blocks
-- ( void (^)(id data, NSHTTPURLResponse *response, NSError *error) )jsonHandlerWithEngineHandler:(GenericResultHandler)handler;
-
-/* returns a block that tests a "tuple" e.g.(screen_name=adamvduke)
- * and checks to see if the element to the left of the = sign
- * is equivalent to the given key
- */
-- ( BOOL (^)(id obj, NSUInteger idx, BOOL *stop) )blockTestTupleForKey:(NSString *)aKey;
-
-#pragma mark -
-#pragma mark AbstractEngineBlock life cycle
-- (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret;
+#pragma mark OAuth
 - (void)setAccessTokenWithAuthData:(NSString *)authData;
 - (void)setConsumerWithKey:(NSString *)key secret:(NSString *)secret;
 
@@ -48,7 +34,23 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 - (NSString *)screennameFromAuthData:(NSString *)authData;
 - (NSString *)valueForKey:(NSString *)aKey inAuthData:(NSString *)authData;
 - (BOOL)hasValidAccessToken:(OAToken *)token;
-- (BOOL)isAuthorizedForScreenname:(NSString *)name;
+
+#pragma mark -
+#pragma mark pre-defined blocks
+/* returns a block that tests a "tuple" e.g.(screen_name=adamvduke)
+ * and checks to see if the element to the left of the = sign
+ * is equivalent to the given key
+ */
+- ( BOOL (^)(id obj, NSUInteger idx, BOOL *stop) )blockTestTupleForKey:(NSString *)aKey;
+
+@end
+
+
+@interface EngineBlock (RequestHandling)
+
+#pragma mark -
+#pragma mark pre-defined blocks
+- ( void (^)(id data, NSHTTPURLResponse *response, NSError *error) )jsonHandlerWithEngineHandler:(GenericResultHandler)handler;
 
 #pragma mark -
 #pragma mark NSURLRequest helper methods
@@ -62,4 +64,5 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 #pragma mark -
 #pragma mark Send Request
 - (void)sendRequestWithMethod:(NSString *)method path:(NSString *)path body:(NSString *)body handler:(GenericResultHandler)handler;
+
 @end
