@@ -12,6 +12,27 @@
 
 @implementation EngineBlock (TimelineResources)
 
+#pragma mark -
+#pragma mark statuses/public_timeline
+- (void)publicTimelineWithHandler:(NSArrayResultHandler)handler
+{
+	[self publicTimelineTrimUser:NO includeEntities:YES withHandler:handler];
+}
+
+- (void)publicTimelineTrimUser:(BOOL)trimUser
+			   includeEntities:(BOOL)includeEntities
+				   withHandler:(NSArrayResultHandler)handler
+{
+	NSString *path = [NSString stringWithFormat:@"statuses/public_timeline.%@", API_FORMAT];
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
+	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
+	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
+	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+}
+
+#pragma mark -
+#pragma mark statuses/user_timeline
 - (void)userTimelineForScreenname:(NSString *)name
                            userId:(unsigned long long)userId
                           sinceId:(unsigned long long)sinceId

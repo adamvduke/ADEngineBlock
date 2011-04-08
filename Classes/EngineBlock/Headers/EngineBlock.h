@@ -40,6 +40,16 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 #pragma mark TimelineResources
 @interface EngineBlock (TimelineResources)
 
+#pragma mark -
+#pragma mark statuses/public_timeline
+- (void)publicTimelineWithHandler:(NSArrayResultHandler)handler;
+
+- (void)publicTimelineTrimUser:(BOOL)trimUser
+			   includeEntities:(BOOL)includeEntities
+				   withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/user_timeline
 - (void)userTimelineForScreenname:(NSString *)name
 						   userId:(unsigned long long)userId
 						  sinceId:(unsigned long long)sinceId
