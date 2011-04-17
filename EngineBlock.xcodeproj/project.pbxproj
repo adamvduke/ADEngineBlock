@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		561A16BA12E2320000E1C58C /* ValidationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 561A16B912E2320000E1C58C /* ValidationHelper.h */; settings = {ATTRIBUTES = (); }; };
+		5617675D135B478700A3440C /* ADSharedMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5617675C135B478700A3440C /* ADSharedMacros.h */; };
 		5672750C1305BC6E00ABBAB1 /* EngineBlock_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */; };
 		5672750D1305BC6E00ABBAB1 /* EngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750B1305BC6E00ABBAB1 /* EngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		567275121305BC7C00ABBAB1 /* EngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* EngineBlock.m */; };
@@ -20,7 +20,6 @@
 		56AFC31F12DF83160038CD99 /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */; };
 		56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */; };
-		56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB10D312E9654D006A9105 /* EngineBlockMacros.h */; settings = {ATTRIBUTES = (); }; };
 		56E3CAF612DD0A0D00D58587 /* libSeriously.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CAF512DD0A0600D58587 /* libSeriously.a */; };
 		AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -100,7 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		561A16B912E2320000E1C58C /* ValidationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidationHelper.h; path = Classes/Utility/ValidationHelper.h; sourceTree = "<group>"; };
+		5617675C135B478700A3440C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/SharedMacros/ADSharedMacros.h; sourceTree = "<group>"; };
 		5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock_Private.h; path = Classes/EngineBlock/Headers/EngineBlock_Private.h; sourceTree = "<group>"; };
 		5672750B1305BC6E00ABBAB1 /* EngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock.h; path = Classes/EngineBlock/Headers/EngineBlock.h; sourceTree = "<group>"; };
 		5672750E1305BC7C00ABBAB1 /* EngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngineBlock.m; path = Classes/EngineBlock/Implementation/EngineBlock.m; sourceTree = "<group>"; };
@@ -112,7 +111,6 @@
 		56AFC21712DF62C80038CD99 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
 		56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizeViewController.h; path = Classes/ViewController/AuthorizeViewController.h; sourceTree = "<group>"; };
 		56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizeViewController.m; path = Classes/ViewController/AuthorizeViewController.m; sourceTree = "<group>"; };
-		56CB10D312E9654D006A9105 /* EngineBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlockMacros.h; path = Classes/EngineBlock/EngineBlockMacros.h; sourceTree = "<group>"; };
 		56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Seriously.xcodeproj; path = External/Seriously/Seriously.xcodeproj; sourceTree = "<group>"; };
 		56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = External/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineBlock_Prefix.pch; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			children = (
 				561A181212E3911100E1C58C /* Category */,
 				56AFC60012DFB5FF0038CD99 /* EngineBlock */,
-				56AFC63B12DFBDD70038CD99 /* Utility */,
 				56AFC60112DFB6180038CD99 /* ViewController */,
 			);
 			name = Classes;
@@ -177,10 +174,17 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				56CB10D312E9654D006A9105 /* EngineBlockMacros.h */,
 				AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		5617675B135B476E00A3440C /* SharedMacros */ = {
+			isa = PBXGroup;
+			children = (
+				5617675C135B478700A3440C /* ADSharedMacros.h */,
+			);
+			name = SharedMacros;
 			sourceTree = "<group>";
 		};
 		561A181212E3911100E1C58C /* Category */ = {
@@ -241,20 +245,13 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		56AFC63B12DFBDD70038CD99 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				561A16B912E2320000E1C58C /* ValidationHelper.h */,
-			);
-			name = Utility;
-			sourceTree = "<group>";
-		};
 		56E3CAA112DD05A400D58587 /* External */ = {
 			isa = PBXGroup;
 			children = (
 				56E3CAA212DD05AD00D58587 /* JSON */,
 				56E3CAA312DD05B200D58587 /* OAuthConsumer */,
 				56E3CAA412DD05C200D58587 /* Seriously */,
+				5617675B135B476E00A3440C /* SharedMacros */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -309,11 +306,10 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */,
 				56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */,
-				561A16BA12E2320000E1C58C /* ValidationHelper.h in Headers */,
 				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
-				56CB10D612E9654D006A9105 /* EngineBlockMacros.h in Headers */,
 				5672750C1305BC6E00ABBAB1 /* EngineBlock_Private.h in Headers */,
 				5672750D1305BC6E00ABBAB1 /* EngineBlock.h in Headers */,
+				5617675D135B478700A3440C /* ADSharedMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
