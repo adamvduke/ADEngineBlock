@@ -8,12 +8,12 @@
  *
  */
 
-#import "AuthorizeViewController.h"
+#import "ADOAuthOOBViewController.h"
 #import <UIKit/UIKit.h>
 
 @class EngineBlock;
 
-@interface RootViewController : UITableViewController <AuthorizeViewControllerDelegate>
+@interface RootViewController : UITableViewController <ADOAuthOOBViewControllerDelegate>
 {
 	EngineBlock *engine;
 	NSString *screenname;

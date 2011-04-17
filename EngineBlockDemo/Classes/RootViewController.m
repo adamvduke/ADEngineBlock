@@ -22,6 +22,7 @@
 
 @interface RootViewController (Private)
 
+- (void)saveOAuthData:(NSString *)oauthData forScreenname:(NSString *)name;
 - (NSString *)authDataKeyForScreenname:(NSString *)screenname;
 - (NSString *)retrieveOAuthDataForScreenname:(NSString *)screenname;
 - (EngineBlock *)engineForScreenname:(NSString *)screenname;
@@ -142,7 +143,7 @@
 	[super viewDidAppear:animated];
 	if(![self.engine isAuthorizedForScreenname:self.screenname])
 	{
-		AuthorizeViewController *controller = [[[AuthorizeViewController alloc] initWithConsumerKey:kConsumerKey
+		ADOAuthOOBViewController *controller = [[[ADOAuthOOBViewController alloc] initWithConsumerKey:kConsumerKey
 		                                                                             consumerSecret:kConsumerSecret
 		                                                                      requestTokenURLString:kRequestTokenURLString
 		                                                                       accessTokenURLString:kAccessTokenURLString

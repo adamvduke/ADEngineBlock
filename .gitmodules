@@ -10,3 +10,6 @@
 [submodule "External/SharedMacros"]
 	path = External/SharedMacros
 	url = git://gist.github.com/910486.git
+[submodule "EngineBlockDemo/External/ADOAuthorizeiOS"]
+	path = EngineBlockDemo/External/ADOAuthorizeiOS
+	url = git@github.com:adamvduke/ADOAuthorizeiOS.git

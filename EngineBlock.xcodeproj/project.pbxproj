@@ -18,8 +18,6 @@
 		56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */; };
 		56AFC22A12DF62D10038CD99 /* libjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AFC22712DF62C90038CD99 /* libjson.a */; };
 		56AFC31F12DF83160038CD99 /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */; };
-		56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */; };
 		56E3CAF612DD0A0D00D58587 /* libSeriously.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CAF512DD0A0600D58587 /* libSeriously.a */; };
 		AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -109,8 +107,6 @@
 		56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CaseInsensitiveCompare.h"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.h"; sourceTree = "<group>"; };
 		56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CaseInsensitiveCompare.m"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.m"; sourceTree = "<group>"; };
 		56AFC21712DF62C80038CD99 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
-		56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizeViewController.h; path = Classes/ViewController/AuthorizeViewController.h; sourceTree = "<group>"; };
-		56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizeViewController.m; path = Classes/ViewController/AuthorizeViewController.m; sourceTree = "<group>"; };
 		56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Seriously.xcodeproj; path = External/Seriously/Seriously.xcodeproj; sourceTree = "<group>"; };
 		56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = External/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineBlock_Prefix.pch; sourceTree = "<group>"; };
@@ -166,7 +162,6 @@
 			children = (
 				561A181212E3911100E1C58C /* Category */,
 				56AFC60012DFB5FF0038CD99 /* EngineBlock */,
-				56AFC60112DFB6180038CD99 /* ViewController */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -236,15 +231,6 @@
 			name = EngineBlock;
 			sourceTree = "<group>";
 		};
-		56AFC60112DFB6180038CD99 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				56AFC60212DFB6560038CD99 /* AuthorizeViewController.h */,
-				56AFC60312DFB6560038CD99 /* AuthorizeViewController.m */,
-			);
-			name = ViewController;
-			sourceTree = "<group>";
-		};
 		56E3CAA112DD05A400D58587 /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +291,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */,
-				56AFC60412DFB6560038CD99 /* AuthorizeViewController.h in Headers */,
 				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
 				5672750C1305BC6E00ABBAB1 /* EngineBlock_Private.h in Headers */,
 				5672750D1305BC6E00ABBAB1 /* EngineBlock.h in Headers */,
@@ -432,7 +417,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56AFC60512DFB6560038CD99 /* AuthorizeViewController.m in Sources */,
 				56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */,
 				567275121305BC7C00ABBAB1 /* EngineBlock.m in Sources */,
 				567275131305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m in Sources */,

@@ -15,11 +15,26 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		56176790135B4DF700A3440C /* libADOAuthorizeiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5617678F135B4DF000A3440C /* libADOAuthorizeiOS.a */; };
 		56A3E13312E95650003C04C5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A3E13212E95650003C04C5 /* Icon.png */; };
 		56CB105112E961A8006A9105 /* libEngineBlock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CB105012E961A0006A9105 /* libEngineBlock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5617678E135B4DF000A3440C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libADOAuthorizeiOS.a */;
+			remoteInfo = ADOAuthorizeiOS;
+		};
+		56176791135B4E0C00A3440C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* ADOAuthorizeiOS */;
+			remoteInfo = ADOAuthorizeiOS;
+		};
 		56CB104F12E961A0006A9105 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */;
@@ -50,6 +65,7 @@
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56176762135B485E00A3440C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = ../External/SharedMacros/ADSharedMacros.h; sourceTree = SOURCE_ROOT; };
+		56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADOAuthorizeiOS.xcodeproj; path = External/ADOAuthorizeiOS/ADOAuthorizeiOS.xcodeproj; sourceTree = "<group>"; };
 		56A3E13212E95650003C04C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineBlock.xcodeproj; path = ../EngineBlock.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* EngineBlockDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "EngineBlockDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -64,6 +80,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				56CB105112E961A8006A9105 /* libEngineBlock.a in Frameworks */,
+				56176790135B4DF700A3440C /* libADOAuthorizeiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +157,22 @@
 			name = SharedMacros;
 			sourceTree = "<group>";
 		};
+		5617677F135B4DCC00A3440C /* ADOAuthorizeiOS */ = {
+			isa = PBXGroup;
+			children = (
+				56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */,
+			);
+			name = ADOAuthorizeiOS;
+			sourceTree = "<group>";
+		};
+		56176784135B4DF000A3440C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5617678F135B4DF000A3440C /* libADOAuthorizeiOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		561A176C12E2522200E1C58C /* EngineBlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +184,7 @@
 		56AFC0EA12DF55900038CD99 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				5617677F135B4DCC00A3440C /* ADOAuthorizeiOS */,
 				561A176C12E2522200E1C58C /* EngineBlock */,
 				56176761135B484500A3440C /* SharedMacros */,
 			);
@@ -180,6 +214,7 @@
 			);
 			dependencies = (
 				56CB105712E961BB006A9105 /* PBXTargetDependency */,
+				56176792135B4E0C00A3440C /* PBXTargetDependency */,
 			);
 			name = EngineBlockDemo;
 			productName = ADTwitterEngineDemo;
@@ -206,6 +241,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 56176784135B4DF000A3440C /* Products */;
+					ProjectRef = 56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */;
+				},
+				{
 					ProductGroup = 56CB104C12E961A0006A9105 /* Products */;
 					ProjectRef = 56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */;
 				},
@@ -218,6 +257,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5617678F135B4DF000A3440C /* libADOAuthorizeiOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libADOAuthorizeiOS.a;
+			remoteRef = 5617678E135B4DF000A3440C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		56CB105012E961A0006A9105 /* libEngineBlock.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -254,6 +300,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		56176792135B4E0C00A3440C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ADOAuthorizeiOS;
+			targetProxy = 56176791135B4E0C00A3440C /* PBXContainerItemProxy */;
+		};
 		56CB105712E961BB006A9105 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EngineBlock;
@@ -271,7 +322,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EngineBlockDemo_Prefix.pch;
-				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include";
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/External/ADOAuthorizeiOS/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
+					"${PROJECT_DIR}/../build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
+				);
 				INFOPLIST_FILE = "EngineBlockDemo-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
