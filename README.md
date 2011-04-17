@@ -19,7 +19,8 @@ The steps to get all of the source to build ADEngineBlock are:
      git submodule init
      git submodule update
 
-The submodules will be their own git repositories in the directory ADEngineBlock/External/
+The submodules will be their own git repositories in the directory ADEngineBlock/External/.
+
 In order to build ADEngineBlockDemo, one of the submodules, ADOAuthorizeiOS, has it's own submodule that needs to be initialized.
 
      cd ADEngineBlockDemo/External/ADOAuthorizeiOS
