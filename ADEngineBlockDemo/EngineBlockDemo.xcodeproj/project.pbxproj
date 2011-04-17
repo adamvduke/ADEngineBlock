@@ -25,14 +25,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libADOAuthorizeiOS.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = ADOAuthorizeiOS;
 		};
 		56176791135B4E0C00A3440C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* ADOAuthorizeiOS */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = ADOAuthorizeiOS;
 		};
 		56CB104F12E961A0006A9105 /* PBXContainerItemProxy */ = {
@@ -64,10 +64,10 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		56176762135B485E00A3440C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = ../External/SharedMacros/ADSharedMacros.h; sourceTree = SOURCE_ROOT; };
+		560FFBD9135B7504002991A4 /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/SharedMacros/ADSharedMacros.h; sourceTree = "<group>"; };
 		56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADOAuthorizeiOS.xcodeproj; path = External/ADOAuthorizeiOS/ADOAuthorizeiOS.xcodeproj; sourceTree = "<group>"; };
 		56A3E13212E95650003C04C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineBlock.xcodeproj; path = ../EngineBlock.xcodeproj; sourceTree = SOURCE_ROOT; };
+		56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineBlock.xcodeproj; path = ../ADEngineBlock/EngineBlock.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* EngineBlockDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "EngineBlockDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +152,7 @@
 		56176761135B484500A3440C /* SharedMacros */ = {
 			isa = PBXGroup;
 			children = (
-				56176762135B485E00A3440C /* ADSharedMacros.h */,
+				560FFBD9135B7504002991A4 /* ADSharedMacros.h */,
 			);
 			name = SharedMacros;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				GCC_PREFIX_HEADER = EngineBlockDemo_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
 					"${PROJECT_DIR}/External/ADOAuthorizeiOS/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
-					"${PROJECT_DIR}/../build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
+					"${PROJECT_DIR}/../ADEngineBlock/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
 				);
 				INFOPLIST_FILE = "EngineBlockDemo-Info.plist";
 				OTHER_LDFLAGS = (

@@ -1,15 +1,18 @@
-[submodule "External/JSON"]
-	path = External/JSON
+[submodule "ADEngineBlock/External/JSON"]
+	path = ADEngineBlock/External/JSON
 	url = git@github.com:adamvduke/json-framework.git
-[submodule "External/Seriously"]
-	path = External/Seriously
+[submodule "ADEngineBlock/External/Seriously"]
+	path = ADEngineBlock/External/Seriously
 	url = git@github.com:adamvduke/seriously.git
-[submodule "External/OAuthConsumer"]
-	path = External/OAuthConsumer
+[submodule "ADEngineBlock/External/OAuthConsumer"]
+	path = ADEngineBlock/External/OAuthConsumer
 	url = git@github.com:adamvduke/OAuthConsumer.git
-[submodule "External/SharedMacros"]
-	path = External/SharedMacros
+[submodule "ADEngineBlock/External/SharedMacros"]
+	path = ADEngineBlock/External/SharedMacros
 	url = git://gist.github.com/910486.git
-[submodule "EngineBlockDemo/External/ADOAuthorizeiOS"]
-	path = EngineBlockDemo/External/ADOAuthorizeiOS
+[submodule "ADEngineBlockDemo/External/ADOAuthorizeiOS"]
+	path = ADEngineBlockDemo/External/ADOAuthorizeiOS
 	url = git@github.com:adamvduke/ADOAuthorizeiOS.git
+[submodule "ADEngineBlockDemo/External/SharedMacros"]
+	path = ADEngineBlockDemo/External/SharedMacros
+	url = git://gist.github.com/910486.git
