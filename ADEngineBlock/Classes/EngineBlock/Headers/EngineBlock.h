@@ -49,6 +49,27 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 				   withHandler:(NSArrayResultHandler)handler;
 
 #pragma mark -
+#pragma mark statuses/home_timeline
+- (void)homeTimelineSinceId:(unsigned long long)sinceId
+						 maxId:(unsigned long long)maxId
+						 count:(int)count
+						  page:(int)page
+					  trimUser:(BOOL)trimUser
+			   includeEntities:(BOOL)includeEntities
+				   withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/friends_timeline
+- (void)friendsTimelineSinceId:(unsigned long long)sinceId
+						 maxId:(unsigned long long)maxId
+						 count:(int)count
+						  page:(int)page
+					  trimUser:(BOOL)trimUser
+					includeRts:(BOOL)includeRts
+			   includeEntities:(BOOL)includeEntities
+				   withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
 #pragma mark statuses/user_timeline
 - (void)userTimelineForScreenname:(NSString *)name
 						   userId:(unsigned long long)userId
@@ -60,12 +81,62 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 					   includeRts:(BOOL)includeRts
 				  includeEntities:(BOOL)includeEntities
 					  withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/mentions
+- (void)mentionsSinceId:(unsigned long long)sinceId
+				  maxId:(unsigned long long)maxId
+				  count:(int)count
+				   page:(int)page
+			   trimUser:(BOOL)trimUser
+			 includeRts:(BOOL)includeRts
+		includeEntities:(BOOL)includeEntities
+			withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/retweeted_by_me
+- (void)retweetedByMeSinceId:(unsigned long long)sinceId
+					   maxId:(unsigned long long)maxId
+					   count:(int)count
+						page:(int)page
+					trimUser:(BOOL)trimUser
+			 includeEntities:(BOOL)includeEntities
+				 withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/retweeted_to_me
+- (void)retweetedToMeSinceId:(unsigned long long)sinceId
+					   maxId:(unsigned long long)maxId
+					   count:(int)count
+						page:(int)page
+					trimUser:(BOOL)trimUser
+			 includeEntities:(BOOL)includeEntities
+				 withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/retweets_of_me
+- (void)retweetsOfMeSinceId:(unsigned long long)sinceId
+					  maxId:(unsigned long long)maxId
+					  count:(int)count
+					   page:(int)page
+				   trimUser:(BOOL)trimUser
+			includeEntities:(BOOL)includeEntities
+				withHandler:(NSArrayResultHandler)handler;
 @end
 
 #pragma mark -
 #pragma mark TweetsResources
 @interface EngineBlock (TweetsResources)
 
+#pragma mark -
+#pragma mark statuses/show/:id
+- (void)showStatus:(unsigned long long)statusId
+		  trimUser:(BOOL)trimUser
+   includeEntities:(BOOL)includeEntities
+	   withHandler:(NSDictionaryResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/update
 - (void)sendUpdate:(NSString *)message
 		 inReplyTo:(unsigned long long)replyToId
 		  latitude:(float)latitude
@@ -75,4 +146,11 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 		  trimUser:(BOOL)trimUser
    includeEntities:(BOOL)includeEntities
 	   withHandler:(NSDictionaryResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/destroy/:id
+- (void)destroyStatus:(unsigned long long)statusId
+			 trimUser:(BOOL)trimUser
+	  includeEntities:(BOOL)includeEntities
+		  withHandler:(NSDictionaryResultHandler)handler;
 @end

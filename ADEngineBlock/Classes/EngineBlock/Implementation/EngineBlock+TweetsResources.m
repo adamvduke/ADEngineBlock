@@ -59,4 +59,33 @@
 	[self sendRequestWithMethod:@"POST" path:path body:body handler:(GenericResultHandler)handler];
 }
 
+#pragma mark -
+#pragma mark statuses/show/:id
+- (void)showStatus:(unsigned long long)statusId
+		  trimUser:(BOOL)trimUser
+   includeEntities:(BOOL)includeEntities
+	   withHandler:(NSDictionaryResultHandler)handler
+{
+	NSString *path = [NSString stringWithFormat:@"statuses/show/%qu.%@",statusId, API_FORMAT];
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
+	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
+	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
+	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+}
+
+#pragma mark -
+#pragma mark statuses/destroy/:id
+- (void)destroyStatus:(unsigned long long)statusId
+			 trimUser:(BOOL)trimUser
+	  includeEntities:(BOOL)includeEntities
+		  withHandler:(NSDictionaryResultHandler)handler
+{
+	NSString *path = [NSString stringWithFormat:@"statuses/destroy/%qu.%@",statusId, API_FORMAT];
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
+	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
+	NSString *body = [self queryStringWithBase:nil parameters:params prefixed:NO];
+	[self sendRequestWithMethod:@"POST" path:path body:body handler:(GenericResultHandler)handler];
+}
 @end
