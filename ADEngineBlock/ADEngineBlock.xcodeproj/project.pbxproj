@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5617675D135B478700A3440C /* ADSharedMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5617675C135B478700A3440C /* ADSharedMacros.h */; };
+		56486EE8136773E3000C8848 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 56486EE7136773E3000C8848 /* SynthesizeSingleton.h */; };
 		5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */; };
 		5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		567275121305BC7C00ABBAB1 /* ADEngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */; };
@@ -98,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		5617675C135B478700A3440C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/SharedMacros/ADSharedMacros.h; sourceTree = "<group>"; };
+		56486EE7136773E3000C8848 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = External/SharedMacros/SynthesizeSingleton.h; sourceTree = "<group>"; };
 		5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock_Private.h; path = Classes/EngineBlock/Headers/ADEngineBlock_Private.h; sourceTree = "<group>"; };
 		5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock.h; path = Classes/EngineBlock/Headers/ADEngineBlock.h; sourceTree = "<group>"; };
 		5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADEngineBlock.m; path = Classes/EngineBlock/Implementation/ADEngineBlock.m; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				5617675C135B478700A3440C /* ADSharedMacros.h */,
+				56486EE7136773E3000C8848 /* SynthesizeSingleton.h */,
 			);
 			name = SharedMacros;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */,
 				5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */,
 				5617675D135B478700A3440C /* ADSharedMacros.h in Headers */,
+				56486EE8136773E3000C8848 /* SynthesizeSingleton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
