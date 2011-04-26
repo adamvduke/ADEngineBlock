@@ -1,7 +1,7 @@
 /* */
 
-/*  EngineBlock.h
- *  EngineBlock
+/*  ADEngineBlock.h
+ *  ADEngineBlock
  *
  *  Created by Adam Duke on 1/11/11.
  *  Copyright 2011 None. All rights reserved.
@@ -16,7 +16,7 @@
 typedef void (^NSArrayResultHandler)(NSArray *result, NSError *error);
 typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
-@interface EngineBlock : NSObject {
+@interface ADEngineBlock : NSObject {
 	
 	NSString *screenname;
 
@@ -28,7 +28,7 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 @property (nonatomic, readonly) NSString *screenname;
 
 #pragma mark -
-#pragma mark EngineBlock life cycle
+#pragma mark ADEngineBlock life cycle
 
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret;
 - (BOOL)isAuthorizedForScreenname:(NSString *)name;
@@ -38,7 +38,7 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
 #pragma mark -
 #pragma mark TimelineResources
-@interface EngineBlock (TimelineResources)
+@interface ADEngineBlock (TimelineResources)
 
 #pragma mark -
 #pragma mark statuses/public_timeline
@@ -126,7 +126,7 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
 #pragma mark -
 #pragma mark TweetsResources
-@interface EngineBlock (TweetsResources)
+@interface ADEngineBlock (TweetsResources)
 
 #pragma mark -
 #pragma mark statuses/show/:id

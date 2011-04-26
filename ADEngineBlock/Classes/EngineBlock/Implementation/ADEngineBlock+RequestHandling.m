@@ -1,14 +1,14 @@
 /* */
 
-/*  EngineBlock+RequestHandling.m
- *  EngineBlock
+/*  ADEngineBlock+RequestHandling.m
+ *  ADEngineBlock
  *
  *  Created by Adam Duke on 1/29/11.
  *  Copyright 2011 None. All rights reserved.
  *
  */
 
-#import "EngineBlock_Private.h"
+#import "ADEngineBlock_Private.h"
 #import "OAMutableURLRequest.h"
 #import "Seriously.h"
 #import <JSON/JSON.h>
@@ -20,12 +20,12 @@
 #define TWITTER_SEARCH_DOMAIN   @"search.twitter.com"
 #define HTTP_POST_METHOD        @"POST"
 
-#define DEFAULT_CLIENT_NAME     @"EngineBlock"
+#define DEFAULT_CLIENT_NAME     @"ADEngineBlock"
 #define DEFAULT_CLIENT_VERSION  @"0.2"
 #define DEFAULT_CLIENT_URL      @"http://github.com/adamvduke"
 #define DEFAULT_CLIENT_TOKEN    @"adtwitterengine"
 
-@implementation EngineBlock (RequestHandling)
+@implementation ADEngineBlock (RequestHandling)
 
 #pragma mark -
 #pragma mark pre-defined blocks

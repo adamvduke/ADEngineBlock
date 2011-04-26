@@ -1,7 +1,7 @@
 /* */
 
-/*  EngineBlock_Private.h
- *  EngineBlock
+/*  ADEngineBlock_Private.h
+ *  ADEngineBlock
  *
  *  Created by Adam Duke on 2/11/11.
  *  Copyright 2011 None. All rights reserved.
@@ -10,7 +10,7 @@
 
 
 #import <UIKit/UIKit.h>
-#import "EngineBlock.h"
+#import "ADEngineBlock.h"
 
 #define API_FORMAT         @"json"
 #define MAX_MESSAGE_LENGTH 140
@@ -20,7 +20,7 @@
 
 typedef void (^GenericResultHandler)(id result, NSError *error);
 
-@interface EngineBlock ()
+@interface ADEngineBlock ()
 
 @property (nonatomic, retain) NSString *_screenname;
 
@@ -46,7 +46,7 @@ typedef void (^GenericResultHandler)(id result, NSError *error);
 @end
 
 
-@interface EngineBlock (RequestHandling)
+@interface ADEngineBlock (RequestHandling)
 
 #pragma mark -
 #pragma mark pre-defined blocks

@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5617675D135B478700A3440C /* ADSharedMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5617675C135B478700A3440C /* ADSharedMacros.h */; };
-		5672750C1305BC6E00ABBAB1 /* EngineBlock_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */; };
-		5672750D1305BC6E00ABBAB1 /* EngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750B1305BC6E00ABBAB1 /* EngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		567275121305BC7C00ABBAB1 /* EngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* EngineBlock.m */; };
-		567275131305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750F1305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m */; };
-		567275141305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275101305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m */; };
-		567275151305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275111305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m */; };
+		5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */; };
+		5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		567275121305BC7C00ABBAB1 /* ADEngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */; };
+		567275131305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */; };
+		567275141305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */; };
+		567275151305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */; };
 		56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */; };
 		56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */; };
 		56AFC22A12DF62D10038CD99 /* libjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AFC22712DF62C90038CD99 /* libjson.a */; };
 		56AFC31F12DF83160038CD99 /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CCF012DD177D00D58587 /* libOAuthConsumer.a */; };
 		56E3CAF612DD0A0D00D58587 /* libSeriously.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E3CAF512DD0A0600D58587 /* libSeriously.a */; };
-		AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */; };
+		AA747D9F0F9514B9006C5449 /* ADEngineBlock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ADEngineBlock_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,20 +98,20 @@
 
 /* Begin PBXFileReference section */
 		5617675C135B478700A3440C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/SharedMacros/ADSharedMacros.h; sourceTree = "<group>"; };
-		5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock_Private.h; path = Classes/EngineBlock/Headers/EngineBlock_Private.h; sourceTree = "<group>"; };
-		5672750B1305BC6E00ABBAB1 /* EngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineBlock.h; path = Classes/EngineBlock/Headers/EngineBlock.h; sourceTree = "<group>"; };
-		5672750E1305BC7C00ABBAB1 /* EngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngineBlock.m; path = Classes/EngineBlock/Implementation/EngineBlock.m; sourceTree = "<group>"; };
-		5672750F1305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EngineBlock+RequestHandling.m"; path = "Classes/EngineBlock/Implementation/EngineBlock+RequestHandling.m"; sourceTree = "<group>"; };
-		567275101305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EngineBlock+TimelineResources.m"; path = "Classes/EngineBlock/Implementation/EngineBlock+TimelineResources.m"; sourceTree = "<group>"; };
-		567275111305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EngineBlock+TweetsResources.m"; path = "Classes/EngineBlock/Implementation/EngineBlock+TweetsResources.m"; sourceTree = "<group>"; };
+		5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock_Private.h; path = Classes/EngineBlock/Headers/ADEngineBlock_Private.h; sourceTree = "<group>"; };
+		5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock.h; path = Classes/EngineBlock/Headers/ADEngineBlock.h; sourceTree = "<group>"; };
+		5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADEngineBlock.m; path = Classes/EngineBlock/Implementation/ADEngineBlock.m; sourceTree = "<group>"; };
+		5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+RequestHandling.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+RequestHandling.m"; sourceTree = "<group>"; };
+		567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+TimelineResources.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+TimelineResources.m"; sourceTree = "<group>"; };
+		567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+TweetsResources.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+TweetsResources.m"; sourceTree = "<group>"; };
 		56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CaseInsensitiveCompare.h"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.h"; sourceTree = "<group>"; };
 		56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CaseInsensitiveCompare.m"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.m"; sourceTree = "<group>"; };
 		56AFC21712DF62C80038CD99 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
 		56E3CAED12DD0A0600D58587 /* Seriously.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Seriously.xcodeproj; path = External/Seriously/Seriously.xcodeproj; sourceTree = "<group>"; };
 		56E3CCE812DD177D00D58587 /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = External/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
-		AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineBlock_Prefix.pch; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* ADEngineBlock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADEngineBlock_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D2AAC07E0554694100DB518D /* libEngineBlock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngineBlock.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libADEngineBlock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libADEngineBlock.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libEngineBlock.a */,
+				D2AAC07E0554694100DB518D /* libADEngineBlock.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AA747D9E0F9514B9006C5449 /* EngineBlock_Prefix.pch */,
+				AA747D9E0F9514B9006C5449 /* ADEngineBlock_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -194,8 +194,8 @@
 		567275081305BB9500ABBAB1 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				5672750A1305BC6E00ABBAB1 /* EngineBlock_Private.h */,
-				5672750B1305BC6E00ABBAB1 /* EngineBlock.h */,
+				5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */,
+				5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -203,10 +203,10 @@
 		567275091305BB9C00ABBAB1 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				5672750E1305BC7C00ABBAB1 /* EngineBlock.m */,
-				5672750F1305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m */,
-				567275101305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m */,
-				567275111305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m */,
+				5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */,
+				5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */,
+				567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */,
+				567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */,
 			);
 			name = Implementation;
 			sourceTree = "<group>";
@@ -290,10 +290,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA747D9F0F9514B9006C5449 /* EngineBlock_Prefix.pch in Headers */,
+				AA747D9F0F9514B9006C5449 /* ADEngineBlock_Prefix.pch in Headers */,
 				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
-				5672750C1305BC6E00ABBAB1 /* EngineBlock_Private.h in Headers */,
-				5672750D1305BC6E00ABBAB1 /* EngineBlock.h in Headers */,
+				5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */,
+				5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */,
 				5617675D135B478700A3440C /* ADSharedMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,9 +301,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* EngineBlock */ = {
+		D2AAC07D0554694100DB518D /* ADEngineBlock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "EngineBlock" */;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ADEngineBlock" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -316,9 +316,9 @@
 				56E3CCF312DD179A00D58587 /* PBXTargetDependency */,
 				56AFC25E12DF631B0038CD99 /* PBXTargetDependency */,
 			);
-			name = EngineBlock;
+			name = ADEngineBlock;
 			productName = ADTwitterEngine;
-			productReference = D2AAC07E0554694100DB518D /* libEngineBlock.a */;
+			productReference = D2AAC07E0554694100DB518D /* libADEngineBlock.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -326,7 +326,7 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "EngineBlock" */;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ADEngineBlock" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -355,7 +355,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* EngineBlock */,
+				D2AAC07D0554694100DB518D /* ADEngineBlock */,
 			);
 		};
 /* End PBXProject section */
@@ -418,10 +418,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */,
-				567275121305BC7C00ABBAB1 /* EngineBlock.m in Sources */,
-				567275131305BC7C00ABBAB1 /* EngineBlock+RequestHandling.m in Sources */,
-				567275141305BC7C00ABBAB1 /* EngineBlock+TimelineResources.m in Sources */,
-				567275151305BC7C00ABBAB1 /* EngineBlock+TweetsResources.m in Sources */,
+				567275121305BC7C00ABBAB1 /* ADEngineBlock.m in Sources */,
+				567275131305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m in Sources */,
+				567275141305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m in Sources */,
+				567275151305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +459,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = EngineBlock_Prefix.pch;
+				GCC_PREFIX_HEADER = ADEngineBlock_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
 					/tmp/JSON.dst/usr/local/include,
 					"${PROJECT_DIR}/External/OAuthConsumer/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
@@ -470,7 +470,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = EngineBlock;
+				PRODUCT_NAME = ADEngineBlock;
 			};
 			name = Debug;
 		};
@@ -483,7 +483,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = EngineBlock_Prefix.pch;
+				GCC_PREFIX_HEADER = ADEngineBlock_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
 					/tmp/JSON.dst/usr/local/include,
 					"${PROJECT_DIR}/External/OAuthConsumer/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
@@ -494,7 +494,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = EngineBlock;
+				PRODUCT_NAME = ADEngineBlock;
 			};
 			name = Release;
 		};
@@ -528,7 +528,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "EngineBlock" */ = {
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ADEngineBlock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
@@ -537,7 +537,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "EngineBlock" */ = {
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ADEngineBlock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,

@@ -8,7 +8,7 @@
  *
  */
 
-#import "EngineBlock.h"
+#import "ADEngineBlock.h"
 #import "RootViewController.h"
 
 /* Things needed for OAuth workflow */
@@ -25,7 +25,7 @@
 - (void)saveOAuthData:(NSString *)oauthData forScreenname:(NSString *)name;
 - (NSString *)authDataKeyForScreenname:(NSString *)screenname;
 - (NSString *)retrieveOAuthDataForScreenname:(NSString *)screenname;
-- (EngineBlock *)engineForScreenname:(NSString *)screenname;
+- (ADEngineBlock *)engineForScreenname:(NSString *)screenname;
 - (NSDictionary *)tweetForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)textForTweetAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -154,12 +154,12 @@
 	}
 }
 
-- (EngineBlock *)engineForScreenname:(NSString *)name
+- (ADEngineBlock *)engineForScreenname:(NSString *)name
 {
 	NSString *authData = [self retrieveOAuthDataForScreenname:name];
 	if( !IsEmpty(authData) )
 	{
-		return [[[EngineBlock alloc] initWithAuthData:authData
+		return [[[ADEngineBlock alloc] initWithAuthData:authData
 		                                  consumerKey:kConsumerKey
 		                               consumerSecret:kConsumerSecret] autorelease];
 	}
@@ -173,7 +173,7 @@
 		NSLog(@"Something went horribly wrong!");
 		return;
 	}
-	self.engine = [[[EngineBlock alloc] initWithAuthData:authData
+	self.engine = [[[ADEngineBlock alloc] initWithAuthData:authData
 	                                         consumerKey:kConsumerKey
 	                                      consumerSecret:kConsumerSecret] autorelease];
 	self.screenname = engine.screenname;

@@ -1,16 +1,16 @@
 /* */
 
-/*  EngineBlock+TimelineResources.m
- *  EngineBlock
+/*  ADEngineBlock+TimelineResources.m
+ *  ADEngineBlock
  *
  *  Created by Adam Duke on 2/11/11.
  *  Copyright 2011 None. All rights reserved.
  *
  */
 
-#import "EngineBlock_Private.h"
+#import "ADEngineBlock_Private.h"
 
-@implementation EngineBlock (TimelineResources)
+@implementation ADEngineBlock (TimelineResources)
 
 #pragma mark -
 #pragma mark statuses/public_timeline

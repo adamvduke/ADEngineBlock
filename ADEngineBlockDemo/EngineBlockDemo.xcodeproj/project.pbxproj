@@ -17,7 +17,7 @@
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		56176790135B4DF700A3440C /* libADOAuthorizeiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5617678F135B4DF000A3440C /* libADOAuthorizeiOS.a */; };
 		56A3E13312E95650003C04C5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A3E13212E95650003C04C5 /* Icon.png */; };
-		56CB105112E961A8006A9105 /* libEngineBlock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CB105012E961A0006A9105 /* libEngineBlock.a */; };
+		56DF6C4C136760EB0005D2BA /* libADEngineBlock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DF6C47136760DC0005D2BA /* libADEngineBlock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,19 +35,19 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = ADOAuthorizeiOS;
 		};
-		56CB104F12E961A0006A9105 /* PBXContainerItemProxy */ = {
+		56DF6C46136760DC0005D2BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */;
+			containerPortal = 56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = EngineBlock;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libADEngineBlock.a */;
+			remoteInfo = ADEngineBlock;
 		};
-		56CB105612E961BB006A9105 /* PBXContainerItemProxy */ = {
+		56DF6C4D136760F60005D2BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */;
+			containerPortal = 56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = EngineBlock;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* ADEngineBlock */;
+			remoteInfo = ADEngineBlock;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,7 +67,7 @@
 		560FFBD9135B7504002991A4 /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/SharedMacros/ADSharedMacros.h; sourceTree = "<group>"; };
 		56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADOAuthorizeiOS.xcodeproj; path = External/ADOAuthorizeiOS/ADOAuthorizeiOS.xcodeproj; sourceTree = "<group>"; };
 		56A3E13212E95650003C04C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineBlock.xcodeproj; path = ../ADEngineBlock/EngineBlock.xcodeproj; sourceTree = SOURCE_ROOT; };
+		56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADEngineBlock.xcodeproj; path = ../ADEngineBlock/ADEngineBlock.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* EngineBlockDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "EngineBlockDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,8 +79,8 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				56CB105112E961A8006A9105 /* libEngineBlock.a in Frameworks */,
 				56176790135B4DF700A3440C /* libADOAuthorizeiOS.a in Frameworks */,
+				56DF6C4C136760EB0005D2BA /* libADEngineBlock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +176,7 @@
 		561A176C12E2522200E1C58C /* EngineBlock */ = {
 			isa = PBXGroup;
 			children = (
-				56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */,
+				56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */,
 			);
 			name = EngineBlock;
 			sourceTree = "<group>";
@@ -191,10 +191,10 @@
 			name = External;
 			sourceTree = "<group>";
 		};
-		56CB104C12E961A0006A9105 /* Products */ = {
+		56DF6C43136760DC0005D2BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				56CB105012E961A0006A9105 /* libEngineBlock.a */,
+				56DF6C47136760DC0005D2BA /* libADEngineBlock.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,8 +213,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				56CB105712E961BB006A9105 /* PBXTargetDependency */,
 				56176792135B4E0C00A3440C /* PBXTargetDependency */,
+				56DF6C4E136760F60005D2BA /* PBXTargetDependency */,
 			);
 			name = EngineBlockDemo;
 			productName = ADTwitterEngineDemo;
@@ -241,12 +241,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 56176784135B4DF000A3440C /* Products */;
-					ProjectRef = 56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */;
+					ProductGroup = 56DF6C43136760DC0005D2BA /* Products */;
+					ProjectRef = 56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */;
 				},
 				{
-					ProductGroup = 56CB104C12E961A0006A9105 /* Products */;
-					ProjectRef = 56CB104B12E961A0006A9105 /* EngineBlock.xcodeproj */;
+					ProductGroup = 56176784135B4DF000A3440C /* Products */;
+					ProjectRef = 56176783135B4DF000A3440C /* ADOAuthorizeiOS.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -264,11 +264,11 @@
 			remoteRef = 5617678E135B4DF000A3440C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		56CB105012E961A0006A9105 /* libEngineBlock.a */ = {
+		56DF6C47136760DC0005D2BA /* libADEngineBlock.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libEngineBlock.a;
-			remoteRef = 56CB104F12E961A0006A9105 /* PBXContainerItemProxy */;
+			path = libADEngineBlock.a;
+			remoteRef = 56DF6C46136760DC0005D2BA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -305,10 +305,10 @@
 			name = ADOAuthorizeiOS;
 			targetProxy = 56176791135B4E0C00A3440C /* PBXContainerItemProxy */;
 		};
-		56CB105712E961BB006A9105 /* PBXTargetDependency */ = {
+		56DF6C4E136760F60005D2BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = EngineBlock;
-			targetProxy = 56CB105612E961BB006A9105 /* PBXContainerItemProxy */;
+			name = ADEngineBlock;
+			targetProxy = 56DF6C4D136760F60005D2BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

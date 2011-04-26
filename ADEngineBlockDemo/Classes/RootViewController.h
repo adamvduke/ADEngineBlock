@@ -11,18 +11,18 @@
 #import "ADOAuthOOBViewController.h"
 #import <UIKit/UIKit.h>
 
-@class EngineBlock;
+@class ADEngineBlock;
 
 @interface RootViewController : UITableViewController <ADOAuthOOBViewControllerDelegate>
 {
-	EngineBlock *engine;
+	ADEngineBlock *engine;
 	NSString *screenname;
 	NSMutableArray *tweets;
 	UIBarButtonItem *leftBarButton;
 	UIBarButtonItem *rightBarButton;
 }
 
-@property (nonatomic, retain) EngineBlock *engine;
+@property (nonatomic, retain) ADEngineBlock *engine;
 @property (nonatomic, retain) NSString *screenname;
 @property (nonatomic, retain) NSMutableArray *tweets;
 @property (nonatomic, retain) UIBarButtonItem *leftBarButton;

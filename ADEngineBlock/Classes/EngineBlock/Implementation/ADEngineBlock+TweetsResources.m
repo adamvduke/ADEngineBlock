@@ -1,16 +1,16 @@
 /* */
 
-/*  EngineBlock+TweetsResources.m
- *  EngineBlock
+/*  ADEngineBlock+TweetsResources.m
+ *  ADEngineBlock
  *
  *  Created by Adam Duke on 2/11/11.
  *  Copyright 2011 None. All rights reserved.
  *
  */
 
-#import "EngineBlock_Private.h"
+#import "ADEngineBlock_Private.h"
 
-@implementation EngineBlock (TweetsResources)
+@implementation ADEngineBlock (TweetsResources)
 
 - (void)    sendUpdate:(NSString *)message
              inReplyTo:(unsigned long long)replyToId

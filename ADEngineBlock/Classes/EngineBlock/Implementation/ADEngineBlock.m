@@ -1,19 +1,19 @@
 /* */
 
-/*  EngineBlock.m
- *  EngineBlock
+/*  ADEngineBlock.m
+ *  ADEngineBlock
  *
  *  Created by Adam Duke on 1/11/11.
  *  Copyright 2011 None. All rights reserved.
  *
  */
 
-#import "EngineBlock_Private.h"
+#import "ADEngineBlock_Private.h"
 #import "NSString+CaseInsensitiveCompare.h"
 #import "OAConsumer.h"
 #import "OAToken.h"
 
-@implementation EngineBlock
+@implementation ADEngineBlock
 
 #pragma mark -
 #pragma mark pre-defined blocks
@@ -33,7 +33,7 @@
 }
 
 #pragma mark -
-#pragma mark EngineBlock life cycle
+#pragma mark ADEngineBlock life cycle
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret
 {
 	if( IsEmpty(authData) || IsEmpty(key) || IsEmpty(secret) )
