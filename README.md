@@ -1,8 +1,8 @@
 Purpose:
 --------
 
-The hope for EngineBlock is to support the full Twitter API and provide Authorization
-through OAuth. The major difference between EngineBlock and most of the other TwitterEngine
+The hope for ADEngineBlock is to support the full Twitter API and provide Authorization
+through OAuth. The major difference between ADEngineBlock and most of the other TwitterEngine
 solutions that I've come across is that EngineBlock will use Objective-C blocks as the callbacks
 for your Twitter API invocations. This should hopefully solve a lot of threading issues, along with
 making your code less verbose.
@@ -33,3 +33,10 @@ Third party dependencies:
 * [json-framework](https://github.com/stig/json-framework) by [Stig Brautaset](https://github.com/stig)
 * OAuthConsumer by Jon Crosby
 * [Seriously](https://github.com/probablycorey/seriously) by [Corey Johnson](https://github.com/probablycorey)
+
+Credits:
+--------
+ADEngineBlock includes ideas/code from
+
+* [MGTwitterEngine](https://github.com/mattgemmell/MGTwitterEngine) by [Matt Gemmell](https://github.com/mattgemmell)
+* [Twitter-OAuth-iPhone](https://github.com/bengottlieb/Twitter-OAuth-iPhone) by [Ben Gottlieb](https://github.com/bengottlieb)
