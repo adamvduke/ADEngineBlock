@@ -7,6 +7,46 @@ solutions that I've come across is that EngineBlock will use Objective-C blocks 
 for your Twitter API invocations. This should hopefully solve a lot of threading issues, along with
 making your code less verbose.
 
+Usage:
+--------
+
+     ...
+     #import "ADEngineBlock.h"
+     ...
+     // returns a block that takes an NSArray of tweets and/or an NSError
+     // and either updates a tableview, or logs the error
+	- ( void (^)(NSArray *result, NSError *error) )updateTweetsHandler
+	{
+		/* block magic :-) */
+		return [[^(NSArray *result, NSError *error)
+		         {
+					 if(![result isKindOfClass:[NSArray class]])
+					 {
+						 NSLog (@"There was a problem");
+						 NSLog (@"Error: %@", [error description]);
+						 return;
+					 }
+					 self.tweets = [result mutableCopy];
+					 [self.tableView reloadData];
+				 } copy] autorelease];
+	}
+     ...
+     // get the user timeline for user "snakes_nbarrels",
+     // and use the updateTweetsHandler to handle the result
+     - (void)fetchStatuses
+	{
+		[self.engine userTimelineForScreenname:@"snakes_nbarrels"
+		                                userId:0
+		                               sinceId:0
+		                                 maxId:0
+		                                 count:4
+		                                  page:2
+		                              trimUser:NO
+		                            includeRts:NO
+		                       includeEntities:NO
+		                           withHandler:[self updateTweetsHandler]];
+	}
+
 Submodules:
 -----------------
 
