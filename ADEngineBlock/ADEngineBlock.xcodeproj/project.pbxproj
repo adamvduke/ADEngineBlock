@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5617675D135B478700A3440C /* ADSharedMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5617675C135B478700A3440C /* ADSharedMacros.h */; };
-		56486EE8136773E3000C8848 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 56486EE7136773E3000C8848 /* SynthesizeSingleton.h */; };
 		5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */; };
 		5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		567275121305BC7C00ABBAB1 /* ADEngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */; };
 		567275131305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */; };
 		567275141305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */; };
 		567275151305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */; };
+		569DC373136911C200B2DC8C /* ADSharedMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 569DC371136911C200B2DC8C /* ADSharedMacros.h */; };
+		569DC374136911C200B2DC8C /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 569DC372136911C200B2DC8C /* SynthesizeSingleton.h */; };
 		56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */; };
 		56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */; };
 		56AFC22A12DF62D10038CD99 /* libjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AFC22712DF62C90038CD99 /* libjson.a */; };
@@ -98,14 +98,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5617675C135B478700A3440C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/SharedMacros/ADSharedMacros.h; sourceTree = "<group>"; };
-		56486EE7136773E3000C8848 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = External/SharedMacros/SynthesizeSingleton.h; sourceTree = "<group>"; };
 		5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock_Private.h; path = Classes/EngineBlock/Headers/ADEngineBlock_Private.h; sourceTree = "<group>"; };
 		5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock.h; path = Classes/EngineBlock/Headers/ADEngineBlock.h; sourceTree = "<group>"; };
 		5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADEngineBlock.m; path = Classes/EngineBlock/Implementation/ADEngineBlock.m; sourceTree = "<group>"; };
 		5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+RequestHandling.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+RequestHandling.m"; sourceTree = "<group>"; };
 		567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+TimelineResources.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+TimelineResources.m"; sourceTree = "<group>"; };
 		567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+TweetsResources.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+TweetsResources.m"; sourceTree = "<group>"; };
+		569DC371136911C200B2DC8C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/ObjCMacros/ADSharedMacros.h; sourceTree = "<group>"; };
+		569DC372136911C200B2DC8C /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = External/ObjCMacros/SynthesizeSingleton.h; sourceTree = "<group>"; };
 		56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CaseInsensitiveCompare.h"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.h"; sourceTree = "<group>"; };
 		56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CaseInsensitiveCompare.m"; path = "Classes/Categories/NSString+CaseInsensitiveCompare.m"; sourceTree = "<group>"; };
 		56AFC21712DF62C80038CD99 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 		5617675B135B476E00A3440C /* SharedMacros */ = {
 			isa = PBXGroup;
 			children = (
-				5617675C135B478700A3440C /* ADSharedMacros.h */,
-				56486EE7136773E3000C8848 /* SynthesizeSingleton.h */,
+				569DC371136911C200B2DC8C /* ADSharedMacros.h */,
+				569DC372136911C200B2DC8C /* SynthesizeSingleton.h */,
 			);
 			name = SharedMacros;
 			sourceTree = "<group>";
@@ -297,8 +297,8 @@
 				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
 				5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */,
 				5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */,
-				5617675D135B478700A3440C /* ADSharedMacros.h in Headers */,
-				56486EE8136773E3000C8848 /* SynthesizeSingleton.h in Headers */,
+				569DC373136911C200B2DC8C /* ADSharedMacros.h in Headers */,
+				569DC374136911C200B2DC8C /* SynthesizeSingleton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
