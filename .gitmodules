@@ -1,6 +1,3 @@
-[submodule "ADEngineBlock/External/JSON"]
-	path = ADEngineBlock/External/JSON
-	url = git@github.com:adamvduke/json-framework.git
 [submodule "ADEngineBlock/External/Seriously"]
 	path = ADEngineBlock/External/Seriously
 	url = git@github.com:adamvduke/seriously.git
@@ -17,3 +14,9 @@
 [submodule "ADEngineBlockDemo/External/ObjCMacros"]
 	path = ADEngineBlockDemo/External/ObjCMacros
 	url = git@github.com:adamvduke/ObjCMacros.git
+[submodule "ADEngineBlock/External/JSON"]
+	path = ADEngineBlock/External/JSON
+	url = git@github.com:adamvduke/json-framework.git
+[submodule "ADEngineBlock/External/Cedar"]
+	path = ADEngineBlock/External/Cedar
+	url = git@github.com:adamvduke/cedar.git

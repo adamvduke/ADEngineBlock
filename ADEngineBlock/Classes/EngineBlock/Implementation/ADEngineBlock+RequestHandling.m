@@ -11,7 +11,7 @@
 #import "ADEngineBlock_Private.h"
 #import "OAMutableURLRequest.h"
 #import "Seriously.h"
-#import <JSON/JSON.h>
+#import "JSON.h"
 
 #define TWITTER_DOMAIN          @"api.twitter.com"
 #define API_VERSION             @"1"

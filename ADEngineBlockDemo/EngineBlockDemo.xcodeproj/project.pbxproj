@@ -324,10 +324,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EngineBlockDemo_Prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"${PROJECT_DIR}/External/ADOAuthorizeiOS/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
-					"${PROJECT_DIR}/../ADEngineBlock/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include",
-				);
+				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				INFOPLIST_FILE = "EngineBlockDemo-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -344,7 +341,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EngineBlockDemo_Prefix.pch;
-				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include";
+				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				INFOPLIST_FILE = "EngineBlockDemo-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
