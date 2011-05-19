@@ -1,14 +1,14 @@
-/* */
-
-/*  ADEngineBlock+TimelineResources.m
+/*  
+ *  ADEngineBlock+TimelineResources.m
  *  ADEngineBlock
  *
  *  Created by Adam Duke on 2/11/11.
- *  Copyright 2011 None. All rights reserved.
+ *  Copyright 2011 Adam Duke. All rights reserved.
  *
  */
 
 #import "ADEngineBlock_Private.h"
+#import "ADEngineBlock.h"
 
 @implementation ADEngineBlock (TimelineResources)
 
@@ -24,11 +24,9 @@
 				   withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/public_timeline.%@", API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+	NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -42,27 +40,9 @@
 				withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/home_timeline.%@", API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	if(sinceId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
-	}
-	if(maxId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
-	}
-	if(count > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-	}
-	if(page > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+	NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -77,28 +57,9 @@
 				   withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/friends_timeline.%@", API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	if(sinceId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
-	}
-	if(maxId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
-	}
-	if(count > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-	}
-	if(page > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeRts ? 1:0] forKey:@"include_rts"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+	NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -115,32 +76,9 @@
                       withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", name, API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	if(userId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", userId] forKey:@"user_id"];
-	}
-	if(sinceId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
-	}
-	if(maxId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
-	}
-	if(count > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-	}
-	if(page > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeRts ? 1:0] forKey:@"include_rts"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+	NSDictionary *params = [parameterBuilder userId:userId sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -155,28 +93,9 @@
 			withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/mentions.%@", API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	if(sinceId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
-	}
-	if(maxId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
-	}
-	if(count > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-	}
-	if(page > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeRts ? 1:0] forKey:@"include_rts"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -190,27 +109,9 @@
 				 withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/retweeted_by_me.%@", API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	if(sinceId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
-	}
-	if(maxId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
-	}
-	if(count > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-	}
-	if(page > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -224,27 +125,9 @@
 				 withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/retweeted_to_me.%@", API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	if(sinceId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
-	}
-	if(maxId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
-	}
-	if(count > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-	}
-	if(page > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -258,26 +141,8 @@
 				withHandler:(NSArrayResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/retweets_of_me.%@", API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	if(sinceId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", sinceId] forKey:@"since_id"];
-	}
-	if(maxId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", maxId] forKey:@"max_id"];
-	}
-	if(count > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-	}
-	if(page > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 @end

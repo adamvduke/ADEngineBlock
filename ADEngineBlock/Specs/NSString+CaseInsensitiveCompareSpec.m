@@ -1,4 +1,5 @@
-/*  ADEngineBlock_Private.h
+/*  
+ *  CategorySpecs.m
  *  ADEngineBlock
  *
  *  Created by Adam Duke on 5/18/11.
@@ -9,7 +10,7 @@
 #import "SpecHelper.h"
 #import "NSString+CaseInsensitiveCompare.h"
 
-SPEC_BEGIN(CategorySpecs)
+SPEC_BEGIN(CaseInsensitiveCompareSpec)
 describe(@"NSString+CaseInsensitiveCompare", ^{
 	
 	__block NSString *stringUUID = nil;

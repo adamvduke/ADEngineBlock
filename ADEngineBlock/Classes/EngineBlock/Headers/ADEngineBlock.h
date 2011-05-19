@@ -1,17 +1,15 @@
-/* */
-
-/*  ADEngineBlock.h
+/*  
+ *  ADEngineBlock.h
  *  ADEngineBlock
  *
  *  Created by Adam Duke on 1/11/11.
- *  Copyright 2011 None. All rights reserved.
+ *  Copyright 2011 Adam Duke. All rights reserved.
  *
  */
 
 #import <Foundation/Foundation.h>
-
-@class OAToken;
-@class OAConsumer;
+#import "ADEngineBlockRequestBuilder.h"
+#import "ADEngineBlockParameterBuilder.h"
 
 typedef void (^NSArrayResultHandler)(NSArray *result, NSError *error);
 typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
@@ -19,10 +17,8 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 @interface ADEngineBlock : NSObject {
 	
 	NSString *screenname;
-
-@private
-	OAConsumer *consumer;
-	OAToken *accessToken;
+    ADEngineBlockRequestBuilder *requestBuilder;
+    ADEngineBlockParameterBuilder *parameterBuilder;
 }
 
 @property (nonatomic, readonly) NSString *screenname;
@@ -34,7 +30,6 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 - (BOOL)isAuthorizedForScreenname:(NSString *)name;
 
 @end
-
 
 #pragma mark -
 #pragma mark TimelineResources

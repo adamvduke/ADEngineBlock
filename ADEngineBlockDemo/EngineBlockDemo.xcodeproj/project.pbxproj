@@ -35,6 +35,13 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = ADOAuthorizeiOS;
 		};
+		565BDC3C13857B05005B411A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 56792629138383870066138A;
+			remoteInfo = ADEngineBlockSpecs;
+		};
 		56DF6C46136760DC0005D2BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */;
@@ -197,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				56DF6C47136760DC0005D2BA /* libADEngineBlock.a */,
+				565BDC3D13857B05005B411A /* ADEngineBlockSpecs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,6 +272,13 @@
 			fileType = archive.ar;
 			path = libADOAuthorizeiOS.a;
 			remoteRef = 5617678E135B4DF000A3440C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		565BDC3D13857B05005B411A /* ADEngineBlockSpecs.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ADEngineBlockSpecs.app;
+			remoteRef = 565BDC3C13857B05005B411A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		56DF6C47136760DC0005D2BA /* libADEngineBlock.a */ = {

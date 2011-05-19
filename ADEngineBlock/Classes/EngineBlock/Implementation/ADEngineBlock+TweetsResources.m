@@ -1,10 +1,9 @@
-/* */
-
-/*  ADEngineBlock+TweetsResources.m
+/*  
+ *  ADEngineBlock+TweetsResources.m
  *  ADEngineBlock
  *
  *  Created by Adam Duke on 2/11/11.
- *  Copyright 2011 None. All rights reserved.
+ *  Copyright 2011 Adam Duke. All rights reserved.
  *
  */
 
@@ -32,31 +31,11 @@
 	{
 		trimmedText = [trimmedText substringToIndex:MAX_MESSAGE_LENGTH];
 	}
-
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	[params setObject:trimmedText forKey:@"status"];
-	if(replyToId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", replyToId] forKey:@"in_reply_to_status_id"];
-	}
-	if(-90.0f <= latitude <= 90.0f)
-	{
-		[params setObject:[NSString stringWithFormat:@"%f", latitude] forKey:@"lat"];
-	}
-	if(-180.0f <= longitude <= 180.0f)
-	{
-		[params setObject:[NSString stringWithFormat:@"%f", longitude] forKey:@"long"];
-	}
-	if(placeId > 0)
-	{
-		[params setObject:[NSString stringWithFormat:@"%qu", placeId] forKey:@"place_id"];
-	}
-	[params setObject:[NSString stringWithFormat:@"%d", displayCoord ? 1:0] forKey:@"display_coordinates"];
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-
-	NSString *body = [self queryStringWithBase:nil parameters:params prefixed:NO];
-	[self sendRequestWithMethod:@"POST" path:path body:body handler:(GenericResultHandler)handler];
+    
+	NSDictionary *params = [parameterBuilder update:message inReplyTo:replyToId latitude:latitude longitude:longitude placeId:placeId displayCoord:displayCoord trimUser:trimUser includeEntities:includeEntities];
+	NSString *body = [requestBuilder queryStringWithBase:nil parameters:params prefixed:NO];    
+    NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:body params:nil];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -67,11 +46,9 @@
 	   withHandler:(NSDictionaryResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/show/%qu.%@",statusId, API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *fullPath = [self queryStringWithBase:path parameters:params prefixed:YES];
-	[self sendRequestWithMethod:nil path:fullPath body:nil handler:(GenericResultHandler)handler];
+    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -82,10 +59,8 @@
 		  withHandler:(NSDictionaryResultHandler)handler
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/destroy/%qu.%@",statusId, API_FORMAT];
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-	[params setObject:[NSString stringWithFormat:@"%d", trimUser ? 1:0] forKey:@"trim_user"];
-	[params setObject:[NSString stringWithFormat:@"%d", includeEntities ? 1:0] forKey:@"include_entities"];
-	NSString *body = [self queryStringWithBase:nil parameters:params prefixed:NO];
-	[self sendRequestWithMethod:@"POST" path:path body:body handler:(GenericResultHandler)handler];
+    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+	NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:nil params:params];
+	[self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 @end
