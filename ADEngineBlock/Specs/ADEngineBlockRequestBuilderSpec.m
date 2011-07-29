@@ -64,23 +64,27 @@ describe(@"ADEngineBlockRequestBuilder", ^{
             NSDictionary *params = nil;
             NSURLRequest *request = [builder requestWithMethod:nil path:path body:nil params:params];
             
-//            for(NSString *key in [request allHTTPHeaderFields]){
-//                NSLog(@"%@ : %@", key, [request valueForHTTPHeaderField:key]);
-//            }
-//            NSLog(@"%@", [request description]);
+            for(NSString *key in [request allHTTPHeaderFields]){
+                const char *_key = [key cStringUsingEncoding:NSUTF8StringEncoding];
+                const char *_value = [[request valueForHTTPHeaderField:key] cStringUsingEncoding:NSUTF8StringEncoding];
+                printf("\n %s : %s \n", _key, _value);
+                //printf("\n");
+            }
+            //NSLog(@"%@", [request description]);
         });
 
-        it(@"should produce a valid request for updating a status", ^{
-            ADEngineBlockRequestBuilder *builder = [[SpecHelper specHelper].sharedExampleContext objectForKey:@"builder"];
-            NSString *path = @"statuses/update.json";
-            NSDictionary *params = nil;
-            NSURLRequest *request = [builder requestWithMethod:nil path:path body:nil params:params];
-            
+//        it(@"should produce a valid request for updating a status", ^{
+//            ADEngineBlockRequestBuilder *builder = [[SpecHelper specHelper].sharedExampleContext objectForKey:@"builder"];
+//            NSString *path = @"statuses/update.json";
+//            NSDictionary *params = nil;
+//            NSURLRequest *request = [builder requestWithMethod:nil path:path body:nil params:params];
+//            
 //            for(NSString *key in [request allHTTPHeaderFields]){
 //                NSLog(@"%@ : %@", key, [request valueForHTTPHeaderField:key]);
+//                printf("\n");
 //            }
 //            NSLog(@"%@", [request description]);
-        });
+//        });
     });
 });
 SPEC_END

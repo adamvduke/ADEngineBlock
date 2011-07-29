@@ -24,7 +24,7 @@
 		565BDC141384777C005B411A /* ADEngineBlockSpec_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC131384777C005B411A /* ADEngineBlockSpec_Prefix.pch */; };
 		565BDC1613847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC1513847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m */; };
 		565BDC17138484C2005B411A /* ADEngineBlockRequestBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC1513847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m */; };
-		565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; };
+		565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565BDC4E13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; };
 		565BDC5313857D45005B411A /* ADEngineBlockParameterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC5013857D45005B411A /* ADEngineBlockParameterBuilder.m */; };
 		565BDC5413857D45005B411A /* ADEngineBlockParameterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC5013857D45005B411A /* ADEngineBlockParameterBuilder.m */; };
@@ -654,6 +654,7 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* ADEngineBlock_Prefix.pch in Headers */,
 				56C8B91013844E7500A6481F /* ADEngineBlockRequestBuilder.h in Headers */,
+				565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */,
 				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
 				5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */,
 				5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */,
@@ -695,7 +696,6 @@
 				565BDC091384760B005B411A /* SeriouslyConstants.h in Headers */,
 				565BDC0B1384760B005B411A /* SeriouslyOAuthOperation.h in Headers */,
 				565BDC0F1384760B005B411A /* SeriouslyOperation.h in Headers */,
-				565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
