@@ -1,4 +1,4 @@
-/*  
+/*
  *  ADEngineBlock+TimelineResources.m
  *  ADEngineBlock
  *
@@ -7,8 +7,8 @@
  *
  */
 
-#import "ADEngineBlock_Private.h"
 #import "ADEngineBlock.h"
+#import "ADEngineBlock_Private.h"
 
 @implementation ADEngineBlock (TimelineResources)
 
@@ -16,50 +16,50 @@
 #pragma mark statuses/public_timeline
 - (void)publicTimelineWithHandler:(NSArrayResultHandler)handler
 {
-	[self publicTimelineTrimUser:NO includeEntities:YES withHandler:handler];
+    [self publicTimelineTrimUser:NO includeEntities:YES withHandler:handler];
 }
 
 - (void)publicTimelineTrimUser:(BOOL)trimUser
-			   includeEntities:(BOOL)includeEntities
-				   withHandler:(NSArrayResultHandler)handler
+               includeEntities:(BOOL)includeEntities
+                   withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/public_timeline.%@", API_FORMAT];
-	NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+    NSString *path = [NSString stringWithFormat:@"statuses/public_timeline.%@", API_FORMAT];
+    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
     NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
 #pragma mark statuses/home_timeline
 - (void)homeTimelineSinceId:(unsigned long long)sinceId
-					  maxId:(unsigned long long)maxId
-					  count:(int)count
-					   page:(int)page
-				   trimUser:(BOOL)trimUser
-			includeEntities:(BOOL)includeEntities
-				withHandler:(NSArrayResultHandler)handler
+                      maxId:(unsigned long long)maxId
+                      count:(int)count
+                       page:(int)page
+                   trimUser:(BOOL)trimUser
+            includeEntities:(BOOL)includeEntities
+                withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/home_timeline.%@", API_FORMAT];
-	NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    NSString *path = [NSString stringWithFormat:@"statuses/home_timeline.%@", API_FORMAT];
+    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
 #pragma mark statuses/friends_timeline
 - (void)friendsTimelineSinceId:(unsigned long long)sinceId
-						 maxId:(unsigned long long)maxId
-						 count:(int)count
-						  page:(int)page
-					  trimUser:(BOOL)trimUser
-					includeRts:(BOOL)includeRts
-			   includeEntities:(BOOL)includeEntities
-				   withHandler:(NSArrayResultHandler)handler
+                         maxId:(unsigned long long)maxId
+                         count:(int)count
+                          page:(int)page
+                      trimUser:(BOOL)trimUser
+                    includeRts:(BOOL)includeRts
+               includeEntities:(BOOL)includeEntities
+                   withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/friends_timeline.%@", API_FORMAT];
-	NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
-	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    NSString *path = [NSString stringWithFormat:@"statuses/friends_timeline.%@", API_FORMAT];
+    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
@@ -75,74 +75,75 @@
                   includeEntities:(BOOL)includeEntities
                       withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", name, API_FORMAT];
-	NSDictionary *params = [parameterBuilder userId:userId sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
-	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    NSString *path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", name, API_FORMAT];
+    NSDictionary *params = [parameterBuilder userId:userId sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
 #pragma mark statuses/mentions
 - (void)mentionsSinceId:(unsigned long long)sinceId
-				  maxId:(unsigned long long)maxId
-				  count:(int)count
-				   page:(int)page
-			   trimUser:(BOOL)trimUser
-			 includeRts:(BOOL)includeRts
-		includeEntities:(BOOL)includeEntities
-			withHandler:(NSArrayResultHandler)handler
+                  maxId:(unsigned long long)maxId
+                  count:(int)count
+                   page:(int)page
+               trimUser:(BOOL)trimUser
+             includeRts:(BOOL)includeRts
+        includeEntities:(BOOL)includeEntities
+            withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/mentions.%@", API_FORMAT];
+    NSString *path = [NSString stringWithFormat:@"statuses/mentions.%@", API_FORMAT];
     NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
-	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
 #pragma mark statuses/retweeted_by_me
 - (void)retweetedByMeSinceId:(unsigned long long)sinceId
-					   maxId:(unsigned long long)maxId
-					   count:(int)count
-						page:(int)page
-					trimUser:(BOOL)trimUser
-			 includeEntities:(BOOL)includeEntities
-				 withHandler:(NSArrayResultHandler)handler
+                       maxId:(unsigned long long)maxId
+                       count:(int)count
+                        page:(int)page
+                    trimUser:(BOOL)trimUser
+             includeEntities:(BOOL)includeEntities
+                 withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/retweeted_by_me.%@", API_FORMAT];
+    NSString *path = [NSString stringWithFormat:@"statuses/retweeted_by_me.%@", API_FORMAT];
     NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
 #pragma mark statuses/retweeted_to_me
 - (void)retweetedToMeSinceId:(unsigned long long)sinceId
-					   maxId:(unsigned long long)maxId
-					   count:(int)count
-						page:(int)page
-					trimUser:(BOOL)trimUser
-			 includeEntities:(BOOL)includeEntities
-				 withHandler:(NSArrayResultHandler)handler
+                       maxId:(unsigned long long)maxId
+                       count:(int)count
+                        page:(int)page
+                    trimUser:(BOOL)trimUser
+             includeEntities:(BOOL)includeEntities
+                 withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/retweeted_to_me.%@", API_FORMAT];
+    NSString *path = [NSString stringWithFormat:@"statuses/retweeted_to_me.%@", API_FORMAT];
     NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
 #pragma mark -
 #pragma mark statuses/retweets_of_me
 - (void)retweetsOfMeSinceId:(unsigned long long)sinceId
-					  maxId:(unsigned long long)maxId
-					  count:(int)count
-					   page:(int)page
-				   trimUser:(BOOL)trimUser
-			includeEntities:(BOOL)includeEntities
-				withHandler:(NSArrayResultHandler)handler
+                      maxId:(unsigned long long)maxId
+                      count:(int)count
+                       page:(int)page
+                   trimUser:(BOOL)trimUser
+            includeEntities:(BOOL)includeEntities
+                withHandler:(NSArrayResultHandler)handler
 {
-	NSString *path = [NSString stringWithFormat:@"statuses/retweets_of_me.%@", API_FORMAT];
+    NSString *path = [NSString stringWithFormat:@"statuses/retweets_of_me.%@", API_FORMAT];
     NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-	NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-	[self sendRequest:request withHandler:(GenericResultHandler)handler];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
+
 @end

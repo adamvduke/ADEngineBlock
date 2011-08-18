@@ -1,4 +1,4 @@
-/*  
+/*
  *  ADEngineBlock.m
  *  ADEngineBlock
  *
@@ -18,16 +18,17 @@
 #pragma mark ADEngineBlock life cycle
 - (id)initWithAuthData:(NSString *)authData consumerKey:(NSString *)key consumerSecret:(NSString *)secret
 {
-	self = [super init];
-	if(self)
-	{
-		requestBuilder = [[ADEngineBlockRequestBuilder alloc] initWithAuthData:authData consumerKey:key consumerSecret:secret];
-        parameterBuilder = [[ADEngineBlockParameterBuilder alloc]init];
-	}
-	return self;
+    self = [super init];
+    if(self)
+    {
+        requestBuilder = [[ADEngineBlockRequestBuilder alloc] initWithAuthData:authData consumerKey:key consumerSecret:secret];
+        parameterBuilder = [[ADEngineBlockParameterBuilder alloc] init];
+    }
+    return self;
 }
 
--(NSString *)screenname{
+- (NSString *)screenname
+{
     return requestBuilder.screenname;
 }
 
@@ -35,12 +36,12 @@
 {
     TT_RELEASE_SAFELY(requestBuilder);
     TT_RELEASE_SAFELY(parameterBuilder);
-	[super dealloc];
+    [super dealloc];
 }
 
 - (BOOL)isAuthorizedForScreenname:(NSString *)name
 {
-	return [requestBuilder isAuthorizedForScreenname:name];
+    return [requestBuilder isAuthorizedForScreenname:name];
 }
 
 @end

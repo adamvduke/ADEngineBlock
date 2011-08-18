@@ -1,4 +1,4 @@
-/*  
+/*
  *  ADEngineBlock+RequestHandling.m
  *  ADEngineBlock
  *
@@ -7,11 +7,11 @@
  *
  */
 
-#import "ADEngineBlock_Private.h"
 #import "ADEngineBlock.h"
+#import "ADEngineBlock_Private.h"
+#import "JSON.h"
 #import "OAMutableURLRequest.h"
 #import "Seriously.h"
-#import "JSON.h"
 
 @implementation ADEngineBlock (RequestHandling)
 
@@ -19,22 +19,22 @@
 #pragma mark pre-defined blocks
 - ( void (^)(id data, NSHTTPURLResponse *response, NSError *error) )jsonHandlerWithEngineHandler:(GenericResultHandler)handler;
 {
-	return [[^(id data, NSHTTPURLResponse *response, NSError *error)
-	         {
-				 if(error)
-				 {
-					 handler (nil, error);
-					 return;
-				 }
-				 NSString *jsonString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-				 id jsonValue = [jsonString JSONValue];
-				 handler (jsonValue, nil);
-			 } copy] autorelease];
+    return [[^(id data, NSHTTPURLResponse *response, NSError *error)
+             {
+                 if(error)
+                 {
+                     handler (nil, error);
+                     return;
+                 }
+                 NSString *jsonString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+                 id jsonValue = [jsonString JSONValue];
+                 handler (jsonValue, nil);
+             } copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Send Request
-- (void)sendRequest:(NSURLRequest*)request withHandler:(GenericResultHandler)handler
+- (void)sendRequest:(NSURLRequest *)request withHandler:(GenericResultHandler)handler
 {
     [Seriously oauthRequest:request options:nil handler:[self jsonHandlerWithEngineHandler:handler]];
 }

@@ -1,4 +1,4 @@
-/*  
+/*
  *  NSString+CaseInsensitive.m
  *  ADEngineBlock
  *
@@ -13,7 +13,7 @@
 
 - (BOOL)isEqualIgnoreCase:(NSString *)string
 {
-	return ([self caseInsensitiveCompare:string] == NSOrderedSame);
+    return ([self caseInsensitiveCompare:string] == NSOrderedSame);
 }
 
 @end

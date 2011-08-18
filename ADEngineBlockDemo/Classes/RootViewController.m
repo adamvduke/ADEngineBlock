@@ -42,31 +42,31 @@
 #pragma mark pre-defined blocks
 - ( void (^)(NSArray *result, NSError *error) )updateTweetsHandler
 {
-	/* block magic :-) */
-	return [[^(NSArray *result, NSError *error)
-	         {
-				 if(![result isKindOfClass:[NSArray class]])
-				 {
-					 NSLog (@"There was a problem");
-					 return;
-				 }
-				 self.tweets = [result mutableCopy];
-				 [self.tableView reloadData];
-			 } copy] autorelease];
+    /* block magic :-) */
+    return [[^(NSArray *result, NSError *error)
+             {
+                 if(![result isKindOfClass:[NSArray class]])
+                 {
+                     NSLog (@"There was a problem");
+                     return;
+                 }
+                 self.tweets = [result mutableCopy];
+                 [self.tableView reloadData];
+             } copy] autorelease];
 }
 
 - ( void (^)(NSDictionary *result, NSError *error) )postStatusHandler
 {
-	return [[^(NSDictionary *result, NSError *error)
-	         {
-				 if(![result isKindOfClass:[NSDictionary class]])
-				 {
-					 NSLog (@"There was a problem");
-					 NSLog (@"%@", [result description]);
-					 return;
-				 }
-				 NSLog (@"%@", [result description]);
-			 } copy] autorelease];
+    return [[^(NSDictionary *result, NSError *error)
+             {
+                 if(![result isKindOfClass:[NSDictionary class]])
+                 {
+                     NSLog (@"There was a problem");
+                     NSLog (@"%@", [result description]);
+                     return;
+                 }
+                 NSLog (@"%@", [result description]);
+             } copy] autorelease];
 }
 
 #pragma mark -
@@ -74,33 +74,33 @@
 
 - (void)postStatus
 {
-	NSString *date = [[NSDate date] description];
-	NSString *message = [NSString stringWithFormat:@"@AdamCodez Posting at: %@", date];
-	[self.engine sendUpdate:message
-	              inReplyTo:29386843145375744UL
-	               latitude:-31.936831f
-	              longitude:115.755413f
-	                placeId:0
-	           displayCoord:YES
-	               trimUser:NO
-	        includeEntities:YES
-	            withHandler:[self postStatusHandler]];
+    NSString *date = [[NSDate date] description];
+    NSString *message = [NSString stringWithFormat:@"@AdamCodez Posting at: %@", date];
+    [self.engine sendUpdate:message
+                  inReplyTo:29386843145375744UL
+                   latitude:-31.936831f
+                  longitude:115.755413f
+                    placeId:0
+               displayCoord:YES
+                   trimUser:NO
+            includeEntities:YES
+                withHandler:[self postStatusHandler]];
 }
 
 - (void)fetchStatuses
 {
-	[self.tweets removeAllObjects];
-	[self.tableView reloadData];
-	[self.engine userTimelineForScreenname:@"snakes_nbarrels"
-	                                userId:0
-	                               sinceId:0
-	                                 maxId:0
-	                                 count:4
-	                                  page:2
-	                              trimUser:NO
-	                            includeRts:NO
-	                       includeEntities:NO
-	                           withHandler:[self updateTweetsHandler]];
+    [self.tweets removeAllObjects];
+    [self.tableView reloadData];
+    [self.engine userTimelineForScreenname:@"snakes_nbarrels"
+                                    userId:0
+                                   sinceId:0
+                                     maxId:0
+                                     count:4
+                                      page:2
+                                  trimUser:NO
+                                includeRts:NO
+                           includeEntities:NO
+                               withHandler:[self updateTweetsHandler]];
 }
 
 #pragma mark -
@@ -108,77 +108,77 @@
 
 - (void)dealloc
 {
-	[engine release];
-	[screenname release];
-	[tweets release];
-	[leftBarButton release];
-	[rightBarButton release];
-	[super dealloc];
+    [engine release];
+    [screenname release];
+    [tweets release];
+    [leftBarButton release];
+    [rightBarButton release];
+    [super dealloc];
 }
 
 - (void)loadView
 {
-	self.leftBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"POST"
-	                                                       style:UIBarButtonItemStylePlain
-	                                                      target:self
-	                                                      action:@selector(postStatus)] autorelease];
+    self.leftBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"POST"
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self
+                                                          action:@selector(postStatus)] autorelease];
 
-	self.rightBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"GET"
-	                                                        style:UIBarButtonItemStylePlain
-	                                                       target:self
-	                                                       action:@selector(fetchStatuses)] autorelease];
-	self.navigationItem.leftBarButtonItem = leftBarButton;
-	self.navigationItem.rightBarButtonItem = rightBarButton;
-	[super loadView];
+    self.rightBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"GET"
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(fetchStatuses)] autorelease];
+    self.navigationItem.leftBarButtonItem = leftBarButton;
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+    [super loadView];
 }
 
 - (void)viewDidLoad
 {
-	self.screenname = @"ADEngineBlock";
-	self.engine = [self engineForScreenname:self.screenname];
+    self.screenname = @"ADEngineBlock";
+    self.engine = [self engineForScreenname:self.screenname];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-	[super viewDidAppear:animated];
-	if(![self.engine isAuthorizedForScreenname:self.screenname])
-	{
-		ADOAuthOOBViewController *controller = [[[ADOAuthOOBViewController alloc] initWithConsumerKey:kConsumerKey
-		                                                                             consumerSecret:kConsumerSecret
-		                                                                      requestTokenURLString:kRequestTokenURLString
-		                                                                       accessTokenURLString:kAccessTokenURLString
-		                                                                         authorizeURLString:kAuthorizeURLString
-		                                                                                   delegate:self] autorelease];
-		[self presentModalViewController:controller animated:YES];
-		return;
-	}
+    [super viewDidAppear:animated];
+    if(![self.engine isAuthorizedForScreenname:self.screenname])
+    {
+        ADOAuthOOBViewController *controller = [[[ADOAuthOOBViewController alloc] initWithConsumerKey:kConsumerKey
+                                                                                       consumerSecret:kConsumerSecret
+                                                                                requestTokenURLString:kRequestTokenURLString
+                                                                                 accessTokenURLString:kAccessTokenURLString
+                                                                                   authorizeURLString:kAuthorizeURLString
+                                                                                             delegate:self] autorelease];
+        [self presentModalViewController:controller animated:YES];
+        return;
+    }
 }
 
 - (ADEngineBlock *)engineForScreenname:(NSString *)name
 {
-	NSString *authData = [self retrieveOAuthDataForScreenname:name];
-	if( !IsEmpty(authData) )
-	{
-		return [[[ADEngineBlock alloc] initWithAuthData:authData
-		                                  consumerKey:kConsumerKey
-		                               consumerSecret:kConsumerSecret] autorelease];
-	}
-	return nil;
+    NSString *authData = [self retrieveOAuthDataForScreenname:name];
+    if( !IsEmpty(authData) )
+    {
+        return [[[ADEngineBlock alloc] initWithAuthData:authData
+                                            consumerKey:kConsumerKey
+                                         consumerSecret:kConsumerSecret] autorelease];
+    }
+    return nil;
 }
 
 - (void)authCompletedWithData:(NSString *)authData orError:(NSError *)error
 {
-	if(error)
-	{
-		NSLog(@"Something went horribly wrong!");
-		return;
-	}
-	self.engine = [[[ADEngineBlock alloc] initWithAuthData:authData
-	                                         consumerKey:kConsumerKey
-	                                      consumerSecret:kConsumerSecret] autorelease];
-	self.screenname = engine.screenname;
-	[self saveOAuthData:authData forScreenname:engine.screenname];
-	[self dismissModalViewControllerAnimated:YES];
+    if(error)
+    {
+        NSLog(@"Something went horribly wrong!");
+        return;
+    }
+    self.engine = [[[ADEngineBlock alloc] initWithAuthData:authData
+                                               consumerKey:kConsumerKey
+                                            consumerSecret:kConsumerSecret] autorelease];
+    self.screenname = engine.screenname;
+    [self saveOAuthData:authData forScreenname:engine.screenname];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -187,55 +187,55 @@
 /* Customize the number of sections in the table view. */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 1;
+    return 1;
 }
 
 /* Customize the number of rows in the table view. */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return self.tweets == nil ? 0 : [self.tweets count];
+    return self.tweets == nil ? 0 : [self.tweets count];
 }
 
 /* Customize the appearance of table view cells. */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Cell";
 
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if(cell == nil)
-	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		cell.textLabel.numberOfLines = 0;
-		cell.textLabel.font = [UIFont systemFontOfSize:14];
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	}
-	NSString *text = [self textForTweetAtIndexPath:indexPath];
-	cell.textLabel.text = text;
-	return cell;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell == nil)
+    {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    NSString *text = [self textForTweetAtIndexPath:indexPath];
+    cell.textLabel.text = text;
+    return cell;
 }
 
 /* Return the custom height of the cell based on the content that will be displayed */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSString *text = [self textForTweetAtIndexPath:indexPath];
-	UIFont *font = [UIFont systemFontOfSize:14 ];
-	CGSize withinSize = CGSizeMake( 350, 150);
-	CGSize size = [text sizeWithFont:font constrainedToSize:withinSize lineBreakMode:UILineBreakModeWordWrap];
-	CGFloat textHeight = size.height + 35;
-	return textHeight;
+    NSString *text = [self textForTweetAtIndexPath:indexPath];
+    UIFont *font = [UIFont systemFontOfSize:14 ];
+    CGSize withinSize = CGSizeMake( 350, 150);
+    CGSize size = [text sizeWithFont:font constrainedToSize:withinSize lineBreakMode:UILineBreakModeWordWrap];
+    CGFloat textHeight = size.height + 35;
+    return textHeight;
 }
 
 - (NSDictionary *)tweetForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
-	return tweet;
+    NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
+    return tweet;
 }
 
 - (NSString *)textForTweetAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSDictionary *tweet = [self tweetForRowAtIndexPath:indexPath];
-	NSString *text = [tweet objectForKey:@"text"];
-	return text;
+    NSDictionary *tweet = [self tweetForRowAtIndexPath:indexPath];
+    NSString *text = [tweet objectForKey:@"text"];
+    return text;
 }
 
 #pragma mark -
@@ -243,17 +243,17 @@
 
 - (void)didReceiveMemoryWarning
 {
-	/* Releases the view if it doesn't have a superview. */
-	[super didReceiveMemoryWarning];
+    /* Releases the view if it doesn't have a superview. */
+    [super didReceiveMemoryWarning];
 
-	/* Relinquish ownership any cached data, images, etc that aren't in use. */
+    /* Relinquish ownership any cached data, images, etc that aren't in use. */
 }
 
 - (void)viewDidUnload
 {
-	/* Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-	 * For example: self.myOutlet = nil;
-	 */
+    /* Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+     * For example: self.myOutlet = nil;
+     */
 }
 
 #pragma mark -
@@ -261,30 +261,30 @@
 
 - (NSString *)authDataKeyForScreenname:(NSString *)name
 {
-	NSString *key = [NSString stringWithFormat:@"%@:%@", kAuthDataKeyPrefix, name];
-	key = [key lowercaseString];
-	return key;
+    NSString *key = [NSString stringWithFormat:@"%@:%@", kAuthDataKeyPrefix, name];
+    key = [key lowercaseString];
+    return key;
 }
 
 - (void)saveOAuthData:(NSString *)oauthData forScreenname:(NSString *)name
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:oauthData forKey:[self authDataKeyForScreenname:name]];
-	[defaults synchronize];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:oauthData forKey:[self authDataKeyForScreenname:name]];
+    [defaults synchronize];
 }
 
 - (void)removeOAuthDataForScreenname:(NSString *)name
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults removeObjectForKey:[self authDataKeyForScreenname:name]];
-	[defaults synchronize];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:[self authDataKeyForScreenname:name]];
+    [defaults synchronize];
 }
 
 - (NSString *)retrieveOAuthDataForScreenname:(NSString *)name
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *authData = [defaults objectForKey:[self authDataKeyForScreenname:name]];
-	return authData;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *authData = [defaults objectForKey:[self authDataKeyForScreenname:name]];
+    return authData;
 }
 
 @end
