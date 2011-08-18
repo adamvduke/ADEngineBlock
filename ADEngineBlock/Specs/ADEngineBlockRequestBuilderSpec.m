@@ -63,28 +63,33 @@ describe(@"ADEngineBlockRequestBuilder", ^{
             NSString *path = @"statuses/public_timeline.json";
             NSDictionary *params = nil;
             NSURLRequest *request = [builder requestWithMethod:nil path:path body:nil params:params];
+
+            NSString *requestString = [[request URL] description];
+            NSAssert([requestString isEqual:@"https://api.twitter.com/1/statuses/public_timeline.json"], @"ADEngineBlockRequestBuilder built the incorrect url for the request");
             
-            for(NSString *key in [request allHTTPHeaderFields]){
-                const char *_key = [key cStringUsingEncoding:NSUTF8StringEncoding];
-                const char *_value = [[request valueForHTTPHeaderField:key] cStringUsingEncoding:NSUTF8StringEncoding];
-                printf("\n %s : %s \n", _key, _value);
-                //printf("\n");
-            }
-            //NSLog(@"%@", [request description]);
+            NSString *clientVersion = [request valueForHTTPHeaderField:@"X-Twitter-Client-Version"];
+            NSAssert([clientVersion isEqual:@"0.2"], @"ADEngineBlockRequestBuilder built the request with the wrong client version");
+            
+            NSString *clientName = [request valueForHTTPHeaderField:@"X-Twitter-Client"];
+            NSAssert([clientName isEqual:@"ADEngineBlock"], @"ADEngineBlockRequestBuilder built the request with the wrong client name");
+            
+            NSString *clientURL = [request valueForHTTPHeaderField:@"X-Twitter-Client-Url"];
+            NSAssert([clientURL isEqual:@"http://github.com/adamvduke"], @"ADEngineBlockRequestBuilder built the request with the wrong client url");
+            
+            //Authorization : OAuth realm="", oauth_consumer_key="key", oauth_signature_method="HMAC-SHA1", oauth_signature="YKJZynEgtcRMhO3OKemkoC4e5sA%3D", oauth_timestamp="1313584689", oauth_nonce="C0BF3104-C5DD-4916-9303-628767485375", oauth_version="1.0"
+            NSString *authHeader = [[[request valueForHTTPHeaderField:@"Authorization"] substringFromIndex:5]stringByReplacingOccurrencesOfString:@" " withString:@""];
+            NSArray *parts = [authHeader componentsSeparatedByString:@","];
+            NSAssert([parts count] == 7, @"The Authorization header does not have the correct number of elements");
+            
+            NSAssert([[parts objectAtIndex:0] hasPrefix:@"realm="], @"The authorization header is busted");
+            NSAssert([[parts objectAtIndex:1] hasPrefix:@"oauth_consumer_key="], @"The authorization header is busted");
+            NSAssert([[parts objectAtIndex:2] hasPrefix:@"oauth_signature_method="], @"The authorization header is busted");
+            NSAssert([[parts objectAtIndex:3] hasPrefix:@"oauth_signature="], @"The authorization header is busted");
+            NSAssert([[parts objectAtIndex:4] hasPrefix:@"oauth_timestamp="], @"The authorization header is busted");
+            NSAssert([[parts objectAtIndex:5] hasPrefix:@"oauth_nonce="], @"The authorization header is busted");
+            NSAssert([[parts objectAtIndex:6] hasPrefix:@"oauth_version="], @"The authorization header is busted");
         });
 
-//        it(@"should produce a valid request for updating a status", ^{
-//            ADEngineBlockRequestBuilder *builder = [[SpecHelper specHelper].sharedExampleContext objectForKey:@"builder"];
-//            NSString *path = @"statuses/update.json";
-//            NSDictionary *params = nil;
-//            NSURLRequest *request = [builder requestWithMethod:nil path:path body:nil params:params];
-//            
-//            for(NSString *key in [request allHTTPHeaderFields]){
-//                NSLog(@"%@ : %@", key, [request valueForHTTPHeaderField:key]);
-//                printf("\n");
-//            }
-//            NSLog(@"%@", [request description]);
-//        });
     });
 });
 SPEC_END
