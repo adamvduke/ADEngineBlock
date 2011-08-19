@@ -22,7 +22,6 @@
 		565BDC111384760B005B411A /* SeriouslyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC041384760B005B411A /* SeriouslyOperation.m */; };
 		565BDC121384760B005B411A /* SeriouslyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC041384760B005B411A /* SeriouslyOperation.m */; };
 		565BDC141384777C005B411A /* ADEngineBlockSpec_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC131384777C005B411A /* ADEngineBlockSpec_Prefix.pch */; };
-		565BDC1613847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC1513847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m */; };
 		565BDC17138484C2005B411A /* ADEngineBlockRequestBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC1513847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m */; };
 		565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565BDC4E13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; };
@@ -663,7 +662,6 @@
 				565BDC0A1384760B005B411A /* SeriouslyConstants.h in Headers */,
 				565BDC0C1384760B005B411A /* SeriouslyOAuthOperation.h in Headers */,
 				565BDC101384760B005B411A /* SeriouslyOperation.h in Headers */,
-				565BDC1613847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m in Headers */,
 				565BDC4E13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */,
 				567F37BB13FC9C8800ED4E53 /* NSObject+SBJson.h in Headers */,
 				567F37BF13FC9C8800ED4E53 /* SBJson.h in Headers */,
