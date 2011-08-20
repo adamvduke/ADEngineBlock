@@ -1,4 +1,3 @@
-/* */
 
 /*  RootViewController.m
  *  EngineBlockDemo
