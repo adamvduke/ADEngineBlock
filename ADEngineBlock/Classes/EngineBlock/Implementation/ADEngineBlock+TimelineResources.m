@@ -114,6 +114,11 @@
 
 #pragma mark -
 #pragma mark statuses/retweeted_to_me
+- (void)retweetedToMeWithHandler:(NSArrayResultHandler)handler
+{
+    [self retweetedToMeSinceId:0 maxId:0 count:0 page:0 trimUser:NO includeEntities:YES withHandler:handler];
+}
+
 - (void)retweetedToMeSinceId:(unsigned long long)sinceId
                        maxId:(unsigned long long)maxId
                        count:(int)count
@@ -130,6 +135,11 @@
 
 #pragma mark -
 #pragma mark statuses/retweets_of_me
+- (void)retweetsOfMeWithHandler:(NSArrayResultHandler)handler
+{
+    [self retweetsOfMeSinceId:0 maxId:0 count:0 page:0 trimUser:NO includeEntities:YES withHandler:handler];
+}
+
 - (void)retweetsOfMeSinceId:(unsigned long long)sinceId
                       maxId:(unsigned long long)maxId
                       count:(int)count
