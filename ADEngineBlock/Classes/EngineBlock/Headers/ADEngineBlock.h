@@ -45,6 +45,8 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
 #pragma mark -
 #pragma mark statuses/home_timeline
+- (void)homeTimelineWithHandler:(NSArrayResultHandler)handler;
+
 - (void)homeTimelineSinceId:(unsigned long long)sinceId
 						 maxId:(unsigned long long)maxId
 						 count:(int)count

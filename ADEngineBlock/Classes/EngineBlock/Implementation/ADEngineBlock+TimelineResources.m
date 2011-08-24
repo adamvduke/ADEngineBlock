@@ -31,6 +31,11 @@
 
 #pragma mark -
 #pragma mark statuses/home_timeline
+- (void)homeTimelineWithHandler:(NSArrayResultHandler)handler
+{
+    [self homeTimelineSinceId:0 maxId:0 count:0 page:0 trimUser:NO includeEntities:YES withHandler:handler];
+}
+
 - (void)homeTimelineSinceId:(unsigned long long)sinceId
                       maxId:(unsigned long long)maxId
                       count:(int)count
