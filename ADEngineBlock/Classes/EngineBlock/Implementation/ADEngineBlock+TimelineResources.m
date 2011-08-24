@@ -93,6 +93,11 @@
 
 #pragma mark -
 #pragma mark statuses/retweeted_by_me
+- (void)retweetedByMeWithHandler:(NSArrayResultHandler)handler
+{
+    [self retweetedByMeSinceId:0 maxId:0 count:0 page:0 trimUser:NO includeEntities:YES withHandler:handler];
+}
+
 - (void)retweetedByMeSinceId:(unsigned long long)sinceId
                        maxId:(unsigned long long)maxId
                        count:(int)count

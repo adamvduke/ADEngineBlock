@@ -83,6 +83,8 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
 #pragma mark -
 #pragma mark statuses/retweeted_by_me
+- (void)retweetedByMeWithHandler:(NSArrayResultHandler)handler;
+
 - (void)retweetedByMeSinceId:(unsigned long long)sinceId
 					   maxId:(unsigned long long)maxId
 					   count:(int)count
