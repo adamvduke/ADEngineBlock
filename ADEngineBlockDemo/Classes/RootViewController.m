@@ -49,7 +49,7 @@
                      NSLog (@"There was a problem");
                      return;
                  }
-                 self.tweets = [result mutableCopy];
+                 self.tweets = [[result mutableCopy] autorelease];
                  [self.tableView reloadData];
              } copy] autorelease];
 }
