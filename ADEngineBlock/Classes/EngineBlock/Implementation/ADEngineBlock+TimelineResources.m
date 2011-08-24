@@ -73,23 +73,6 @@
 }
 
 #pragma mark -
-#pragma mark statuses/friends_timeline
-- (void)friendsTimelineSinceId:(unsigned long long)sinceId
-                         maxId:(unsigned long long)maxId
-                         count:(int)count
-                          page:(int)page
-                      trimUser:(BOOL)trimUser
-                    includeRts:(BOOL)includeRts
-               includeEntities:(BOOL)includeEntities
-                   withHandler:(NSArrayResultHandler)handler
-{
-    NSString *path = [NSString stringWithFormat:@"statuses/friends_timeline.%@", API_FORMAT];
-    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-    [self sendRequest:request withHandler:(GenericResultHandler)handler];
-}
-
-#pragma mark -
 #pragma mark statuses/user_timeline
 - (void)userTimelineForScreenname:(NSString *)name
                            userId:(unsigned long long)userId

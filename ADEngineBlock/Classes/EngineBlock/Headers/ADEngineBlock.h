@@ -69,17 +69,6 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 				   withHandler:(NSArrayResultHandler)handler;
 
 #pragma mark -
-#pragma mark statuses/friends_timeline
-- (void)friendsTimelineSinceId:(unsigned long long)sinceId
-						 maxId:(unsigned long long)maxId
-						 count:(int)count
-						  page:(int)page
-					  trimUser:(BOOL)trimUser
-					includeRts:(BOOL)includeRts
-			   includeEntities:(BOOL)includeEntities
-				   withHandler:(NSArrayResultHandler)handler;
-
-#pragma mark -
 #pragma mark statuses/user_timeline
 - (void)userTimelineForScreenname:(NSString *)name
 						   userId:(unsigned long long)userId
