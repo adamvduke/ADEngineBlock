@@ -36,22 +36,35 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 @interface ADEngineBlock (TimelineResources)
 
 #pragma mark -
-#pragma mark statuses/public_timeline
-- (void)publicTimelineWithHandler:(NSArrayResultHandler)handler;
-
-- (void)publicTimelineTrimUser:(BOOL)trimUser
-			   includeEntities:(BOOL)includeEntities
-				   withHandler:(NSArrayResultHandler)handler;
-
-#pragma mark -
 #pragma mark statuses/home_timeline
 - (void)homeTimelineWithHandler:(NSArrayResultHandler)handler;
 
 - (void)homeTimelineSinceId:(unsigned long long)sinceId
-						 maxId:(unsigned long long)maxId
-						 count:(int)count
-						  page:(int)page
-					  trimUser:(BOOL)trimUser
+                      maxId:(unsigned long long)maxId
+                      count:(int)count
+                       page:(int)page
+                   trimUser:(BOOL)trimUser
+            includeEntities:(BOOL)includeEntities
+                withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/mentions
+- (void)mentionsWithHandler:(NSArrayResultHandler)handler;
+
+- (void)mentionsSinceId:(unsigned long long)sinceId
+				  maxId:(unsigned long long)maxId
+				  count:(int)count
+				   page:(int)page
+			   trimUser:(BOOL)trimUser
+			 includeRts:(BOOL)includeRts
+		includeEntities:(BOOL)includeEntities
+			withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/public_timeline
+- (void)publicTimelineWithHandler:(NSArrayResultHandler)handler;
+
+- (void)publicTimelineTrimUser:(BOOL)trimUser
 			   includeEntities:(BOOL)includeEntities
 				   withHandler:(NSArrayResultHandler)handler;
 
@@ -78,17 +91,6 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 					   includeRts:(BOOL)includeRts
 				  includeEntities:(BOOL)includeEntities
 					  withHandler:(NSArrayResultHandler)handler;
-
-#pragma mark -
-#pragma mark statuses/mentions
-- (void)mentionsSinceId:(unsigned long long)sinceId
-				  maxId:(unsigned long long)maxId
-				  count:(int)count
-				   page:(int)page
-			   trimUser:(BOOL)trimUser
-			 includeRts:(BOOL)includeRts
-		includeEntities:(BOOL)includeEntities
-			withHandler:(NSArrayResultHandler)handler;
 
 #pragma mark -
 #pragma mark statuses/retweeted_by_me

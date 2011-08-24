@@ -13,23 +13,6 @@
 @implementation ADEngineBlock (TimelineResources)
 
 #pragma mark -
-#pragma mark statuses/public_timeline
-- (void)publicTimelineWithHandler:(NSArrayResultHandler)handler
-{
-    [self publicTimelineTrimUser:NO includeEntities:YES withHandler:handler];
-}
-
-- (void)publicTimelineTrimUser:(BOOL)trimUser
-               includeEntities:(BOOL)includeEntities
-                   withHandler:(NSArrayResultHandler)handler
-{
-    NSString *path = [NSString stringWithFormat:@"statuses/public_timeline.%@", API_FORMAT];
-    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-    [self sendRequest:request withHandler:(GenericResultHandler)handler];
-}
-
-#pragma mark -
 #pragma mark statuses/home_timeline
 - (void)homeTimelineWithHandler:(NSArrayResultHandler)handler
 {
@@ -46,6 +29,45 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/home_timeline.%@", API_FORMAT];
     NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+}
+
+#pragma mark -
+#pragma mark statuses/mentions
+- (void)mentionsWithHandler:(NSArrayResultHandler)handler
+{
+    [self mentionsSinceId:0 maxId:0 count:0 page:0 trimUser:NO includeRts:YES includeEntities:YES withHandler:handler];
+}
+
+- (void)mentionsSinceId:(unsigned long long)sinceId
+                  maxId:(unsigned long long)maxId
+                  count:(int)count
+                   page:(int)page
+               trimUser:(BOOL)trimUser
+             includeRts:(BOOL)includeRts
+        includeEntities:(BOOL)includeEntities
+            withHandler:(NSArrayResultHandler)handler
+{
+    NSString *path = [NSString stringWithFormat:@"statuses/mentions.%@", API_FORMAT];
+    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+}
+
+#pragma mark -
+#pragma mark statuses/public_timeline
+- (void)publicTimelineWithHandler:(NSArrayResultHandler)handler
+{
+    [self publicTimelineTrimUser:NO includeEntities:YES withHandler:handler];
+}
+
+- (void)publicTimelineTrimUser:(BOOL)trimUser
+               includeEntities:(BOOL)includeEntities
+                   withHandler:(NSArrayResultHandler)handler
+{
+    NSString *path = [NSString stringWithFormat:@"statuses/public_timeline.%@", API_FORMAT];
+    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
     NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
@@ -82,23 +104,6 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", name, API_FORMAT];
     NSDictionary *params = [parameterBuilder userId:userId sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-    [self sendRequest:request withHandler:(GenericResultHandler)handler];
-}
-
-#pragma mark -
-#pragma mark statuses/mentions
-- (void)mentionsSinceId:(unsigned long long)sinceId
-                  maxId:(unsigned long long)maxId
-                  count:(int)count
-                   page:(int)page
-               trimUser:(BOOL)trimUser
-             includeRts:(BOOL)includeRts
-        includeEntities:(BOOL)includeEntities
-            withHandler:(NSArrayResultHandler)handler
-{
-    NSString *path = [NSString stringWithFormat:@"statuses/mentions.%@", API_FORMAT];
-    NSDictionary *params = [parameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
     NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
