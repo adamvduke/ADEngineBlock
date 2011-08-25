@@ -132,6 +132,8 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
 #pragma mark -
 #pragma mark statuses/update
+- (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler;
+
 - (void)sendUpdate:(NSString *)message
 		 inReplyTo:(unsigned long long)replyToId
 		  latitude:(float)latitude

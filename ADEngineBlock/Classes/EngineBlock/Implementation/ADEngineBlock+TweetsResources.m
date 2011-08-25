@@ -11,6 +11,11 @@
 
 @implementation ADEngineBlock (TweetsResources)
 
+- (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler
+{
+    [self sendUpdate:message inReplyTo:0 latitude:FLT_MIN longitude:FLT_MIN placeId:0 displayCoord:NO trimUser:NO includeEntities:YES withHandler:handler];
+}
+
 - (void)sendUpdate:(NSString *)message
          inReplyTo:(unsigned long long)replyToId
           latitude:(float)latitude
