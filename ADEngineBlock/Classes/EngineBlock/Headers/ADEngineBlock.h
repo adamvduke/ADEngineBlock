@@ -69,19 +69,6 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 				   withHandler:(NSArrayResultHandler)handler;
 
 #pragma mark -
-#pragma mark statuses/user_timeline
-- (void)userTimelineForScreenname:(NSString *)name
-						   userId:(unsigned long long)userId
-						  sinceId:(unsigned long long)sinceId
-							maxId:(unsigned long long)maxId
-							count:(int)count
-							 page:(int)page
-						 trimUser:(BOOL)trimUser
-					   includeRts:(BOOL)includeRts
-				  includeEntities:(BOOL)includeEntities
-					  withHandler:(NSArrayResultHandler)handler;
-
-#pragma mark -
 #pragma mark statuses/retweeted_by_me
 - (void)retweetedByMeWithHandler:(NSArrayResultHandler)handler;
 
@@ -116,6 +103,20 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 				   trimUser:(BOOL)trimUser
 			includeEntities:(BOOL)includeEntities
 				withHandler:(NSArrayResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/user_timeline
+- (void)userTimelineForScreenname:(NSString *)name
+						   userId:(unsigned long long)userId
+						  sinceId:(unsigned long long)sinceId
+							maxId:(unsigned long long)maxId
+							count:(int)count
+							 page:(int)page
+						 trimUser:(BOOL)trimUser
+					   includeRts:(BOOL)includeRts
+				  includeEntities:(BOOL)includeEntities
+					  withHandler:(NSArrayResultHandler)handler;
+
 @end
 
 #pragma mark -
