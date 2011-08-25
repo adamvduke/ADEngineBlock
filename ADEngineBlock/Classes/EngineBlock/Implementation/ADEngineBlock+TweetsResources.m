@@ -30,14 +30,14 @@
     {
         return;
     }
-    NSString *path = [NSString stringWithFormat:@"statuses/update.%@", API_FORMAT, replyToId];
+    NSString *path = [NSString stringWithFormat:@"statuses/update.%@", API_FORMAT];
     NSString *trimmedText = message;
     if([trimmedText length] > MAX_MESSAGE_LENGTH)
     {
         trimmedText = [trimmedText substringToIndex:MAX_MESSAGE_LENGTH];
     }
 
-    NSDictionary *params = [parameterBuilder update:message inReplyTo:replyToId latitude:latitude longitude:longitude placeId:placeId displayCoord:displayCoord trimUser:trimUser includeEntities:includeEntities];
+    NSDictionary *params = [parameterBuilder update:trimmedText inReplyTo:replyToId latitude:latitude longitude:longitude placeId:placeId displayCoord:displayCoord trimUser:trimUser includeEntities:includeEntities];
     NSString *body = [requestBuilder queryStringWithBase:nil parameters:params prefixed:NO];
     NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:body params:nil];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
