@@ -11,7 +11,7 @@
 
 @implementation ADEngineBlockParameterBuilder
 
-- (NSDictionary *)trimUser:(BOOL)trimUser
++ (NSDictionary *)trimUser:(BOOL)trimUser
            includeEntities:(BOOL)includeEntities
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
@@ -20,7 +20,7 @@
     return params;
 }
 
-- (NSDictionary *)sinceId:(unsigned long long)sinceId
++ (NSDictionary *)sinceId:(unsigned long long)sinceId
                     maxId:(unsigned long long)maxId
                     count:(int)count
                      page:(int)page
@@ -45,7 +45,7 @@
     return params;
 }
 
-- (NSDictionary *)sinceId:(unsigned long long)sinceId
++ (NSDictionary *)sinceId:(unsigned long long)sinceId
                     maxId:(unsigned long long)maxId
                     count:(int)count
                      page:(int)page
@@ -58,7 +58,7 @@
     return params;
 }
 
-- (NSDictionary *)sinceId:(unsigned long long)sinceId
++ (NSDictionary *)sinceId:(unsigned long long)sinceId
                     maxId:(unsigned long long)maxId
                     count:(int)count
                      page:(int)page
@@ -72,7 +72,7 @@
     return params;
 }
 
-- (NSDictionary *)userId:(unsigned long long)userId
++ (NSDictionary *)userId:(unsigned long long)userId
                  sinceId:(unsigned long long)sinceId
                    maxId:(unsigned long long)maxId
                    count:(int)count
@@ -90,7 +90,7 @@
     return params;
 }
 
-- (NSDictionary *)update:(NSString *)message
++ (NSDictionary *)update:(NSString *)message
                inReplyTo:(unsigned long long)replyToId
                 latitude:(float)latitude
                longitude:(float)longitude

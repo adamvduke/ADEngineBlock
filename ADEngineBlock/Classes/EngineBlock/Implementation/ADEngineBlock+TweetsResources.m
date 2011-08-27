@@ -21,7 +21,7 @@
        withHandler:(NSDictionaryResultHandler)handler
 {
     NSString *path = [NSString stringWithFormat:@"statuses/show/%qu.%@", statusId, API_FORMAT];
-    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+    NSDictionary *params = [ADEngineBlockParameterBuilder trimUser:trimUser includeEntities:includeEntities];
     NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
@@ -34,7 +34,7 @@
           withHandler:(NSDictionaryResultHandler)handler
 {
     NSString *path = [NSString stringWithFormat:@"statuses/destroy/%qu.%@", statusId, API_FORMAT];
-    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+    NSDictionary *params = [ADEngineBlockParameterBuilder trimUser:trimUser includeEntities:includeEntities];
     NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
@@ -76,7 +76,7 @@
         trimmedText = [trimmedText substringToIndex:MAX_MESSAGE_LENGTH];
     }
 
-    NSDictionary *params = [parameterBuilder update:trimmedText inReplyTo:replyToId latitude:latitude longitude:longitude placeId:placeId displayCoord:displayCoord trimUser:trimUser includeEntities:includeEntities];
+    NSDictionary *params = [ADEngineBlockParameterBuilder update:trimmedText inReplyTo:replyToId latitude:latitude longitude:longitude placeId:placeId displayCoord:displayCoord trimUser:trimUser includeEntities:includeEntities];
     NSString *body = [requestBuilder queryStringWithBase:nil parameters:params prefixed:NO];
     NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:body params:nil];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];

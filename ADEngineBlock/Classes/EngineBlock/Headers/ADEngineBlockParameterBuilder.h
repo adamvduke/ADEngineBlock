@@ -11,22 +11,22 @@
 
 @interface ADEngineBlockParameterBuilder : NSObject {}
 
-- (NSDictionary *)trimUser:(BOOL)trimUser
++ (NSDictionary *)trimUser:(BOOL)trimUser
            includeEntities:(BOOL)includeEntities;
 
-- (NSDictionary *)sinceId:(unsigned long long)sinceId
++ (NSDictionary *)sinceId:(unsigned long long)sinceId
                     maxId:(unsigned long long)maxId
                     count:(int)count
                      page:(int)page;
 
-- (NSDictionary *)sinceId:(unsigned long long)sinceId
++ (NSDictionary *)sinceId:(unsigned long long)sinceId
                     maxId:(unsigned long long)maxId
                     count:(int)count
                      page:(int)page
                  trimUser:(BOOL)trimUser
           includeEntities:(BOOL)includeEntities;
 
-- (NSDictionary *)sinceId:(unsigned long long)sinceId
++ (NSDictionary *)sinceId:(unsigned long long)sinceId
                     maxId:(unsigned long long)maxId
                     count:(int)count
                      page:(int)page
@@ -34,7 +34,7 @@
                includeRts:(BOOL)includeRts
           includeEntities:(BOOL)includeEntities;
 
-- (NSDictionary *)userId:(unsigned long long)userId
++ (NSDictionary *)userId:(unsigned long long)userId
                  sinceId:(unsigned long long)sinceId
                    maxId:(unsigned long long)maxId
                    count:(int)count
@@ -43,7 +43,7 @@
               includeRts:(BOOL)includeRts
          includeEntities:(BOOL)includeEntities;
 
-- (NSDictionary *)update:(NSString *)message
++ (NSDictionary *)update:(NSString *)message
                inReplyTo:(unsigned long long)replyToId
                 latitude:(float)latitude
                longitude:(float)longitude
