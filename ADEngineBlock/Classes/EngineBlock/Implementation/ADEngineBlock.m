@@ -8,6 +8,8 @@
  */
 
 #import "ADEngineBlock.h"
+#import "ADEngineBlockParameterBuilder.h"
+#import "ADEngineBlockRequestBuilder.h"
 #import "NSString+CaseInsensitiveCompare.h"
 #import "OAConsumer.h"
 #import "OAToken.h"

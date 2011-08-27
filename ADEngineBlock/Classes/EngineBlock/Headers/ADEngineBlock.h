@@ -8,8 +8,9 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "ADEngineBlockRequestBuilder.h"
-#import "ADEngineBlockParameterBuilder.h"
+
+@class ADEngineBlockRequestBuilder;
+@class ADEngineBlockParameterBuilder;
 
 typedef void (^NSArrayResultHandler)(NSArray *result, NSError *error);
 typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);

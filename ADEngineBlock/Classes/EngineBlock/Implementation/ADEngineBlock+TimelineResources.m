@@ -9,6 +9,8 @@
 
 #import "ADEngineBlock.h"
 #import "ADEngineBlock_Private.h"
+#import "ADEngineBlockParameterBuilder.h"
+#import "ADEngineBlockRequestBuilder.h"
 
 @implementation ADEngineBlock (TimelineResources)
 

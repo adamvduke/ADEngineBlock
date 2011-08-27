@@ -9,10 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-
-@interface ADEngineBlockParameterBuilder : NSObject {
-    
-}
+@interface ADEngineBlockParameterBuilder : NSObject {}
 
 - (NSDictionary *)trimUser:(BOOL)trimUser
            includeEntities:(BOOL)includeEntities;
