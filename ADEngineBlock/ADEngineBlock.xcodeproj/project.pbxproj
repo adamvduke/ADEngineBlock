@@ -23,7 +23,7 @@
 		565BDC121384760B005B411A /* SeriouslyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC041384760B005B411A /* SeriouslyOperation.m */; };
 		565BDC141384777C005B411A /* ADEngineBlockSpec_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC131384777C005B411A /* ADEngineBlockSpec_Prefix.pch */; };
 		565BDC17138484C2005B411A /* ADEngineBlockRequestBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC1513847B9F005B411A /* ADEngineBlockRequestBuilderSpec.m */; };
-		565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; settings = {ATTRIBUTES = (); }; };
 		565BDC4E13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */; };
 		565BDC5313857D45005B411A /* ADEngineBlockParameterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC5013857D45005B411A /* ADEngineBlockParameterBuilder.m */; };
 		565BDC5413857D45005B411A /* ADEngineBlockParameterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC5013857D45005B411A /* ADEngineBlockParameterBuilder.m */; };
@@ -104,7 +104,7 @@
 		569DC374136911C200B2DC8C /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 569DC372136911C200B2DC8C /* SynthesizeSingleton.h */; };
 		56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */; };
 		56A3E10D12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A3E10B12E95276003C04C5 /* NSString+CaseInsensitiveCompare.m */; };
-		56C8B91013844E7500A6481F /* ADEngineBlockRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 56C8B90F13844E7500A6481F /* ADEngineBlockRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56C8B91013844E7500A6481F /* ADEngineBlockRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 56C8B90F13844E7500A6481F /* ADEngineBlockRequestBuilder.h */; settings = {ATTRIBUTES = (); }; };
 		56C8B91113844E7500A6481F /* ADEngineBlockRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 56C8B90F13844E7500A6481F /* ADEngineBlockRequestBuilder.h */; };
 		56C8B91613844EA000A6481F /* ADEngineBlockRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C8B91313844EA000A6481F /* ADEngineBlockRequestBuilder.m */; };
 		56C8B91713844EA000A6481F /* ADEngineBlockRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C8B91313844EA000A6481F /* ADEngineBlockRequestBuilder.m */; };
@@ -683,12 +683,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* ADEngineBlock_Prefix.pch in Headers */,
-				56C8B91013844E7500A6481F /* ADEngineBlockRequestBuilder.h in Headers */,
-				565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */,
-				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
 				5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */,
+				565BDC4D13857D15005B411A /* ADEngineBlockParameterBuilder.h in Headers */,
+				56C8B91013844E7500A6481F /* ADEngineBlockRequestBuilder.h in Headers */,
 				5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */,
 				569DC373136911C200B2DC8C /* ADSharedMacros.h in Headers */,
+				56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */,
 				569DC374136911C200B2DC8C /* SynthesizeSingleton.h in Headers */,
 				56C8B94E138474EA00A6481F /* NSMutableURLRequest+Parameters.h in Headers */,
 				56C8B952138474EA00A6481F /* NSString+URLEncoding.h in Headers */,
