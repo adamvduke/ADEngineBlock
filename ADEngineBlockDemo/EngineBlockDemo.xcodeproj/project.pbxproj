@@ -117,8 +117,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				56AFC0EA12DF55900038CD99 /* External */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				56AFC0EA12DF55900038CD99 /* External */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
