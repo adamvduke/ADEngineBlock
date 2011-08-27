@@ -11,8 +11,32 @@
 #import "OAMutableURLRequest.h"
 #import "SBJson.h"
 #import "Seriously.h"
+#import <objc/runtime.h>
+
+// this key is used along with the requestBuilder property
+// to dynamically create an "ivar" within the RequestHandling
+// category using objc_setAssociatedObject
+const char *requestBuilderKey = "requestBuilderKey";
 
 @implementation ADEngineBlock (RequestHandling)
+
+#pragma mark -
+#pragma mark ADEngineBlockRequestBuilder property magic
+@dynamic requestBuilder;
+
+// The following two methods the getter/setter implementations for the requestBuilder property
+// they use objc_setAssociatedObject and objc_getAssociatedObject, along with the requestBuilderKey
+// to retain or retrieve the passed in ADEngineBlockRequestBuilder. This pattern effectively
+// creates an instance variable within the RequestHandling category.
+- (void)setRequestBuilder:(ADEngineBlockRequestBuilder *)requestBuilder
+{
+    objc_setAssociatedObject(self, requestBuilderKey, requestBuilder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (ADEngineBlockRequestBuilder *)requestBuilder
+{
+    return objc_getAssociatedObject(self, requestBuilderKey);
+}
 
 #pragma mark -
 #pragma mark pre-defined blocks

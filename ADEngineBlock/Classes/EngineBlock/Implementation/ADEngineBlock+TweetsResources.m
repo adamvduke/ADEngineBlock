@@ -22,7 +22,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/show/%qu.%@", statusId, API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -35,7 +35,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/destroy/%qu.%@", statusId, API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:@"POST" path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -44,7 +44,7 @@
 - (void)retweet:(unsigned long long)statusId withHandler:(NSDictionaryResultHandler)handler
 {
     NSString *path = [NSString stringWithFormat:@"statuses/retweet/%qu.%@", statusId, API_FORMAT];
-    NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:nil params:nil];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:@"POST" path:path body:nil params:nil];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -77,8 +77,8 @@
     }
 
     NSDictionary *params = [ADEngineBlockParameterBuilder update:trimmedText inReplyTo:replyToId latitude:latitude longitude:longitude placeId:placeId displayCoord:displayCoord trimUser:trimUser includeEntities:includeEntities];
-    NSString *body = [requestBuilder queryStringWithBase:nil parameters:params prefixed:NO];
-    NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:body params:nil];
+    NSString *body = [self.requestBuilder queryStringWithBase:nil parameters:params prefixed:NO];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:@"POST" path:path body:body params:nil];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 @end

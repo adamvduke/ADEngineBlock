@@ -31,7 +31,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/home_timeline.%@", API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -53,7 +53,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/mentions.%@", API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -70,7 +70,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/public_timeline.%@", API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -91,7 +91,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/retweeted_by_me.%@", API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -112,7 +112,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/retweeted_to_me.%@", API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -133,7 +133,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/retweets_of_me.%@", API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
@@ -152,7 +152,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", name, API_FORMAT];
     NSDictionary *params = [ADEngineBlockParameterBuilder userId:userId sinceId:sinceId maxId:maxId count:count page:page trimUser:trimUser includeRts:includeRts includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:params];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 

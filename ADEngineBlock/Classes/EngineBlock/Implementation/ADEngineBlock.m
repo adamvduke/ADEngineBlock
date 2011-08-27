@@ -7,7 +7,7 @@
  *
  */
 
-#import "ADEngineBlock.h"
+#import "ADEngineBlock_Private.h"
 #import "ADEngineBlockParameterBuilder.h"
 #import "ADEngineBlockRequestBuilder.h"
 #import "NSString+CaseInsensitiveCompare.h"
@@ -23,25 +23,25 @@
     self = [super init];
     if(self)
     {
-        requestBuilder = [[ADEngineBlockRequestBuilder alloc] initWithAuthData:authData consumerKey:key consumerSecret:secret];
+        ADEngineBlockRequestBuilder *requestBuilder = [[[ADEngineBlockRequestBuilder alloc] initWithAuthData:authData consumerKey:key consumerSecret:secret] autorelease];
+        self.requestBuilder = requestBuilder;
     }
     return self;
 }
 
 - (NSString *)screenname
 {
-    return requestBuilder.screenname;
+    return self.requestBuilder.screenname;
 }
 
 - (void)dealloc
 {
-    TT_RELEASE_SAFELY(requestBuilder);
     [super dealloc];
 }
 
 - (BOOL)isAuthorizedForScreenname:(NSString *)name
 {
-    return [requestBuilder isAuthorizedForScreenname:name];
+    return [self.requestBuilder isAuthorizedForScreenname:name];
 }
 
 @end

@@ -9,15 +9,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class ADEngineBlockRequestBuilder;
-
 typedef void (^NSArrayResultHandler)(NSArray *result, NSError *error);
 typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 
 @interface ADEngineBlock : NSObject {
 	
 	NSString *screenname;
-    ADEngineBlockRequestBuilder *requestBuilder;
 }
 
 @property (nonatomic, readonly) NSString *screenname;
