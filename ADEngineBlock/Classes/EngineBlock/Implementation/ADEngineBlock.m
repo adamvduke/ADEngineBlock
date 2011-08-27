@@ -24,7 +24,6 @@
     if(self)
     {
         requestBuilder = [[ADEngineBlockRequestBuilder alloc] initWithAuthData:authData consumerKey:key consumerSecret:secret];
-        parameterBuilder = [[ADEngineBlockParameterBuilder alloc] init];
     }
     return self;
 }
@@ -37,7 +36,6 @@
 - (void)dealloc
 {
     TT_RELEASE_SAFELY(requestBuilder);
-    TT_RELEASE_SAFELY(parameterBuilder);
     [super dealloc];
 }
 
