@@ -116,7 +116,6 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 					   includeRts:(BOOL)includeRts
 				  includeEntities:(BOOL)includeEntities
 					  withHandler:(NSArrayResultHandler)handler;
-
 @end
 
 #pragma mark -
@@ -129,6 +128,10 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 		  trimUser:(BOOL)trimUser
    includeEntities:(BOOL)includeEntities
 	   withHandler:(NSDictionaryResultHandler)handler;
+
+#pragma mark -
+#pragma mark statuses/retweet/:id
+- (void)retweet:(unsigned long long)statusId withHandler:(NSDictionaryResultHandler)handler;
 
 #pragma mark -
 #pragma mark statuses/update

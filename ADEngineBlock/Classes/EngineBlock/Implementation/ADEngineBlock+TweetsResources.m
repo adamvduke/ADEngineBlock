@@ -11,6 +11,15 @@
 
 @implementation ADEngineBlock (TweetsResources)
 
+#pragma mark -
+#pragma mark statuses/retweet/:id
+- (void)retweet:(unsigned long long)statusId withHandler:(NSDictionaryResultHandler)handler
+{
+    NSString *path = [NSString stringWithFormat:@"statuses/retweet/%qu.%@", statusId, API_FORMAT];
+    NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:nil params:nil];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+}
+
 - (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler
 {
     [self sendUpdate:message inReplyTo:0 latitude:FLT_MIN longitude:FLT_MIN placeId:0 displayCoord:NO trimUser:NO includeEntities:YES withHandler:handler];
