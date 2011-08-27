@@ -130,6 +130,13 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 	   withHandler:(NSDictionaryResultHandler)handler;
 
 #pragma mark -
+#pragma mark statuses/destroy/:id
+- (void)destroyStatus:(unsigned long long)statusId
+			 trimUser:(BOOL)trimUser
+	  includeEntities:(BOOL)includeEntities
+		  withHandler:(NSDictionaryResultHandler)handler;
+
+#pragma mark -
 #pragma mark statuses/retweet/:id
 - (void)retweet:(unsigned long long)statusId withHandler:(NSDictionaryResultHandler)handler;
 
@@ -146,11 +153,4 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 		  trimUser:(BOOL)trimUser
    includeEntities:(BOOL)includeEntities
 	   withHandler:(NSDictionaryResultHandler)handler;
-
-#pragma mark -
-#pragma mark statuses/destroy/:id
-- (void)destroyStatus:(unsigned long long)statusId
-			 trimUser:(BOOL)trimUser
-	  includeEntities:(BOOL)includeEntities
-		  withHandler:(NSDictionaryResultHandler)handler;
 @end

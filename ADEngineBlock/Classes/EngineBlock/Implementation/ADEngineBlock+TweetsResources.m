@@ -12,6 +12,32 @@
 @implementation ADEngineBlock (TweetsResources)
 
 #pragma mark -
+#pragma mark statuses/show/:id
+- (void)showStatus:(unsigned long long)statusId
+          trimUser:(BOOL)trimUser
+   includeEntities:(BOOL)includeEntities
+       withHandler:(NSDictionaryResultHandler)handler
+{
+    NSString *path = [NSString stringWithFormat:@"statuses/show/%qu.%@", statusId, API_FORMAT];
+    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+}
+
+#pragma mark -
+#pragma mark statuses/destroy/:id
+- (void)destroyStatus:(unsigned long long)statusId
+             trimUser:(BOOL)trimUser
+      includeEntities:(BOOL)includeEntities
+          withHandler:(NSDictionaryResultHandler)handler
+{
+    NSString *path = [NSString stringWithFormat:@"statuses/destroy/%qu.%@", statusId, API_FORMAT];
+    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
+    NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:nil params:params];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+}
+
+#pragma mark -
 #pragma mark statuses/retweet/:id
 - (void)retweet:(unsigned long long)statusId withHandler:(NSDictionaryResultHandler)handler
 {
@@ -20,6 +46,8 @@
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
+#pragma mark -
+#pragma mark statuses/update
 - (void)sendUpdate:(NSString *)message withHandler:(NSDictionaryResultHandler)handler
 {
     [self sendUpdate:message inReplyTo:0 latitude:FLT_MIN longitude:FLT_MIN placeId:0 displayCoord:NO trimUser:NO includeEntities:YES withHandler:handler];
@@ -51,31 +79,4 @@
     NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:body params:nil];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
-
-#pragma mark -
-#pragma mark statuses/show/:id
-- (void)showStatus:(unsigned long long)statusId
-          trimUser:(BOOL)trimUser
-   includeEntities:(BOOL)includeEntities
-       withHandler:(NSDictionaryResultHandler)handler
-{
-    NSString *path = [NSString stringWithFormat:@"statuses/show/%qu.%@", statusId, API_FORMAT];
-    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:nil path:path body:nil params:params];
-    [self sendRequest:request withHandler:(GenericResultHandler)handler];
-}
-
-#pragma mark -
-#pragma mark statuses/destroy/:id
-- (void)destroyStatus:(unsigned long long)statusId
-             trimUser:(BOOL)trimUser
-      includeEntities:(BOOL)includeEntities
-          withHandler:(NSDictionaryResultHandler)handler
-{
-    NSString *path = [NSString stringWithFormat:@"statuses/destroy/%qu.%@", statusId, API_FORMAT];
-    NSDictionary *params = [parameterBuilder trimUser:trimUser includeEntities:includeEntities];
-    NSURLRequest *request = [requestBuilder requestWithMethod:@"POST" path:path body:nil params:params];
-    [self sendRequest:request withHandler:(GenericResultHandler)handler];
-}
-
 @end
