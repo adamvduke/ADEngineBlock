@@ -75,6 +75,7 @@
 		569DC3501369115500B2DC8C /* ADSharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSharedMacros.h; path = External/ObjCMacros/ADSharedMacros.h; sourceTree = "<group>"; };
 		569DC3511369115500B2DC8C /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = External/ObjCMacros/SynthesizeSingleton.h; sourceTree = "<group>"; };
 		56A3E13212E95650003C04C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		56D136E114089EF2002BE1AA /* ADEngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock.h; path = ../ADEngineBlock/Classes/EngineBlock/Headers/ADEngineBlock.h; sourceTree = "<group>"; };
 		56DF6C42136760DC0005D2BA /* ADEngineBlock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADEngineBlock.xcodeproj; path = ../ADEngineBlock/ADEngineBlock.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* EngineBlockDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "EngineBlockDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,11 +194,20 @@
 		56AFC0EA12DF55900038CD99 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				56D136E014089ED8002BE1AA /* Headers */,
 				5617677F135B4DCC00A3440C /* ADOAuthorizeiOS */,
 				561A176C12E2522200E1C58C /* EngineBlock */,
 				56176761135B484500A3440C /* SharedMacros */,
 			);
 			name = External;
+			sourceTree = "<group>";
+		};
+		56D136E014089ED8002BE1AA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				56D136E114089EF2002BE1AA /* ADEngineBlock.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 		56DF6C43136760DC0005D2BA /* Products */ = {
