@@ -28,6 +28,8 @@
 		565BDC5313857D45005B411A /* ADEngineBlockParameterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC5013857D45005B411A /* ADEngineBlockParameterBuilder.m */; };
 		565BDC5413857D45005B411A /* ADEngineBlockParameterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC5013857D45005B411A /* ADEngineBlockParameterBuilder.m */; };
 		565BDC56138592FB005B411A /* ADEngineBlockParameterBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 565BDC55138592FB005B411A /* ADEngineBlockParameterBuilderSpec.m */; };
+		566A086014186FF700626540 /* ADEngineBlock+AccountResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 566A085D14186FF700626540 /* ADEngineBlock+AccountResources.m */; };
+		566A086114186FF700626540 /* ADEngineBlock+AccountResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 566A085D14186FF700626540 /* ADEngineBlock+AccountResources.m */; };
 		5672750C1305BC6E00ABBAB1 /* ADEngineBlock_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */; };
 		5672750D1305BC6E00ABBAB1 /* ADEngineBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		567275121305BC7C00ABBAB1 /* ADEngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */; };
@@ -198,6 +200,7 @@
 		565BDC4C13857D15005B411A /* ADEngineBlockParameterBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlockParameterBuilder.h; path = Classes/EngineBlock/Headers/ADEngineBlockParameterBuilder.h; sourceTree = "<group>"; };
 		565BDC5013857D45005B411A /* ADEngineBlockParameterBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADEngineBlockParameterBuilder.m; path = Classes/EngineBlock/Implementation/ADEngineBlockParameterBuilder.m; sourceTree = "<group>"; };
 		565BDC55138592FB005B411A /* ADEngineBlockParameterBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADEngineBlockParameterBuilderSpec.m; path = Specs/ADEngineBlockParameterBuilderSpec.m; sourceTree = "<group>"; };
+		566A085D14186FF700626540 /* ADEngineBlock+AccountResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ADEngineBlock+AccountResources.m"; sourceTree = "<group>"; };
 		5672750A1305BC6E00ABBAB1 /* ADEngineBlock_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock_Private.h; path = Classes/EngineBlock/Headers/ADEngineBlock_Private.h; sourceTree = "<group>"; };
 		5672750B1305BC6E00ABBAB1 /* ADEngineBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlock.h; path = Classes/EngineBlock/Headers/ADEngineBlock.h; sourceTree = "<group>"; };
 		5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADEngineBlock.m; path = Classes/EngineBlock/Implementation/ADEngineBlock.m; sourceTree = "<group>"; };
@@ -431,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */,
+				566A085D14186FF700626540 /* ADEngineBlock+AccountResources.m */,
 				5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */,
 				567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */,
 				567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */,
@@ -864,6 +868,7 @@
 				567F37DF13FC9C8800ED4E53 /* SBJsonTokeniser.m in Sources */,
 				567F37E313FC9C8800ED4E53 /* SBJsonUTF8Stream.m in Sources */,
 				567F37E713FC9C8800ED4E53 /* SBJsonWriter.m in Sources */,
+				566A086114186FF700626540 /* ADEngineBlock+AccountResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,6 +914,7 @@
 				567F37DE13FC9C8800ED4E53 /* SBJsonTokeniser.m in Sources */,
 				567F37E213FC9C8800ED4E53 /* SBJsonUTF8Stream.m in Sources */,
 				567F37E613FC9C8800ED4E53 /* SBJsonWriter.m in Sources */,
+				566A086014186FF700626540 /* ADEngineBlock+AccountResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

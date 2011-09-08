@@ -150,3 +150,10 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
    includeEntities:(BOOL)includeEntities
 	   withHandler:(NSDictionaryResultHandler)handler;
 @end
+
+#pragma mark -
+#pragma mark AccountResources
+@interface ADEngineBlock (AccountResources)
+
+- (void)rateLimitStatusWithHandler:(NSDictionaryResultHandler)handler;
+@end
