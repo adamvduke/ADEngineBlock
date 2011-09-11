@@ -156,4 +156,8 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 @interface ADEngineBlock (AccountResources)
 
 - (void)rateLimitStatusWithHandler:(NSDictionaryResultHandler)handler;
+
+
+- (void)verifyCredentialsWithHandler:(NSDictionaryResultHandler)handler;
+
 @end

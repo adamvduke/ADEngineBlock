@@ -18,4 +18,11 @@
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
 }
 
+- (void)verifyCredentialsWithHandler:(NSDictionaryResultHandler)handler
+{
+    NSString *path = [NSString stringWithFormat:@"account/verify_credentials.%@", API_FORMAT];
+    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:nil];
+    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+}
+
 @end
