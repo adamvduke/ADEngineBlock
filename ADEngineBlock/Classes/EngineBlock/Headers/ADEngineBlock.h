@@ -155,9 +155,16 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 #pragma mark AccountResources
 @interface ADEngineBlock (AccountResources)
 
+#pragma mark -
+#pragma mark account/rate_limit_status
 - (void)rateLimitStatusWithHandler:(NSDictionaryResultHandler)handler;
 
-
+#pragma mark -
+#pragma mark account/verify_credentials
 - (void)verifyCredentialsWithHandler:(NSDictionaryResultHandler)handler;
+
+#pragma mark -
+#pragma mark account/totals
+- (void)totalsWithHandler:(NSDictionaryResultHandler)handler;
 
 @end
