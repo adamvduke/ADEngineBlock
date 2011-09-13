@@ -11,25 +11,25 @@
 
 @implementation ADEngineBlock (AccountResources)
 
-- (void)rateLimitStatusWithHandler:(NSDictionaryResultHandler)handler
+- (void)getPath:(NSString *)path withHandler:(GenericResultHandler)handler
 {
-    NSString *path = [NSString stringWithFormat:@"account/rate_limit_status.%@", API_FORMAT];
     NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:nil];
     [self sendRequest:request withHandler:(GenericResultHandler)handler];
+}
+
+- (void)rateLimitStatusWithHandler:(NSDictionaryResultHandler)handler
+{
+    [self getPath:[NSString stringWithFormat:@"account/rate_limit_status.%@", API_FORMAT] withHandler:handler];
 }
 
 - (void)verifyCredentialsWithHandler:(NSDictionaryResultHandler)handler
 {
-    NSString *path = [NSString stringWithFormat:@"account/verify_credentials.%@", API_FORMAT];
-    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:nil];
-    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+    [self getPath:[NSString stringWithFormat:@"account/verify_credentials.%@", API_FORMAT] withHandler:handler];
 }
 
 - (void)totalsWithHandler:(NSDictionaryResultHandler)handler
 {
-    NSString *path = [NSString stringWithFormat:@"account/totals.%@", API_FORMAT];
-    NSURLRequest *request = [self.requestBuilder requestWithMethod:nil path:path body:nil params:nil];
-    [self sendRequest:request withHandler:(GenericResultHandler)handler];
+    [self getPath:[NSString stringWithFormat:@"account/totals.%@", API_FORMAT] withHandler:handler];
 }
 
 @end
