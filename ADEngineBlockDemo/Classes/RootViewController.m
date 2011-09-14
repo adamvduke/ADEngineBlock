@@ -24,8 +24,6 @@
 - (NSString *)authDataKeyForScreenname:(NSString *)screenname;
 - (NSString *)retrieveOAuthDataForScreenname:(NSString *)screenname;
 - (ADEngineBlock *)engineForScreenname:(NSString *)screenname;
-- (NSDictionary *)tweetForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (NSString *)textForTweetAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)postStatus;
 - (void)fetchStatuses;
@@ -34,32 +32,23 @@
 
 @implementation RootViewController
 
-@synthesize engine, screenname, tweets, leftBarButton, rightBarButton;
+@synthesize engine, screenname, demoMethods;
 
 #pragma mark -
 #pragma mark pre-defined blocks
-- ( void (^)(NSArray *result, NSError *error) )updateTweetsHandler
+- ( void (^)(id result, NSError *error) )handlerForClass:(Class)class
 {
     /* block magic :-) */
-    return [[^(NSArray *result, NSError *error)
+    return [[^(id result, NSError *error)
              {
-                 if(![result isKindOfClass:[NSArray class]])
+                 if(![result isKindOfClass:class])
                  {
-                     NSLog (@"There was a problem");
-                     return;
-                 }
-                 self.tweets = [[result mutableCopy] autorelease];
-                 [self.tableView reloadData];
-             } copy] autorelease];
-}
-
-- ( void (^)(NSDictionary *result, NSError *error) )postStatusHandler
-{
-    return [[^(NSDictionary *result, NSError *error)
-             {
-                 if(![result isKindOfClass:[NSDictionary class]])
-                 {
-                     NSLog (@"There was a problem");
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OHNOZ!!"
+                                                                     message:@"Something went wrong. Check the log."
+                                                                    delegate:self cancelButtonTitle:@"OK"
+                                                           otherButtonTitles:nil];
+                     [alert show];
+                     [alert release];
                      NSLog (@"%@", [result description]);
                      return;
                  }
@@ -67,38 +56,14 @@
              } copy] autorelease];
 }
 
-#pragma mark -
-#pragma mark UIBarButtonItem actions
-
-- (void)postStatus
+- ( void (^)(NSArray *result, NSError *error) )logNSArrayHandler
 {
-    NSString *date = [[NSDate date] description];
-    NSString *message = [NSString stringWithFormat:@"@AdamCodez Posting at: %@", date];
-    [self.engine sendUpdate:message
-                  inReplyTo:29386843145375744UL
-                   latitude:-31.936831f
-                  longitude:115.755413f
-                    placeId:0
-               displayCoord:YES
-                   trimUser:NO
-            includeEntities:YES
-                withHandler:[self postStatusHandler]];
+    return [self handlerForClass:[NSArray class]];
 }
 
-- (void)fetchStatuses
+- ( void (^)(NSDictionary *result, NSError *error) )logNSDictionaryHandler
 {
-    [self.tweets removeAllObjects];
-    [self.tableView reloadData];
-    [self.engine userTimelineForScreenname:@"snakes_nbarrels"
-                                    userId:0
-                                   sinceId:0
-                                     maxId:0
-                                     count:4
-                                      page:2
-                                  trimUser:NO
-                                includeRts:NO
-                           includeEntities:NO
-                               withHandler:[self updateTweetsHandler]];
+    return [self handlerForClass:[NSDictionary class]];
 }
 
 #pragma mark -
@@ -108,25 +73,15 @@
 {
     [engine release];
     [screenname release];
-    [tweets release];
-    [leftBarButton release];
-    [rightBarButton release];
+    [demoMethods release];
     [super dealloc];
 }
 
 - (void)loadView
 {
-    self.leftBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"POST"
-                                                           style:UIBarButtonItemStylePlain
-                                                          target:self
-                                                          action:@selector(postStatus)] autorelease];
+    /* add a selector name here and implement the correspoding method */
+    self.demoMethods = [NSArray arrayWithObjects:@"checkRateLimit", @"fetchStatuses", @"postStatus", nil];
 
-    self.rightBarButton = [[[UIBarButtonItem alloc] initWithTitle:@"GET"
-                                                            style:UIBarButtonItemStylePlain
-                                                           target:self
-                                                           action:@selector(fetchStatuses)] autorelease];
-    self.navigationItem.leftBarButtonItem = leftBarButton;
-    self.navigationItem.rightBarButtonItem = rightBarButton;
     [super loadView];
 }
 
@@ -181,7 +136,6 @@
 
 #pragma mark -
 #pragma mark Table view data source
-
 /* Customize the number of sections in the table view. */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -191,7 +145,7 @@
 /* Customize the number of rows in the table view. */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tweets == nil ? 0 : [self.tweets count];
+    return self.demoMethods == nil ? 0 : [self.demoMethods count];
 }
 
 /* Customize the appearance of table view cells. */
@@ -205,17 +159,19 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.backgroundColor = [UIColor lightGrayColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.contentView.backgroundColor = [UIColor lightGrayColor];
     }
-    NSString *text = [self textForTweetAtIndexPath:indexPath];
-    cell.textLabel.text = text;
+    cell.textLabel.text = [demoMethods objectAtIndex:indexPath.row];
     return cell;
 }
-
+#pragma mark -
+#pragma mark Table view delegate
 /* Return the custom height of the cell based on the content that will be displayed */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *text = [self textForTweetAtIndexPath:indexPath];
+    NSString *text = [demoMethods objectAtIndex:indexPath.row];
     UIFont *font = [UIFont systemFontOfSize:14 ];
     CGSize withinSize = CGSizeMake( 350, 150);
     CGSize size = [text sizeWithFont:font constrainedToSize:withinSize lineBreakMode:UILineBreakModeWordWrap];
@@ -223,35 +179,15 @@
     return textHeight;
 }
 
-- (NSDictionary *)tweetForRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
-    return tweet;
-}
-
-- (NSString *)textForTweetAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSDictionary *tweet = [self tweetForRowAtIndexPath:indexPath];
-    NSString *text = [tweet objectForKey:@"text"];
-    return text;
-}
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)didReceiveMemoryWarning
-{
-    /* Releases the view if it doesn't have a superview. */
-    [super didReceiveMemoryWarning];
-
-    /* Relinquish ownership any cached data, images, etc that aren't in use. */
-}
-
-- (void)viewDidUnload
-{
-    /* Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-     * For example: self.myOutlet = nil;
-     */
+    NSUInteger row = indexPath.row;
+    NSString *methodName = [demoMethods objectAtIndex:row];
+    SEL selector = NSSelectorFromString(methodName);
+    if ([self respondsToSelector:selector])
+    {
+        [self performSelector:selector];
+    }
 }
 
 #pragma mark -
@@ -285,5 +221,40 @@
     return authData;
 }
 
+#pragma mark -
+#pragma mark Demo methods
+- (void)checkRateLimit
+{
+    [self.engine rateLimitStatusWithHandler:[self logNSDictionaryHandler]];
+}
+
+- (void)postStatus
+{
+    NSString *date = [[NSDate date] description];
+    NSString *message = [NSString stringWithFormat:@"@AdamCodez Posting at: %@", date];
+    [self.engine sendUpdate:message
+                  inReplyTo:29386843145375744UL
+                   latitude:-31.936831f
+                  longitude:115.755413f
+                    placeId:0
+               displayCoord:YES
+                   trimUser:NO
+            includeEntities:YES
+                withHandler:[self logNSDictionaryHandler]];
+}
+
+- (void)fetchStatuses
+{
+    [self.engine userTimelineForScreenname:@"snakes_nbarrels"
+                                    userId:0
+                                   sinceId:0
+                                     maxId:0
+                                     count:4
+                                      page:2
+                                  trimUser:NO
+                                includeRts:NO
+                           includeEntities:NO
+                               withHandler:[self logNSArrayHandler]];
+}
 @end
 

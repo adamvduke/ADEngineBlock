@@ -17,15 +17,11 @@
 {
 	ADEngineBlock *engine;
 	NSString *screenname;
-	NSMutableArray *tweets;
-	UIBarButtonItem *leftBarButton;
-	UIBarButtonItem *rightBarButton;
+    NSArray *demoMethods;
 }
 
 @property (nonatomic, retain) ADEngineBlock *engine;
 @property (nonatomic, retain) NSString *screenname;
-@property (nonatomic, retain) NSMutableArray *tweets;
-@property (nonatomic, retain) UIBarButtonItem *leftBarButton;
-@property (nonatomic, retain) UIBarButtonItem *rightBarButton;
+@property (nonatomic, retain) NSArray *demoMethods;
 
 @end
