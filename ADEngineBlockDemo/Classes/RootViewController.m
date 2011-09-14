@@ -82,6 +82,7 @@
     /* add a selector name here and implement the correspoding method */
     self.demoMethods = [NSArray arrayWithObjects:
                         @"homeTimelineWithHandler",
+                        @"homeTimelineSinceId",
                         @"checkRateLimit",
                         @"fetchStatuses",
                         @"postStatus",
@@ -232,6 +233,12 @@
 {
     [self.engine homeTimelineWithHandler:[self logNSArrayHandler]];
 }
+
+- (void)homeTimelineSinceId
+{
+    [self.engine homeTimelineSinceId:0 maxId:0 count:5 page:1 trimUser:NO includeEntities:YES withHandler:[self logNSArrayHandler]];
+}
+
 - (void)checkRateLimit
 {
     [self.engine rateLimitStatusWithHandler:[self logNSDictionaryHandler]];
