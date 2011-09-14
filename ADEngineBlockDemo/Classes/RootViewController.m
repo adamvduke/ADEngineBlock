@@ -83,6 +83,7 @@
     self.demoMethods = [NSArray arrayWithObjects:
                         @"homeTimelineWithHandler",
                         @"homeTimelineSinceId",
+                        @"mentionsWithHandler",
                         @"checkRateLimit",
                         @"fetchStatuses",
                         @"postStatus",
@@ -237,6 +238,11 @@
 - (void)homeTimelineSinceId
 {
     [self.engine homeTimelineSinceId:0 maxId:0 count:5 page:1 trimUser:NO includeEntities:YES withHandler:[self logNSArrayHandler]];
+}
+
+- (void)mentionsWithHandler
+{
+    [self.engine mentionsWithHandler:[self logNSArrayHandler]];
 }
 
 - (void)checkRateLimit
