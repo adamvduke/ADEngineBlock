@@ -84,6 +84,7 @@
                         @"homeTimelineWithHandler",
                         @"homeTimelineSinceId",
                         @"mentionsWithHandler",
+                        @"mentionsSinceId",
                         @"checkRateLimit",
                         @"fetchStatuses",
                         @"postStatus",
@@ -243,6 +244,11 @@
 - (void)mentionsWithHandler
 {
     [self.engine mentionsWithHandler:[self logNSArrayHandler]];
+}
+
+- (void)mentionsSinceId
+{
+    [self.engine mentionsSinceId:0 maxId:0 count:3 page:1 trimUser:YES includeRts:YES includeEntities:YES withHandler:[self logNSArrayHandler]];
 }
 
 - (void)checkRateLimit
