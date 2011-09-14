@@ -80,7 +80,12 @@
 - (void)loadView
 {
     /* add a selector name here and implement the correspoding method */
-    self.demoMethods = [NSArray arrayWithObjects:@"checkRateLimit", @"fetchStatuses", @"postStatus", nil];
+    self.demoMethods = [NSArray arrayWithObjects:
+                        @"homeTimelineWithHandler",
+                        @"checkRateLimit",
+                        @"fetchStatuses",
+                        @"postStatus",
+                        nil];
 
     [super loadView];
 }
@@ -223,6 +228,10 @@
 
 #pragma mark -
 #pragma mark Demo methods
+- (void)homeTimelineWithHandler
+{
+    [self.engine homeTimelineWithHandler:[self logNSArrayHandler]];
+}
 - (void)checkRateLimit
 {
     [self.engine rateLimitStatusWithHandler:[self logNSDictionaryHandler]];
