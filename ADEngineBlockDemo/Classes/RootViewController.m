@@ -87,8 +87,14 @@
                         @"mentionsSinceId",
                         @"publicTimelineWithHandler",
                         @"publicTimelineTrimUser",
+                        @"retweetedByMe",
+                        @"retweetedByMeSinceId",
+                        @"retweetedToMe",
+                        @"retweetedToMeSinceId",
+                        @"retweetsOfMe",
+                        @"retweetsOfMeSinceId",
+                        @"userTimelineForScreenname",
                         @"checkRateLimit",
-                        @"fetchStatuses",
                         @"postStatus",
                         nil];
 
@@ -263,6 +269,50 @@
     [self.engine publicTimelineTrimUser:YES includeEntities:YES withHandler:[self logNSArrayHandler]];
 }
 
+- (void)retweetedByMe
+{
+    [self.engine retweetedByMeWithHandler:[self logNSArrayHandler]];
+}
+
+- (void)retweetedByMeSinceId
+{
+    [self.engine retweetedByMeSinceId:1UL maxId:0 count:1 page:1 trimUser:YES includeEntities:NO withHandler:[self logNSArrayHandler]];
+}
+
+- (void)retweetedToMe
+{
+    [self.engine retweetedToMeWithHandler:[self logNSArrayHandler]];
+}
+
+- (void)retweetedToMeSinceId
+{
+    [self.engine retweetedToMeSinceId:1UL maxId:0 count:2 page:1 trimUser:YES includeEntities:NO withHandler:[self logNSArrayHandler]];
+}
+
+- (void)retweetsOfMe
+{
+    [self.engine retweetsOfMeWithHandler:[self logNSArrayHandler]];
+}
+
+- (void)retweetsOfMeSinceId
+{
+    [self.engine retweetsOfMeSinceId:1UL maxId:0 count:2 page:1 trimUser:NO includeEntities:NO withHandler:[self logNSArrayHandler]];
+}
+
+- (void)userTimelineForScreenname
+{
+    [self.engine userTimelineForScreenname:@"snakes_nbarrels"
+                                    userId:0
+                                   sinceId:0
+                                     maxId:0
+                                     count:4
+                                      page:2
+                                  trimUser:NO
+                                includeRts:NO
+                           includeEntities:NO
+                               withHandler:[self logNSArrayHandler]];
+}
+
 - (void)checkRateLimit
 {
     [self.engine rateLimitStatusWithHandler:[self logNSDictionaryHandler]];
@@ -281,20 +331,6 @@
                    trimUser:NO
             includeEntities:YES
                 withHandler:[self logNSDictionaryHandler]];
-}
-
-- (void)fetchStatuses
-{
-    [self.engine userTimelineForScreenname:@"snakes_nbarrels"
-                                    userId:0
-                                   sinceId:0
-                                     maxId:0
-                                     count:4
-                                      page:2
-                                  trimUser:NO
-                                includeRts:NO
-                           includeEntities:NO
-                               withHandler:[self logNSArrayHandler]];
 }
 @end
 
