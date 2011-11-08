@@ -135,6 +135,11 @@
     return nil;
 }
 
+- (void)authCancelled
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)authCompletedWithData:(NSString *)authData orError:(NSError *)error
 {
     if(error)
