@@ -8,7 +8,7 @@
  *
  */
 
-#import "ADOAuthOOBViewController.h"
+#import "ADTwitterOOBViewController.h"
 #import <UIKit/UIKit.h>
 
 @class ADEngineBlock;

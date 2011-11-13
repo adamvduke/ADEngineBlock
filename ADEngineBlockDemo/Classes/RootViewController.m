@@ -112,7 +112,7 @@
     [super viewDidAppear:animated];
     if(![self.engine isAuthorizedForScreenname:self.screenname])
     {
-        ADOAuthOOBViewController *controller = [[[ADOAuthOOBViewController alloc] initWithConsumerKey:kConsumerKey
+        ADTwitterOOBViewController *controller = [[[ADTwitterOOBViewController alloc] initWithConsumerKey:kConsumerKey
                                                                                        consumerSecret:kConsumerSecret
                                                                                 requestTokenURLString:kRequestTokenURLString
                                                                                  accessTokenURLString:kAccessTokenURLString
