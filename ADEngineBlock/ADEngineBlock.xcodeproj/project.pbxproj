@@ -102,6 +102,10 @@
 		567F37E513FC9C8800ED4E53 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 567F37B813FC9C8800ED4E53 /* SBJsonWriter.h */; };
 		567F37E613FC9C8800ED4E53 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 567F37B913FC9C8800ED4E53 /* SBJsonWriter.m */; };
 		567F37E713FC9C8800ED4E53 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 567F37B913FC9C8800ED4E53 /* SBJsonWriter.m */; };
+		5685C59F14AA26AA002326B3 /* ADEngineBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */; };
+		5685C5A114AA26C4002326B3 /* ADEngineBlock+RequestHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */; };
+		5685C5A214AA26C7002326B3 /* ADEngineBlock+TimelineResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */; };
+		5685C5A314AA26CA002326B3 /* ADEngineBlock+TweetsResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */; };
 		569DC373136911C200B2DC8C /* ADSharedMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 569DC371136911C200B2DC8C /* ADSharedMacros.h */; };
 		569DC374136911C200B2DC8C /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 569DC372136911C200B2DC8C /* SynthesizeSingleton.h */; };
 		56A3E10C12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A3E10A12E95276003C04C5 /* NSString+CaseInsensitiveCompare.h */; };
@@ -869,6 +873,10 @@
 				567F37E313FC9C8800ED4E53 /* SBJsonUTF8Stream.m in Sources */,
 				567F37E713FC9C8800ED4E53 /* SBJsonWriter.m in Sources */,
 				566A086114186FF700626540 /* ADEngineBlock+AccountResources.m in Sources */,
+				5685C59F14AA26AA002326B3 /* ADEngineBlock.m in Sources */,
+				5685C5A114AA26C4002326B3 /* ADEngineBlock+RequestHandling.m in Sources */,
+				5685C5A214AA26C7002326B3 /* ADEngineBlock+TimelineResources.m in Sources */,
+				5685C5A314AA26CA002326B3 /* ADEngineBlock+TweetsResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
