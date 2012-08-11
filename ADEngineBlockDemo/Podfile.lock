@@ -1,0 +1,18 @@
+PODS:
+  - ADEngineBlock (0.0.2):
+    - OAuthConsumer
+    - ObjCMacros
+    - SBJson
+    - Seriously
+  - ADOAuthorizeiOS (0.0.1):
+    - OAuthConsumer (from `https://github.com/adamvduke/OAuthConsumer.git', commit `8647a2d9534fb95ab7edb7993205969ca3f839b3')
+    - ObjCMacros (from `https://github.com/adamvduke/ObjCMacros.git', commit `75facaeb736feabd62bfb934b54c35a5397b2b43')
+  - OAuthConsumer (0.0.1)
+  - ObjCMacros (0.0.1)
+  - SBJson (3.1)
+  - Seriously (0.0.1)
+
+DEPENDENCIES:
+  - ADEngineBlock
+  - ADOAuthorizeiOS
+  - ObjCMacros

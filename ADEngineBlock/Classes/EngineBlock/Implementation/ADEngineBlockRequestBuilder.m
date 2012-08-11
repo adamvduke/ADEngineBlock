@@ -14,6 +14,7 @@
 #import "OAMutableURLRequest.h"
 #import "OAToken.h"
 #import "Seriously.h"
+#import "TTMacros.h"
 
 #define TWITTER_DOMAIN          @"api.twitter.com"
 #define API_VERSION             @"1"

@@ -12,9 +12,6 @@
 /* Things needed for OAuth workflow */
 #define kConsumerKey @"aO3AW956gU8hauOcqz51w"
 #define kConsumerSecret @"vRDNF3k4WJvMQiqIxsrKcfva0MHyZI7kJouqUCGwWn0"
-#define kRequestTokenURLString @"http://twitter.com/oauth/request_token"
-#define kAccessTokenURLString @"http://twitter.com/oauth/access_token"
-#define kAuthorizeURLString @"http://twitter.com/oauth/authorize"
 
 #define kAuthDataKeyPrefix @"kAuthDataKeyPrefix"
 
@@ -113,11 +110,8 @@
     if(![self.engine isAuthorizedForScreenname:self.screenname])
     {
         ADTwitterOOBViewController *controller = [[[ADTwitterOOBViewController alloc] initWithConsumerKey:kConsumerKey
-                                                                                       consumerSecret:kConsumerSecret
-                                                                                requestTokenURLString:kRequestTokenURLString
-                                                                                 accessTokenURLString:kAccessTokenURLString
-                                                                                   authorizeURLString:kAuthorizeURLString
-                                                                                             delegate:self] autorelease];
+                                                                                          consumerSecret:kConsumerSecret
+                                                                                                delegate:self] autorelease];
         [self presentModalViewController:controller animated:YES];
         return;
     }
