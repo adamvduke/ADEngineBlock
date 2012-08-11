@@ -17,3 +17,4 @@ profile
 *.moved-aside
 
 ADEngineBlock/Pods
+ADEngineBlockDemo/Pods/
