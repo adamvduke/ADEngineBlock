@@ -10,6 +10,8 @@
 #import "SpecHelper.h"
 #import "ADEngineBlockParameterBuilder.h"
 
+#define foo4random() (arc4random() % ((unsigned)RAND_MAX + 1))
+
 SPEC_BEGIN(ADEngineBlockParameterBuilderSpec)
 describe(@"ADEngineBlockParameterBuilder", ^{
 
