@@ -1,5 +1,5 @@
 //
-//  NSObject+ADEngineBlock_UserResources.m
+//  ADEngineBlock+UserResources.m
 //  Pods
 //
 //  Created by Adam Duke on 8/12/12.

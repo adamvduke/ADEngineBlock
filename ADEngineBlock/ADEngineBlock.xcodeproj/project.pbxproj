@@ -38,6 +38,7 @@
 		56C8B91613844EA000A6481F /* ADEngineBlockRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C8B91313844EA000A6481F /* ADEngineBlockRequestBuilder.m */; };
 		56C8B91713844EA000A6481F /* ADEngineBlockRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C8B91313844EA000A6481F /* ADEngineBlockRequestBuilder.m */; };
 		56E42DB615D8AF0100E5FD79 /* ADEngineBlock+UserResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E42DB515D8AF0100E5FD79 /* ADEngineBlock+UserResources.m */; };
+		56F4E1B515D9A224003EE07C /* ADEngineBlock+FriendsResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F4E1B415D9A224003EE07C /* ADEngineBlock+FriendsResources.m */; };
 		AA747D9F0F9514B9006C5449 /* ADEngineBlock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ADEngineBlock_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		B4909ABBAFE340C4A169E1A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0CAF45F5614318B88B7F0D /* libPods.a */; };
@@ -67,6 +68,7 @@
 		56C8B90F13844E7500A6481F /* ADEngineBlockRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADEngineBlockRequestBuilder.h; path = Classes/EngineBlock/Headers/ADEngineBlockRequestBuilder.h; sourceTree = "<group>"; };
 		56C8B91313844EA000A6481F /* ADEngineBlockRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADEngineBlockRequestBuilder.m; path = Classes/EngineBlock/Implementation/ADEngineBlockRequestBuilder.m; sourceTree = "<group>"; };
 		56E42DB515D8AF0100E5FD79 /* ADEngineBlock+UserResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+UserResources.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+UserResources.m"; sourceTree = "<group>"; };
+		56F4E1B415D9A224003EE07C /* ADEngineBlock+FriendsResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ADEngineBlock+FriendsResources.m"; path = "Classes/EngineBlock/Implementation/ADEngineBlock+FriendsResources.m"; sourceTree = "<group>"; };
 		9C0CAF45F5614318B88B7F0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA747D9E0F9514B9006C5449 /* ADEngineBlock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADEngineBlock_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +172,7 @@
 			children = (
 				5672750E1305BC7C00ABBAB1 /* ADEngineBlock.m */,
 				56419F1B15D7057A009F7CC2 /* ADEngineBlock+AccountResources.m */,
+				56F4E1B415D9A224003EE07C /* ADEngineBlock+FriendsResources.m */,
 				5672750F1305BC7C00ABBAB1 /* ADEngineBlock+RequestHandling.m */,
 				567275101305BC7C00ABBAB1 /* ADEngineBlock+TimelineResources.m */,
 				567275111305BC7C00ABBAB1 /* ADEngineBlock+TweetsResources.m */,
@@ -372,6 +375,7 @@
 				565BDC5313857D45005B411A /* ADEngineBlockParameterBuilder.m in Sources */,
 				56419F1C15D7057A009F7CC2 /* ADEngineBlock+AccountResources.m in Sources */,
 				56E42DB615D8AF0100E5FD79 /* ADEngineBlock+UserResources.m in Sources */,
+				56F4E1B515D9A224003EE07C /* ADEngineBlock+FriendsResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

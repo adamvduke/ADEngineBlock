@@ -1,4 +1,4 @@
-/*  
+/*
  *  ADEngineBlock.h
  *  ADEngineBlock
  *
@@ -160,6 +160,17 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 - (void)showUser:(unsigned long long)userId withHandler:(NSDictionaryResultHandler)handler;
 
 @end
+
+#pragma mark -
+#pragma mark FriendsResources
+@interface ADEngineBlock (FriendsResources)
+
+#pragma mark -
+#pragma mark friends/ids
+- (void)getFriendIdsWithHandler:(NSDictionaryResultHandler)handler;
+
+@end
+
 
 #pragma mark -
 #pragma mark AccountResources
