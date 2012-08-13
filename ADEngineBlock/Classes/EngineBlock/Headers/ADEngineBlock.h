@@ -152,6 +152,16 @@ typedef void (^NSDictionaryResultHandler)(NSDictionary *result, NSError *error);
 @end
 
 #pragma mark -
+#pragma mark UserResources
+@interface ADEngineBlock (UserResources)
+
+#pragma mark -
+#pragma mark users/show
+- (void)showUser:(unsigned long long)userId withHandler:(NSDictionaryResultHandler)handler;
+
+@end
+
+#pragma mark -
 #pragma mark AccountResources
 @interface ADEngineBlock (AccountResources)
 
